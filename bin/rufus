@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/lovely-rufus'
+LovelyRufus::Executable.new.run
