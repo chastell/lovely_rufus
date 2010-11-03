@@ -1,3 +1,4 @@
 --colour
 --require stringio
+--require yaml
 --require ./lib/lovely-rufus
