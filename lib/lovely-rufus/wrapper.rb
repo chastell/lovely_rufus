@@ -5,9 +5,9 @@ module LovelyRufus class Wrapper
   end
 
   def wrapped
-    best_wrap = wrap_para_to_cols @text, 72
-    71.downto 1 do |cols|
-      shorter = wrap_para_to_cols @text, cols
+    best_wrap = wrap_para_to_width @text, 72
+    71.downto 1 do |width|
+      shorter = wrap_para_to_width @text, width
       break if shorter.count("\n") > best_wrap.count("\n")
       best_wrap = shorter
     end
@@ -16,8 +16,8 @@ module LovelyRufus class Wrapper
 
   private
 
-  def wrap_para_to_cols para, cols
-    para.tr("\n", ' ').gsub(/(.{1,#{cols}})( |$\n?)/, "\\1\n")
+  def wrap_para_to_width para, width
+    para.tr("\n", ' ').gsub(/(.{1,#{width}})( |$\n?)/, "\\1\n")
   end
 
 end end
