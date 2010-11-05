@@ -5,7 +5,13 @@ module LovelyRufus class Wrapper
   end
 
   def wrapped
-    @text.tr("\n", ' ').gsub(/(.{1,72})( |$\n?)/, "\\1\n").chomp
+    wrap_para_to_cols(@text, 72).chomp
+  end
+
+  private
+
+  def wrap_para_to_cols para, cols
+    para.tr("\n", ' ').gsub(/(.{1,#{cols}})( |$\n?)/, "\\1\n")
   end
 
 end end
