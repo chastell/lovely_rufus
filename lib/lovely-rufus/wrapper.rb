@@ -4,9 +4,9 @@ module LovelyRufus class Wrapper
     @text = text
   end
 
-  def wrapped
-    best_wrap = wrap_para_to_width @text, 72
-    71.downto 1 do |width|
+  def wrapped max_width = 72
+    best_wrap = wrap_para_to_width @text, max_width
+    (max_width - 1).downto 1 do |width|
       shorter = wrap_para_to_width @text, width
       break if shorter.count("\n") > best_wrap.count("\n")
       best_wrap = shorter
