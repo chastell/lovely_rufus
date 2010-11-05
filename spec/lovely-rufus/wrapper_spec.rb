@@ -6,7 +6,7 @@ module LovelyRufus describe Wrapper do
 
     it 'returns properly wrapped input' do
       YAML.load_file('spec/fixtures/wrapper.yml').each do |wrapping|
-        Wrapper.new(wrapping['input']).wrapped.should == wrapping['output']
+        Wrapper.new(wrapping['input']).wrapped(wrapping['width'] || 72).should == wrapping['output']
       end
     end
 
