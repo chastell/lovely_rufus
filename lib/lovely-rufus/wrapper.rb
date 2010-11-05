@@ -15,13 +15,13 @@ module LovelyRufus class Wrapper
       break if shorter.count("\n") > best_wrap.count("\n")
       best_wrap = shorter
     end
-    best_wrap.chomp
+    best_wrap
   end
 
   private
 
   def wrap_para_to_width para, width
-    para.tr("\n", ' ').gsub(/ ([^ ]) /, " \\1#{NBSP}").gsub(/(.{1,#{width}})( |$\n?)/, "\\1\n").tr NBSP, ' '
+    para.tr("\n", ' ').gsub(/ ([^ ]) /, " \\1#{NBSP}").gsub(/(.{1,#{width}})( |$\n?)/, "\\1\n").tr(NBSP, ' ').chomp
   end
 
 end end
