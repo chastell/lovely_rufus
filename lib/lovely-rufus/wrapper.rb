@@ -1,4 +1,8 @@
+# encoding: UTF-8
+
 module LovelyRufus class Wrapper
+
+  NBSP = ' '
 
   def initialize text
     @text = text
@@ -17,7 +21,7 @@ module LovelyRufus class Wrapper
   private
 
   def wrap_para_to_width para, width
-    para.tr("\n", ' ').gsub(/(.{1,#{width}})( |$\n?)/, "\\1\n")
+    para.tr("\n", ' ').gsub(/ ([^ ]) /, " \\1#{NBSP}").gsub(/(.{1,#{width}})( |$\n?)/, "\\1\n").tr NBSP, ' '
   end
 
 end end

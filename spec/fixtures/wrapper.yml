@@ -37,3 +37,19 @@
     The passengers were also drowned, excepting only two:
     Young PETER GRAY, who tasted teas for BAKER, CROOP, AND
     CO., And SOMERS, who from Eastern shores imported indigo.
+
+# one-letter words are not left at line ends
+- width: 39
+  input: |-
+    These passengers, by reason of their clinging to a mast,
+    Upon a desert island were eventually cast.
+    They hunted for their meals, as ALEXANDER SELKIRK used,
+    But they couldn’t chat together — they had not been introduced.
+  output: |-
+    These passengers, by reason of
+    their clinging to a mast, Upon
+    a desert island were eventually
+    cast. They hunted for their
+    meals, as ALEXANDER SELKIRK used,
+    But they couldn’t chat together
+    — they had not been introduced.
