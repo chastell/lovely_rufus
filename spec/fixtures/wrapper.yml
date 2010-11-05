@@ -3,7 +3,7 @@
   output: ‘Etiquette’ by Sir William Schwenck Gilbert
 
 # wraps long input to 72 characters by default
-- input: The Ballyshannon foundered off the the coast of Cariboo, and down in fathoms many went the captain and the crew.
+- input: The Ballyshannon foundered off the coast of Cariboo, And down in fathoms many went the captain and the crew;
   output: |-
-    The Ballyshannon foundered off the the coast of Cariboo, and down in
-    fathoms many went the captain and the crew.
+    The Ballyshannon foundered off the coast of Cariboo, And down in fathoms
+    many went the captain and the crew;

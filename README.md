@@ -10,18 +10,18 @@ usage
 
 Lovely Rufus can be used from the command-line by piping text through the `rufus` executable:
 
-    $ echo 'The Ballyshannon foundered off the the coast of Cariboo, and down in fathoms many went the captain and the crew.' | rufus
-    The Ballyshannon foundered off the the coast of Cariboo, and down in
-    fathoms many went the captain and the crew.
+    $ echo 'The Ballyshannon foundered off the coast of Cariboo, And down in fathoms many went the captain and the crew;' | rufus
+    The Ballyshannon foundered off the coast of Cariboo, And down in fathoms
+    many went the captain and the crew;
     $
 
 Lovely Rufus can also be used from Ruby code through the `Wrapper` class:
 
     $ irb
-    >> text = 'The Ballyshannon foundered off the the coast of Cariboo, and down in fathoms many went the captain and the crew.'
+    >> text = 'The Ballyshannon foundered off the coast of Cariboo, And down in fathoms many went the captain and the crew;'
     >> puts LovelyRufus::Wrapper.new(text).wrapped
-    The Ballyshannon foundered off the the coast of Cariboo, and down in
-    fathoms many went the captain and the crew
+    The Ballyshannon foundered off the coast of Cariboo, And down in fathoms
+    many went the captain and the crew;
     >>
 
 
