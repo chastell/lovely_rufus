@@ -1,6 +1,6 @@
 # returns unwrapped input if it’s short enough
-- input: a short string
-  output: a short string
+- input: ‘Etiquette’ by Sir William Schwenck Gilbert
+  output: ‘Etiquette’ by Sir William Schwenck Gilbert
 
 # wraps long input to 72 characters by default
 - input: The Ballyshannon foundered off the the coast of Cariboo, and down in fathoms many went the captain and the crew.
