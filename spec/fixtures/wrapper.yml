@@ -7,3 +7,13 @@
   output: |-
     The Ballyshannon foundered off the coast of Cariboo, And down in fathoms
     many went the captain and the crew;
+
+# rewraps multiline paragraphs
+- input: |-
+    Down went the owners — greedy men
+    whom hope of gain allured:
+    Oh, dry the starting tear,
+    for they were heavily insured.
+  output: |-
+    Down went the owners — greedy men whom hope of gain allured: Oh, dry the
+    starting tear, for they were heavily insured.

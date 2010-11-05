@@ -5,7 +5,7 @@ module LovelyRufus class Wrapper
   end
 
   def wrapped
-    @text.gsub(/(.{1,72})( |$\n?)/, "\\1\n").chomp
+    @text.tr("\n", ' ').gsub(/(.{1,72})( |$\n?)/, "\\1\n").chomp
   end
 
 end end
