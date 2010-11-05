@@ -5,8 +5,8 @@
 # wraps long input to 72 characters by default
 - input: The Ballyshannon foundered off the coast of Cariboo, And down in fathoms many went the captain and the crew;
   output: |-
-    The Ballyshannon foundered off the coast of Cariboo, And down in fathoms
-    many went the captain and the crew;
+    The Ballyshannon foundered off the coast of Cariboo,
+    And down in fathoms many went the captain and the crew;
 
 # rewraps multiline paragraphs
 - input: |-
@@ -15,5 +15,17 @@
     Oh, dry the starting tear,
     for they were heavily insured.
   output: |-
-    Down went the owners — greedy men whom hope of gain allured: Oh, dry the
-    starting tear, for they were heavily insured.
+    Down went the owners — greedy men whom hope of gain allured:
+    Oh, dry the starting tear, for they were heavily insured.
+
+# wrapped paragraphs are as short as possible
+- input: |-
+    Besides the captain and the mate, the owners and the crew,
+    The passengers were also drowned, excepting only two:
+    Young PETER GRAY, who tasted teas for BAKER, CROOP, AND CO.,
+    And SOMERS, who from Eastern shores imported indigo.
+  output: |-
+    Besides the captain and the mate, the owners and the crew,
+    The passengers were also drowned, excepting only two:
+    Young PETER GRAY, who tasted teas for BAKER, CROOP, AND
+    CO., And SOMERS, who from Eastern shores imported indigo.

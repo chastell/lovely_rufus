@@ -5,7 +5,13 @@ module LovelyRufus class Wrapper
   end
 
   def wrapped
-    wrap_para_to_cols(@text, 72).chomp
+    best_wrap = wrap_para_to_cols @text, 72
+    71.downto 1 do |cols|
+      shorter = wrap_para_to_cols @text, cols
+      break if shorter.count("\n") > best_wrap.count("\n")
+      best_wrap = shorter
+    end
+    best_wrap.chomp
   end
 
   private
