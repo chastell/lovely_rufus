@@ -1,7 +1,11 @@
-module LovelyRufus class Executable
+module LovelyRufus
 
-  def run input = $stdin, output = $stdout
-    output.puts Wrapper.new(input.read).wrapped
+  class Executable
+
+    def run input = $stdin, output = $stdout
+      output.puts Wrapper.new(input.read).wrapped
+    end
+
   end
 
-end end
+end
