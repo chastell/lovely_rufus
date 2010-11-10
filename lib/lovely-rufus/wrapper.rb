@@ -26,9 +26,7 @@ module LovelyRufus
 
     def wrap_para_to_width(para, width)
       leader = para.lines.first[/^(> )?/]
-      para = para.lines.map { |line| line[leader.size..-1] }.join
-      para = para.tr("\n", ' ').gsub(/ ([^ ]) /, " \\1#{NBSP}").gsub(/(.{1,#{width - leader.size}})( |$\n?)/, "\\1\n").tr(NBSP, ' ').chomp
-      para.lines.map { |line| line.insert(0, leader) }.join
+      para.lines.map { |line| line[leader.size..-1] }.join.tr("\n", ' ').gsub(/ ([^ ]) /, " \\1#{NBSP}").gsub(/(.{1,#{width - leader.size}})( |$\n?)/, "\\1\n").lines.map { |line| line.insert(0, leader) }.join.tr(NBSP, ' ').chomp
     end
 
   end
