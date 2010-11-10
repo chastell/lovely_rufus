@@ -25,7 +25,13 @@ module LovelyRufus
     private
 
     def wrap_para_to_width(para, width)
-      para.tr("\n", ' ').gsub(/ ([^ ]) /, " \\1#{NBSP}").gsub(/(.{1,#{width}})( |$\n?)/, "\\1\n").tr(NBSP, ' ').chomp
+      if para.lines.map { |line| line[0..1] }.uniq == ['> ']
+        para = para.lines.map { |line| line[2..-1] }.join
+        para = para.tr("\n", ' ').gsub(/ ([^ ]) /, " \\1#{NBSP}").gsub(/(.{1,#{width - 2}})( |$\n?)/, "\\1\n").tr(NBSP, ' ').chomp
+        para.lines.map { |line| line.insert(0, '> ') }.join
+      else
+        para.tr("\n", ' ').gsub(/ ([^ ]) /, " \\1#{NBSP}").gsub(/(.{1,#{width}})( |$\n?)/, "\\1\n").tr(NBSP, ' ').chomp
+      end
     end
 
   end

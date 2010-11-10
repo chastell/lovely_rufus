@@ -75,3 +75,15 @@
     oysters were a delicacy PETER couldn’t bear. On SOMERS’
     side was turtle, on the shingle lying thick, Which
     SOMERS couldn’t eat, because it always made him sick.
+
+# email-quoted paragraphs are wrapped regardless of quotes
+- input: |-
+    > On PETER’S portion oysters grew — a delicacy rare,
+    > But oysters were a delicacy PETER couldn’t bear.
+    > On SOMERS’ side was turtle, on the shingle lying thick,
+    > Which SOMERS couldn’t eat, because it always made him sick.
+  output: |-
+    > On PETER’S portion oysters grew — a delicacy rare, But
+    > oysters were a delicacy PETER couldn’t bear. On SOMERS’
+    > side was turtle, on the shingle lying thick, Which
+    > SOMERS couldn’t eat, because it always made him sick.
