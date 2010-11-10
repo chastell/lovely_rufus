@@ -28,13 +28,13 @@ module LovelyRufus
       leader = para.lines.first[/^(> )?/]
       width -= leader.size
       para
-        .lines.map { |line| line[leader.size..-1] }.join
-        .tr("\n", ' ')
-        .gsub(/ ([^ ]) /, " \\1#{NBSP}")
-        .gsub(/(.{1,#{width}})( |$\n?)/, "\\1\n")
-        .lines.map { |line| line.insert(0, leader) }.join
-        .tr(NBSP, ' ')
-        .chomp
+        .lines.map { |line| line[leader.size..-1] }.join  # drop leader
+        .tr("\n", ' ')                                    # unwrap para
+        .gsub(/ ([^ ]) /, " \\1#{NBSP}")                  # glue 1-letter words
+        .gsub(/(.{1,#{width}})( |$\n?)/, "\\1\n")         # wrap to width
+        .lines.map { |line| line.insert(0, leader) }.join # re-insert leader
+        .tr(NBSP, ' ')                                    # drop glue spaces
+        .chomp                                            # final touch
     end
 
   end
