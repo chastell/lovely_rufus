@@ -25,7 +25,7 @@ module LovelyRufus
     private
 
     def wrap_para_to_width(para, width)
-      leader = para[/^(> )?/]
+      leader = para[/^(>+ )?/]
       width -= leader.size
       para
         .lines.map { |line| line[leader.size..-1] }.join  # drop leader
