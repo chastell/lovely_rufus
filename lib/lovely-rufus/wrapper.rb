@@ -25,10 +25,11 @@ module LovelyRufus
     private
 
     def wrap_para_to_width(para, width)
-      leader = para[/^(>+ )?/]
+      quotes = para[/^([> ]*)/]
+      leader = quotes.empty? ? '' : quotes.tr(' ', '') + ' '
       width -= leader.size
       para
-        .lines.map { |line| line[leader.size..-1] }.join  # drop leader
+        .lines.map { |line| line[quotes.size..-1] }.join  # drop quotes
         .tr("\n", ' ')                                    # unwrap para
         .gsub(/ ([^ ]) /, " \\1#{NBSP}")                  # glue 1-letter words
         .gsub(/(.{1,#{width}})( |$\n?)/, "\\1\n")         # wrap to width
