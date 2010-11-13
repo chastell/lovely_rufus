@@ -15,7 +15,7 @@ module LovelyRufus
         best_wrap = wrap_para_to_width(para, max_width)
         (max_width - 1).downto(1) do |width|
           shorter = wrap_para_to_width(para, width)
-          break if shorter.count("\n") > best_wrap.count("\n")
+          break if shorter.lines.count > best_wrap.lines.count
           best_wrap = shorter
         end
         best_wrap
