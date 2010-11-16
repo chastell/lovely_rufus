@@ -27,6 +27,18 @@ Lovely Rufus can also be used from Ruby code through the `Wrapper` class:
 
 
 
+features
+--------
+
+Currently, Lovely Rufus sports the following features:
+
+* paragraphs are wrapped to the specified width,
+* one-letter words are not left at ends of lines,
+* email quotes (`>`) are handled properly and normalised (`> > >` → `>>>`),
+* email-quoted paragraph breaks are cleared.
+
+
+
 name and history
 ----------------
 
