@@ -25,6 +25,23 @@ Lovely Rufus can also be used from Ruby code through the `Wrapper` class:
     And down in fathoms many went the captain and the crew;
     >>
 
+Note that `Wrapper#wrapped` can take optional desired width:
+
+    $ irb
+    >> require 'lovely-rufus'
+    >> text = 'The Ballyshannon foundered off the coast of Cariboo, And down in fathoms many went the captain and the crew;'
+    >> puts LovelyRufus::Wrapper.new(text).wrapped(15)
+    The
+    Ballyshannon
+    foundered off
+    the coast of
+    Cariboo, And
+    down in fathoms
+    many went the
+    captain and the
+    crew;
+    >>
+
 
 
 features
