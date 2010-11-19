@@ -139,3 +139,35 @@
     > One day, when out a-hunting for the mus ridiculus, GRAY overheard his
     > fellow-man soliloquising thus: ‘I wonder how the playmates of my youth
     > are getting on, MCCONNELL, S. B. WALTERS, PADDY BYLES, and ROBINSON?’
+
+# code comments are handled like email-quoted text
+- input: |-
+    // These simple words made PETER as delighted as could be,
+    // Old chummies at the Charterhouse were ROBINSON and he!
+    // He walked straight up to SOMERS, then he turned extremely red,
+    // Hesitated, hummed and hawed a bit, then cleared his throat, and said:
+    //
+    # ‘I beg your pardon—pray forgive me if I seem too bold,
+    # But you have breathed a name I knew familiarly of old.
+    # You spoke aloud of ROBINSON – I happened to be by—
+    # You know him?’ ‘Yes, extremely well.’ ‘Allow me – so do I!’
+    #
+    It was enough: they felt they could more sociably get on,
+    For (ah, the magic of the fact!) they each knew ROBINSON!
+    And MR. SOMERS’ turtle was at PETER’S service quite,
+    And MR. SOMERS punished PETER’S oyster-beds all night.
+  output: |-
+    // These simple words made PETER as delighted as could be, Old
+    // chummies at the Charterhouse were ROBINSON and he! He walked
+    // straight up to SOMERS, then he turned extremely red, Hesitated,
+    // hummed and hawed a bit, then cleared his throat, and said:
+
+    # ‘I beg your pardon—pray forgive me if I seem too bold,
+    # But you have breathed a name I knew familiarly of old.
+    # You spoke aloud of ROBINSON – I happened to be by— You
+    # know him?’ ‘Yes, extremely well.’ ‘Allow me – so do I!’
+
+    It was enough: they felt they could more sociably get on,
+    For (ah, the magic of the fact!) they each knew ROBINSON!
+    And MR. SOMERS’ turtle was at PETER’S service quite,
+    And MR. SOMERS punished PETER’S oyster-beds all night.

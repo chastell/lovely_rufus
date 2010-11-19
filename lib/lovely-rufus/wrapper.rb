@@ -7,7 +7,7 @@ module LovelyRufus
     NBSP = ' '
 
     def initialize(text)
-      @paras = text.split(/\n[> ]*\n/)
+      @paras = text.split(/\n[\/#> ]*\n/)
     end
 
     def wrapped(max_width = 72)
@@ -42,7 +42,7 @@ module LovelyRufus
     end
 
     def wrap_para_to_width(para, width)
-      quotes = para[/^([> ]*)/]
+      quotes = para[/^([\/#> ]*)/]
       leader = quotes.empty? ? '' : quotes.tr(' ', '') + ' '
       width -= leader.size
       para
