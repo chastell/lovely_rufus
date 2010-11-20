@@ -12,14 +12,14 @@ module LovelyRufus
 
     def wrapped(max_width = 72)
       @paras.map do |para|
-        best_wrap = wrap_para_to_width(para, max_width)
+        best = wrap_para_to_width(para, max_width)
         (max_width - 1).downto(1) do |width|
           shorter = wrap_para_to_width(para, width)
-          break if shorter.lines.count > best_wrap.lines.count
-          break if shorter.lines.map(&:size).max > best_wrap.lines.map(&:size).max
-          best_wrap = shorter
+          break if shorter.lines.count           > best.lines.count
+          break if shorter.lines.map(&:size).max > best.lines.map(&:size).max
+          best = shorter
         end
-        best_wrap
+        best
       end.join("\n\n")
     end
 
