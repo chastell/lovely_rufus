@@ -11,7 +11,7 @@ module LovelyRufus
       end.parse!(opts)
     end
 
-    def run(input = $stdin, output = $stdout)
+    def run(input = STDIN, output = STDOUT)
       output.puts Wrapper.new(input.read).wrapped(@width)
     end
 
