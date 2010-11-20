@@ -4,6 +4,24 @@ module LovelyRufus
 
   describe Executable do
 
+    context '.new' do
+
+      it 'parses passed params to fetch desired width' do
+        Executable.new.run(StringIO.new('some text'), output = StringIO.new)
+        output.rewind
+        output.read.should == "some text\n"
+
+        Executable.new(['-w', '4']).run(StringIO.new('some text'), output = StringIO.new)
+        output.rewind
+        output.read.should == "some\ntext\n"
+
+        Executable.new(['--width', '4']).run(StringIO.new('some text'), output = StringIO.new)
+        output.rewind
+        output.read.should == "some\ntext\n"
+      end
+
+    end
+
     context '#run' do
 
       it 'uses Wrapper to output properly wrapped input' do
