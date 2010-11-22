@@ -53,6 +53,7 @@ Currently, Lovely Rufus sports the following features:
 * one-letter words are not left at ends of lines,
 * email quotes (`>`) are handled properly and normalised (`> > >` → `>>>`),
 * email-quoted paragraph breaks are cleared,
+* code comments (starting with `#` and `//`) are handled properly,
 * multiple paragraphs are wrapped independently.
 
 
