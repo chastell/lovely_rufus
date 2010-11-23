@@ -12,6 +12,10 @@ module LovelyRufus
         end
       end
 
+      it 'silently strips trailing newlines' do
+        Wrapper.new("a problematic example\n").wrapped(13).should == "a problematic\nexample"
+      end
+
     end
 
   end

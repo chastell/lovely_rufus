@@ -7,7 +7,7 @@ module LovelyRufus
     NBSP = ' '
 
     def initialize(text)
-      @paras = text.split(/\n[\/#> ]*\n/)
+      @paras = text.split(/\n[\/#> ]*\n/).map(&:strip)
     end
 
     def wrapped(max_width = 72)
