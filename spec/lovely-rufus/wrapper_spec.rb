@@ -16,6 +16,10 @@ module LovelyRufus
         Wrapper.new("a problematic example\n").wrapped(13).should == "a problematic\nexample"
       end
 
+      it 'doesn’t breeak on email-quoted single words' do
+        Wrapper.new('> word').wrapped.should == '> word'
+      end
+
     end
 
   end

@@ -44,7 +44,7 @@ module LovelyRufus
     def wrap_para_to_width(para, width)
       quotes = para[/^([\/#> ]*)/]
       leader = quotes.empty? ? '' : quotes.tr(' ', '') + ' '
-      width -= leader.size
+      width -= leader.size if width > leader.size
       para
         .lines.map { |line| line[quotes.size..-1] }.join  # drop quotes
         .tr("\n", ' ')                                    # unwrap para
