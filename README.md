@@ -8,9 +8,9 @@ Lovely Rufus is an executable and a Ruby library for wrapping paragraphs of text
 usage
 -----
 
-Lovely Rufus can be used from the command-line by piping text through the `rufus` executable:
+Lovely Rufus can be used from the command-line by piping text through the `lovely-rufus` executable:
 
-    $ echo 'The Ballyshannon foundered off the coast of Cariboo, And down in fathoms many went the captain and the crew;' | rufus
+    $ echo 'The Ballyshannon foundered off the coast of Cariboo, And down in fathoms many went the captain and the crew;' | lovely-rufus
     The Ballyshannon foundered off the coast of Cariboo,
     And down in fathoms many went the captain and the crew;
     $
