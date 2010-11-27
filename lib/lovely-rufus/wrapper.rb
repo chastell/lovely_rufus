@@ -28,8 +28,9 @@ module LovelyRufus class Wrapper
 
     hangout_line = lines.each.with_index do |line, i|
       next unless space = line.rindex(/[ #{NBSP}]/) and i < lines.size - 1
-      break i if i > 0 and space >= lines[i - 1].size
-      break i if           space >= lines[i + 1].size
+      break i if i > 0              and space >= lines[i - 1].size
+      break i if i < lines.size - 2 and space >= lines[i + 1].size
+      break i if lines.size == 2    and space >= lines[i + 1].size
     end
 
     if hangout_line.is_a?(Integer)

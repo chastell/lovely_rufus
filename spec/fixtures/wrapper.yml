@@ -17,6 +17,14 @@
     dropping spaces, it-would-look-like this
     written-by-Sir-William-Schwenck-Gilbert
 
+# next-to-last hangouts are taken care of in two-line paragraphs
+- input: |-
+    Well, the old ones go mmmmmbbbbzzzzttteeeeeep as they start up and
+    the new ones go whupwhupwhupwhooopwhooooopwhooooooommmmmmmmmm.
+  output: |-
+    Well, the old ones go mmmmmbbbbzzzzttteeeeeep as they start up
+    and the new ones go whupwhupwhupwhooopwhooooopwhooooooommmmmmmmmm.
+
 # wraps long input to 72 characters by default
 - input: The Ballyshannon foundered off the coast of Cariboo, And down in fathoms many went the captain and the crew;
   output: |-
@@ -58,8 +66,8 @@
     a desert island were eventually
     cast. They hunted for their meals,
     as ALEXANDER SELKIRK used, But
-    they couldn’t chat together
-    — they had not been introduced.
+    they couldn’t chat together — they
+    had not been introduced.
 
 # multiple paragraphs are wrapped independently
 - input: |-
@@ -75,8 +83,8 @@
   output: |-
     For PETER GRAY, and SOMERS too, though certainly in trade, Were
     properly particular about the friends they made; And somehow
-    thus they settled it without a word of mouth — That GRAY
-    should take the northern half while SOMERS took the south.
+    thus they settled it without a word of mouth — That GRAY should
+    take the northern half while SOMERS took the south.
 
     On PETER’S portion oysters grew — a delicacy rare, But
     oysters were a delicacy PETER couldn’t bear. On SOMERS’
@@ -116,8 +124,8 @@
   output: |-
     >>> And SOMERS sighed in sorrow as he settled in the south, For
     >>> the thought of PETER’S oysters brought the water to his mouth.
-    >>> He longed to lay him down upon the shelly bed, and stuff:
-    >>> He had often eaten oysters, but had never had enough.
+    >>> He longed to lay him down upon the shelly bed, and stuff: He
+    >>> had often eaten oysters, but had never had enough.
 
 # quoted paragraph breaks are cleared
 - input: |-
@@ -169,5 +177,5 @@
 
     It was enough: they felt they could more sociably get on,
     For (ah, the magic of the fact!) they each knew ROBINSON!
-    And MR. SOMERS’ turtle was at PETER’S service quite,
-    And MR. SOMERS punished PETER’S oyster-beds all night.
+    And MR. SOMERS’ turtle was at PETER’S service quite, And
+    MR. SOMERS punished PETER’S oyster-beds all night.
