@@ -49,9 +49,9 @@
     And SOMERS, who from Eastern shores imported indigo.
   output: |-
     Besides the captain and the mate, the owners and the crew,
-    The passengers were also drowned, excepting only two:
-    Young PETER GRAY, who tasted teas for BAKER, CROOP, AND
-    CO., And SOMERS, who from Eastern shores imported indigo.
+    The passengers were also drowned, excepting only two: Young
+    PETER GRAY, who tasted teas for BAKER, CROOP, AND CO., And
+    SOMERS, who from Eastern shores imported indigo.
 
 # one-letter words are not left at line ends
 - width: 39
@@ -65,9 +65,9 @@
     their clinging to a mast, Upon
     a desert island were eventually
     cast. They hunted for their meals,
-    as ALEXANDER SELKIRK used, But
-    they couldn’t chat together — they
-    had not been introduced.
+    as ALEXANDER SELKIRK used, But they
+    couldn’t chat together — they had
+    not been introduced.
 
 # multiple paragraphs are wrapped independently
 - input: |-
@@ -111,9 +111,9 @@
     >> For turtle and his mother were the only things he loved.
   output: |-
     >> GRAY gnashed his teeth with envy as he saw a mighty store
-    >> Of turtle unmolested on his fellow-creature’s shore:
-    >> The oysters at his feet aside impatiently he shoved,
-    >> For turtle and his mother were the only things he loved.
+    >> Of turtle unmolested on his fellow-creature’s shore: The
+    >> oysters at his feet aside impatiently he shoved, For turtle
+    >> and his mother were the only things he loved.
 
 # email quotes are normalised upon wrapping
 - input: |-
