@@ -2,7 +2,7 @@
 
 module LovelyRufus describe Executable do
 
-  context '.new' do
+  describe '.new' do
 
     it 'parses passed params to fetch desired width' do
       Executable.new.run StringIO.new('some text'), output = StringIO.new
@@ -20,7 +20,7 @@ module LovelyRufus describe Executable do
 
   end
 
-  context '#run' do
+  describe '#run' do
 
     it 'uses Wrapper to output properly wrapped input' do
       wrapper = mock Wrapper

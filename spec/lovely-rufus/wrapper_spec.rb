@@ -2,7 +2,7 @@
 
 module LovelyRufus describe Wrapper do
 
-  context '#wrapped' do
+  describe '#wrapped' do
 
     it 'returns properly wrapped input' do
       YAML.load_file('spec/fixtures/wrapper.yml').each do |wrapping|
