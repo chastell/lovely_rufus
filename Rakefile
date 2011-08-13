@@ -1,3 +1,7 @@
+require 'rake/testtask'
+
+Rake::TestTask.new
+
 require 'rspec/core/rake_task'
 
 RSpec::Core::RakeTask.new :spec
