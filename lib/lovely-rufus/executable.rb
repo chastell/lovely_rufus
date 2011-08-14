@@ -9,8 +9,8 @@ module LovelyRufus class Executable
     end.parse! opts
   end
 
-  def run input = STDIN, output = STDOUT
-    output.puts Wrapper.new(input.read).wrapped @width
+  def run input = $stdin
+    puts Wrapper.new(input.read).wrapped @width
   end
 
 end end
