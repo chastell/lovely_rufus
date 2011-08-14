@@ -7,6 +7,6 @@ Gem::Specification.new do |gem|
   gem.email    = 'chastell@chastell.net'
 
   gem.files       = `git ls-files -z`.split "\0"
-  gem.executables = Dir['bin/*'].map { |d| d.split '/' }.map &:last
-  gem.test_files  = Dir['spec/**/*.rb']
+  gem.executables = `git ls-files -z -- bin/*`.split("\0").map { |file| File.basename file }
+  gem.test_files  = `git ls-files -z -- spec/*`.split "\0"
 end
