@@ -29,9 +29,9 @@ module LovelyRufus describe Executable do
 
     it 'outputs properly wrapped input' do
       out, _ = capture_io do
-        Executable.new(['-w', '4']).run StringIO.new 'some text'
+        Executable.new(['-w', '4']).run StringIO.new 'some more text'
       end
-      out.must_equal "some\ntext\n"
+      out.must_equal "some\nmore\ntext\n"
     end
 
   end
