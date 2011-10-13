@@ -1,0 +1,17 @@
+PATH
+  remote: .
+  specs:
+    lovely-rufus (0.0.0)
+
+GEM
+  specs:
+    minitest (2.6.1)
+    rake (0.9.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  lovely-rufus!
+  minitest (>= 2.3)
+  rake
