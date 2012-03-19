@@ -3,9 +3,7 @@
 require_relative '../spec_helper'
 
 module LovelyRufus describe Wrapper do
-
   describe '#wrapped' do
-
     it 'returns properly wrapped input' do
       YAML.load_file('spec/fixtures/wrapper.yml').each do |wrapping|
         Wrapper.new(wrapping['input']).wrapped(wrapping['width'] || 72).must_equal wrapping['output']
@@ -20,6 +18,8 @@ module LovelyRufus describe Wrapper do
       Wrapper.new('> word').wrapped.must_equal '> word'
     end
 
+    it 'works with empty strings' do
+      Wrapper.new("\n").wrapped.must_equal ''
+    end
   end
-
 end end
