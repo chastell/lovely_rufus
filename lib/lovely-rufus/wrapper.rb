@@ -9,7 +9,7 @@ module LovelyRufus class Wrapper
   end
 
   def wrapped max_width = 72
-    return @paras.join "\n\n" if @paras.map(&:size).max < max_width
+    return '' if @paras.all? &:empty?
 
     @paras.map do |para|
       best = wrap_para_to_width para, max_width
