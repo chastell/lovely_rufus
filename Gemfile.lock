@@ -15,5 +15,5 @@ PLATFORMS
 DEPENDENCIES
   bundler
   lovely-rufus!
-  minitest (>= 2.3)
+  minitest (~> 3.0)
   rake
