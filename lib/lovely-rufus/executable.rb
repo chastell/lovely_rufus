@@ -10,7 +10,11 @@ module LovelyRufus class Executable
   end
 
   def run input = $stdin
-    puts Wrapper.new(input.read).wrapped @width
+    puts Wrapper.new(input.read).wrapped width
   end
+
+  private
+
+  attr_reader :width
 
 end end

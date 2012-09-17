@@ -9,9 +9,9 @@ module LovelyRufus class Wrapper
   end
 
   def wrapped max_width = 72
-    return '' if @paras.all? &:empty?
+    return '' if paras.all? &:empty?
 
-    @paras.map do |para|
+    paras.map do |para|
       best = wrap_para_to_width para, max_width
       (max_width - 1).downto 1 do |width|
         shorter = wrap_para_to_width para, width
@@ -24,6 +24,8 @@ module LovelyRufus class Wrapper
   end
 
   private
+
+  attr_reader :paras
 
   def remove_hangouts para, width
     lines = para.split "\n"
