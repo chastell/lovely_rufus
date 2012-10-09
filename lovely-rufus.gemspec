@@ -11,7 +11,7 @@ Gem::Specification.new do |gem|
   gem.test_files  = gem.files.grep %r{^spec/.*\.rb$}
 
   gem.add_development_dependency 'bundler'
-  gem.add_development_dependency 'minitest', '~> 3.0'
+  gem.add_development_dependency 'minitest', '~> 4.0'
   gem.add_development_dependency 'rake'
   gem.add_development_dependency 'rb-inotify'
   gem.add_development_dependency 'rerun'
