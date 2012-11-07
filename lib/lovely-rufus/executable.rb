@@ -1,12 +1,12 @@
 module LovelyRufus class Executable
 
-  def initialize opts = ARGV
+  def initialize args = ARGV
     @width = 72
     OptionParser.new do |opts|
       opts.on '-w', '--width WIDTH', Integer, 'Wrapping width' do |width|
         @width = width
       end
-    end.parse! opts
+    end.parse! args
   end
 
   def run input = $stdin
