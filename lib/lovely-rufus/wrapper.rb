@@ -53,7 +53,7 @@ module LovelyRufus class Wrapper
       .tr("\n", ' ')                                    # unwrap para
       .gsub(/ ([^ ]) /, " \\1#{NBSP}")                  # glue 1-letter words
       .gsub(/(.{1,#{width}})( |$\n?)/, "\\1\n")         # wrap to width
-      .tap { |para| remove_hangouts para, width }       # handle hangouts
+      .tap { |par| remove_hangouts par, width }         # handle hangouts
       .lines.map { |line| line.insert 0, leader }.join  # re-insert leader
       .tr(NBSP, ' ')                                    # drop glue spaces
       .chomp                                            # final touch
