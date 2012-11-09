@@ -1,5 +1,4 @@
 module LovelyRufus class Executable
-
   def initialize args = ARGV
     @width = 72
     OptionParser.new do |opts|
@@ -13,8 +12,6 @@ module LovelyRufus class Executable
     puts Wrapper.new(input.read).wrapped width
   end
 
-  private
-
   attr_reader :width
-
+  private     :width
 end end

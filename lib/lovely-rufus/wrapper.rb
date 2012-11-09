@@ -23,9 +23,10 @@ module LovelyRufus class Wrapper
     end.join "\n\n"
   end
 
-  private
-
   attr_reader :paras
+  private     :paras
+
+  private
 
   def remove_hangouts para, width
     lines = para.split "\n"
