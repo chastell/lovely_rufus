@@ -6,12 +6,3 @@ Rake::TestTask.new :spec do |task|
 end
 
 task default: :spec
-
-desc 'Run Lovely Rufus console'
-task :console do
-  require 'irb'
-  require_relative 'lib/lovely-rufus'
-  include LovelyRufus
-  ARGV.clear
-  IRB.start
-end
