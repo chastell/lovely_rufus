@@ -1,7 +1,6 @@
 # encoding: UTF-8
 
 module LovelyRufus class Wrapper
-
   NBSP = ' '
 
   def initialize text
@@ -12,14 +11,7 @@ module LovelyRufus class Wrapper
     return '' if paras.all?(&:empty?)
 
     paras.map do |para|
-      best = wrap_para_to_width para, max_width
-      (max_width - 1).downto 1 do |width|
-        shorter = wrap_para_to_width para, width
-        break if shorter.lines.count           > best.lines.count
-        break if shorter.lines.map(&:size).max > best.lines.map(&:size).max
-        best = shorter
-      end
-      best
+      wrap_para_recursively para, max_width
     end.join "\n\n"
   end
 
@@ -45,6 +37,17 @@ module LovelyRufus class Wrapper
     end
   end
 
+  def wrap_para_recursively para, max_width
+    best = wrap_para_to_width para, max_width
+    (max_width - 1).downto 1 do |width|
+      shorter = wrap_para_to_width para, width
+      break if shorter.lines.count           > best.lines.count
+      break if shorter.lines.map(&:size).max > best.lines.map(&:size).max
+      best = shorter
+    end
+    best
+  end
+
   def wrap_para_to_width para, width
     quotes = para[/^([\/#> ]*)/]
     leader = quotes.empty? ? '' : quotes.tr(' ', '') + ' '
@@ -59,5 +62,4 @@ module LovelyRufus class Wrapper
       .tr(NBSP, ' ')                                    # drop glue spaces
       .chomp                                            # final touch
   end
-
 end end
