@@ -1,9 +1,6 @@
-# encoding: UTF-8
-
 require_relative '../spec_helper'
 
 module LovelyRufus describe Executable do
-
   describe '.new' do
     it 'parses passed params to fetch desired width' do
       capture_io do
@@ -27,5 +24,4 @@ module LovelyRufus describe Executable do
       end.first.must_equal "some\nmore\ntext\n"
     end
   end
-
 end end
