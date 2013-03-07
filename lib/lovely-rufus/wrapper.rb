@@ -18,17 +18,20 @@ module LovelyRufus class Wrapper
 
   private
 
+  def find_hangout lines
+    lines.each.with_index do |line, i|
+      next unless space = line.rindex(/[ #{NBSP}]/) and i < lines.size - 1
+      return i if i > 0              and space + 1 >= lines[i - 1].size
+      return i if i < lines.size - 2 and space + 1 >= lines[i + 1].size
+      return i if lines.size == 2    and space + 1 >= lines[i + 1].size
+    end
+    false
+  end
+
   def remove_hangouts para, width
     lines = para.split "\n"
 
-    hangout_line = lines.each.with_index do |line, i|
-      next unless space = line.rindex(/[ #{NBSP}]/) and i < lines.size - 1
-      break i if i > 0              and space + 1 >= lines[i - 1].size
-      break i if i < lines.size - 2 and space + 1 >= lines[i + 1].size
-      break i if lines.size == 2    and space + 1 >= lines[i + 1].size
-    end
-
-    if hangout_line.is_a? Integer
+    if hangout_line = find_hangout(lines)
       lines[hangout_line] << NBSP
       fixed = lines.join(' ').gsub "#{NBSP} ", NBSP
       para.replace wrap_para_to_width fixed, width
