@@ -20,11 +20,23 @@ module LovelyRufus class Wrapper
 
   def find_hangout_line lines
     lines.find.with_index do |line, i|
-      space = line.rindex(/[ #{NBSP}]/) and i < lines.size - 1 and
-      ((i > 0              and space + 1 >= lines[i - 1].size) or
-       (i < lines.size - 2 and space + 1 >= lines[i + 1].size) or
-       (lines.size == 2    and space + 1 >= lines[i + 1].size))
+      i < lines.size - 1 and
+      space = hangout_last_space(line) and
+      (hangout_to_previous_line i, lines, space or
+       hangout_to_next_line i, lines, space)
     end
+  end
+
+  def hangout_last_space line
+    line.rindex(/[ #{NBSP}]/)
+  end
+
+  def hangout_to_next_line i, lines, space
+    (i < lines.size - 2 or lines.size == 2) and space + 1 >= lines[i + 1].size
+  end
+
+  def hangout_to_previous_line i, lines, space
+    i > 0 and space + 1 >= lines[i - 1].size
   end
 
   def remove_hangouts para, width
