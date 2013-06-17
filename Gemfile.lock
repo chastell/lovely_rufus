@@ -6,11 +6,11 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    minitest (4.6.2)
+    minitest (5.0.4)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   lovely-rufus!
-  minitest (~> 4.0)
+  minitest
