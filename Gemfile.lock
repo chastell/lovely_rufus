@@ -13,4 +13,4 @@ PLATFORMS
 
 DEPENDENCIES
   lovely-rufus!
-  minitest
+  minitest (~> 5.0)

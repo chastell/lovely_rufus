@@ -10,5 +10,5 @@ Gem::Specification.new do |gem|
   gem.executables = gem.files.grep(%r{^bin/}).map { |path| File.basename path }
   gem.test_files  = gem.files.grep %r{^spec/.*\.rb$}
 
-  gem.add_development_dependency 'minitest'
+  gem.add_development_dependency 'minitest', '~> 5.0'
 end
