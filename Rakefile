@@ -1,5 +1,8 @@
 require 'rake/testtask'
 require 'reek/rake/task'
+require 'rubocop/rake_task'
+
+task default: %i[spec rubocop]
 
 Rake::TestTask.new :spec do |task|
   task.test_files = FileList['spec/**/*_spec.rb']
@@ -12,4 +15,4 @@ Reek::Rake::Task.new do |task|
   task.reek_opts     = '--quiet'
 end
 
-task default: :spec
+Rubocop::RakeTask.new
