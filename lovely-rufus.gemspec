@@ -11,4 +11,5 @@ Gem::Specification.new do |gem|
   gem.test_files  = gem.files.grep %r{^spec/.*\.rb$}
 
   gem.add_development_dependency 'minitest', '~> 5.0'
+  gem.add_development_dependency 'reek',     '~> 1.3'
 end
