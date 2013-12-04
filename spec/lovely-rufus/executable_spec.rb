@@ -8,11 +8,11 @@ module LovelyRufus describe Executable do
       end.first.must_equal "some text\n"
 
       capture_io do
-        Executable.new(['-w', '4']).run StringIO.new 'some text'
+        Executable.new(%w[-w 4]).run StringIO.new 'some text'
       end.first.must_equal "some\ntext\n"
 
       capture_io do
-        Executable.new(['--width', '4']).run StringIO.new 'some text'
+        Executable.new(%w[--width 4]).run StringIO.new 'some text'
       end.first.must_equal "some\ntext\n"
     end
   end
@@ -20,7 +20,7 @@ module LovelyRufus describe Executable do
   describe '#run' do
     it 'outputs properly wrapped input' do
       capture_io do
-        Executable.new(['-w', '4']).run StringIO.new 'some more text'
+        Executable.new(%w[-w 4]).run StringIO.new 'some more text'
       end.first.must_equal "some\nmore\ntext\n"
     end
   end
