@@ -1,0 +1,26 @@
+AccessModifierIndentation:
+  Enabled: false
+
+AndOr:
+  Enabled: false
+
+AssignmentInCondition:
+  Enabled: false
+
+DefWithoutParentheses:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+EndAlignment:
+  Enabled: false
+
+IndentationWidth:
+  Enabled: false
+
+MethodLength:
+  Enabled: false
+
+WordArray:
+  Enabled: false
