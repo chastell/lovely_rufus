@@ -41,7 +41,8 @@ module LovelyRufus class Wrapper
 
   def remove_hangouts para, width
     lines = para.split "\n"
-    if hangout_line = find_hangout_line(lines)
+    hangout_line = find_hangout_line lines
+    if hangout_line
       hangout_line << NBSP
       fixed = lines.join(' ').gsub "#{NBSP} ", NBSP
       para.replace wrap_para_to_width fixed, width
