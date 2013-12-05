@@ -4,9 +4,6 @@ AccessModifierIndentation:
 AndOr:
   Enabled: false
 
-AssignmentInCondition:
-  Enabled: false
-
 DefWithoutParentheses:
   Enabled: false
 
