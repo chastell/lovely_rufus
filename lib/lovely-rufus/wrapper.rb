@@ -2,7 +2,7 @@ module LovelyRufus class Wrapper
   NBSP = ' '
 
   def initialize text
-    @paras = text.split(/\n[\/#> ]*\n/).map(&:strip)
+    @paras = text.split(/\n[\/#> ]*\n/).map { |para| Para.new para.strip }
   end
 
   def wrapped max_width = 72
@@ -17,6 +17,9 @@ module LovelyRufus class Wrapper
   private     :paras
 
   private
+
+  class Para < SimpleDelegator
+  end
 
   def find_hangout_line lines
     lines.find.with_index do |line, i|
