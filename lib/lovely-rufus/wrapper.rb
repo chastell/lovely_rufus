@@ -9,7 +9,7 @@ module LovelyRufus class Wrapper
     return '' if paras.all?(&:empty?)
 
     paras.map do |para|
-      para.wrap_para_recursively para, max_width
+      para.wrap_para_recursively max_width
     end.join "\n\n"
   end
 
@@ -50,10 +50,10 @@ module LovelyRufus class Wrapper
       end
     end
 
-    def wrap_para_recursively para, max_width
-      best = wrap_para_to_width para, max_width
+    def wrap_para_recursively max_width
+      best = wrap_para_to_width self, max_width
       (max_width - 1).downto 1 do |width|
-        shorter = wrap_para_to_width para, width
+        shorter = wrap_para_to_width self, width
         break if shorter.lines.count           > best.lines.count
         break if shorter.lines.map(&:size).max > best.lines.map(&:size).max
         best = shorter
