@@ -45,15 +45,15 @@ module LovelyRufus class Wrapper
       hangout_line = find_hangout_line lines
       if hangout_line
         hangout_line << NBSP
-        fixed = lines.join(' ').gsub "#{NBSP} ", NBSP
-        para.replace wrap_para_to_width fixed, width
+        fixed = self.class.new lines.join(' ').gsub "#{NBSP} ", NBSP
+        para.replace fixed.wrap_para_to_width width
       end
     end
 
     def wrap_para_recursively max_width
-      best = wrap_para_to_width self, max_width
+      best = wrap_para_to_width max_width
       (max_width - 1).downto 1 do |width|
-        shorter = wrap_para_to_width self, width
+        shorter = wrap_para_to_width width
         break if shorter.lines.count           > best.lines.count
         break if shorter.lines.map(&:size).max > best.lines.map(&:size).max
         best = shorter
@@ -61,12 +61,12 @@ module LovelyRufus class Wrapper
       best
     end
 
-    def wrap_para_to_width para, width
-      quotes = para[/^([\/#> ]*)/]
+    def wrap_para_to_width width
+      quotes = self[/^([\/#> ]*)/]
       leader = quotes.empty? ? '' : quotes.tr(' ', '') + ' '
       width -= leader.size if width > leader.size
-      para
-        .lines.map { |line| line[quotes.size..-1] }.join  # drop quotes
+      lines
+        .map { |line| line[quotes.size..-1] }.join        # drop quotes
         .tr("\n", ' ')                                    # unwrap para
         .gsub(/ ([^ ]) /, " \\1#{NBSP}")                  # glue 1-letter words
         .gsub(/(.{1,#{width}})( |$\n?)/, "\\1\n")         # wrap to width
