@@ -2,7 +2,7 @@ module LovelyRufus class Wrapper
   NBSP = ' '
 
   def initialize text
-    @paras = text.split(/\n[\/#> ]*\n/).map { |para| Para.new para.strip }
+    @paras = text.split(%r{\n[/#> ]*\n}).map { |para| Para.new para.strip }
   end
 
   def wrapped max_width = 72
