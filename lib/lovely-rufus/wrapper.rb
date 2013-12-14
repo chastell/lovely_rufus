@@ -9,7 +9,7 @@ module LovelyRufus class Wrapper
     return '' if paras.all?(&:empty?)
 
     paras.map do |para|
-      para.wrap_para_recursively max_width
+      para.wrap_recursively max_width
     end.join "\n\n"
   end
 
@@ -46,14 +46,14 @@ module LovelyRufus class Wrapper
       if hangout_line
         hangout_line << NBSP
         fixed = self.class.new lines.join(' ').gsub "#{NBSP} ", NBSP
-        para.replace fixed.wrap_para_to_width width
+        para.replace fixed.wrap_to_width width
       end
     end
 
-    def wrap_para_recursively max_width
-      best = wrap_para_to_width max_width
+    def wrap_recursively max_width
+      best = wrap_to_width max_width
       (max_width - 1).downto 1 do |width|
-        shorter = wrap_para_to_width width
+        shorter = wrap_to_width width
         break if shorter.lines.count           > best.lines.count
         break if shorter.lines.map(&:size).max > best.lines.map(&:size).max
         best = shorter
@@ -61,7 +61,7 @@ module LovelyRufus class Wrapper
       best
     end
 
-    def wrap_para_to_width width
+    def wrap_to_width width
       quotes = self[/^([\/#> ]*)/]
       leader = quotes.empty? ? '' : quotes.tr(' ', '') + ' '
       width -= leader.size if width > leader.size
