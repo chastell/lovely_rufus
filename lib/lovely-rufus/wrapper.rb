@@ -72,7 +72,8 @@ module LovelyRufus class Wrapper
     end
 
     def hangout_to_next_line i, lines, space
-      (i < lines.size - 2 or lines.size == 2) and space + 1 >= lines[i + 1].size
+      (i < lines.size - 2 or lines.size == 2) and
+        space + 1 >= lines[i + 1].size
     end
 
     def hangout_to_previous_line i, lines, space
