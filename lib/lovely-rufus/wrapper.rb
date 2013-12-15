@@ -18,7 +18,15 @@ module LovelyRufus class Wrapper
 
   private
 
-  class Para < SimpleDelegator
+  class Para
+    def initialize text
+      @text = text
+    end
+
+    def empty?
+      text.empty?
+    end
+
     def wrap_recursively max_width
       best = wrap_to_width max_width
       (max_width - 1).downto 1 do |width|
@@ -31,10 +39,10 @@ module LovelyRufus class Wrapper
     end
 
     def wrap_to_width width
-      quotes = self[/^([\/#> ]*)/]
+      quotes = text[/^([\/#> ]*)/]
       leader = quotes.empty? ? '' : quotes.tr(' ', '') + ' '
       width -= leader.size if width > leader.size
-      lines
+      text.lines
         .map { |line| line[quotes.size..-1] }.join        # drop quotes
         .tr("\n", ' ')                                    # unwrap para
         .gsub(/ ([^ ]) /, " \\1#{NBSP}")                  # glue 1-letter words
@@ -44,6 +52,9 @@ module LovelyRufus class Wrapper
         .tr(NBSP, ' ')                                    # drop glue spaces
         .chomp                                            # final touch
     end
+
+    attr_reader :text
+    private     :text
 
     private
 
