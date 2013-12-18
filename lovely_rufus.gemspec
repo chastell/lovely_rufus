@@ -1,8 +1,8 @@
 Gem::Specification.new do |gem|
-  gem.name     = 'lovely-rufus'
+  gem.name     = 'lovely_rufus'
   gem.version  = '0.1.0'
-  gem.summary  = 'lovely-rufus: text wrapper'
-  gem.homepage = 'http://github.com/chastell/lovely-rufus'
+  gem.summary  = 'lovely_rufus: text wrapper'
+  gem.homepage = 'http://github.com/chastell/lovely_rufus'
   gem.author   = 'Piotr Szotkowski'
   gem.email    = 'chastell@chastell.net'
 
