@@ -2,7 +2,7 @@ require 'rake/testtask'
 require 'reek/rake/task'
 require 'rubocop/rake_task'
 
-task default: %i[spec rubocop]
+task default: %i[spec rubocop reek]
 
 Rake::TestTask.new :spec do |task|
   task.test_files = FileList['spec/**/*_spec.rb']
