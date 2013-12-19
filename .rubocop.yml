@@ -1,0 +1,11 @@
+DefWithoutParentheses:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+EndAlignment:
+  Enabled: false
+
+IndentationWidth:
+  Enabled: false
