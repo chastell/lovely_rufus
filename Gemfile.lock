@@ -7,6 +7,9 @@ GEM
   remote: https://rubygems.org/
   specs:
     ast (1.1.0)
+    bogus (0.1.4)
+      dependor (>= 0.0.4)
+    dependor (1.0.1)
     minitest (5.2.0)
     parser (2.0.0)
       ast (~> 1.1)
@@ -33,6 +36,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bogus (~> 0.1.4)
   lovely_rufus!
   minitest (~> 5.0)
   reek (~> 1.3)
