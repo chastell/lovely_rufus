@@ -1,3 +1,6 @@
+AccessModifierIndentation:
+  Enabled: false
+
 DefWithoutParentheses:
   Enabled: false
 
