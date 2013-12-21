@@ -1,6 +1,6 @@
 module LovelyRufus class CLIWrapper
   def initialize args = []
-    @settings = settings_from args
+    @settings = Settings.new args
   end
 
   def wrap input
@@ -12,12 +12,14 @@ module LovelyRufus class CLIWrapper
 
   private
 
-  def settings_from args
-    Struct.new(:width).new.tap do |settings|
-      settings.width = 72
+  class Settings
+    attr_reader :width
+
+    def initialize args
+      @width = 72
       OptionParser.new do |opts|
         opts.on '-w', '--width WIDTH', Integer, 'Wrapping width' do |width|
-          settings.width = width
+          @width = width
         end
       end.parse! args
     end
