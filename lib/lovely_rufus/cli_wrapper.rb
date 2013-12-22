@@ -5,7 +5,7 @@ module LovelyRufus class CLIWrapper
   end
 
   def run stream
-    puts text_wrapper.wrap stream.read
+    puts text_wrapper.wrap stream.read, width: settings.width
   end
 
   def wrap input
