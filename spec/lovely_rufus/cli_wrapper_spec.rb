@@ -1,6 +1,17 @@
 require_relative '../spec_helper'
 
 module LovelyRufus describe CLIWrapper do
+  describe '#run' do
+    it 'reads the passed stream to TextWrapper and prints the results' do
+      text = 'all right: stop, collaborate and listen'
+      text_wrapper = fake :text_wrapper, as: :class
+      stub(text_wrapper).wrap(text) { text }
+      lambda do
+        CLIWrapper.new(text_wrapper: text_wrapper).run StringIO.new text
+      end.must_output "all right: stop, collaborate and listen\n"
+    end
+  end
+
   describe '#wrap' do
     it 'wraps the passed String to 72 characters by default' do
       short = 'all right: stop, collaborate and listen'

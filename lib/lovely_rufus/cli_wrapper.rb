@@ -1,14 +1,19 @@
 module LovelyRufus class CLIWrapper
-  def initialize args = []
-    @settings = Settings.new args
+  def initialize args = [], text_wrapper: TextWrapper
+    @settings     = Settings.new args
+    @text_wrapper = text_wrapper
+  end
+
+  def run stream
+    puts text_wrapper.wrap stream.read
   end
 
   def wrap input
     input.gsub(/(.{1,#{settings.width}})( |$\n?)/, "\\1\n").chomp
   end
 
-  attr_reader :settings
-  private     :settings
+  attr_reader :settings, :text_wrapper
+  private     :settings, :text_wrapper
 
   private
 
