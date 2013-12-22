@@ -3,3 +3,10 @@ IrresponsibleModule:
 
 NestedIterators:
   max_allowed_nesting: 2
+
+# side-step Reek treating all kwargs as unused:
+# https://github.com/troessner/reek/pull/237
+UnusedParameters:
+  exclude:
+  - LovelyRufus::CLIWrapper#initialize
+  - LovelyRufus::TextWrapper#self.wrap
