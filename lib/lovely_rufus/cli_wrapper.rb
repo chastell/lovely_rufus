@@ -8,10 +8,6 @@ module LovelyRufus class CLIWrapper
     puts text_wrapper.wrap stream.read, width: settings.width
   end
 
-  def wrap input
-    input.gsub(/(.{1,#{settings.width}})( |$\n?)/, "\\1\n").chomp
-  end
-
   attr_reader :settings, :text_wrapper
   private     :settings, :text_wrapper
 
