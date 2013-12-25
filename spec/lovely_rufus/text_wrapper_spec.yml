@@ -1,0 +1,3 @@
+# returns unwrapped input if it’s short enough
+- input: ‘Etiquette’ by Sir William Schwenck Gilbert
+  output: ‘Etiquette’ by Sir William Schwenck Gilbert

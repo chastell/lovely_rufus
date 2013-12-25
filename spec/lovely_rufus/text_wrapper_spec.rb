@@ -20,5 +20,14 @@ module LovelyRufus describe TextWrapper do
         .must_equal "something grabs a\nhold of me tightly;\n" +
           "flow like a harpoon –\ndaily and nightly\n"
     end
+
+    it 'supports all the example use-cases' do
+      path = File.expand_path 'text_wrapper_spec.yml', __dir__
+      YAML.load_file(path).each do |spec|
+        width = spec.fetch('width') { 72 }
+        wrap  = "#{spec['output']}\n"
+        TextWrapper.wrap(spec['input'], width: width).must_equal wrap
+      end
+    end
   end
 end end
