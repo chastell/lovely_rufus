@@ -5,7 +5,7 @@ module LovelyRufus describe TextWrapper do
     it 'wraps the passed String to 72 characters by default' do
       short = 'all right: stop, collaborate and listen'
       long  = short + ' – Ice is back with a brand new invention'
-      wrap  = short + " – Ice is back with a brand new\ninvention\n"
+      wrap  = short + "\n– Ice is back with a brand new invention\n"
       TextWrapper.wrap(short).must_equal "#{short}\n"
       TextWrapper.wrap(long).must_equal wrap
     end
@@ -18,7 +18,7 @@ module LovelyRufus describe TextWrapper do
           "flow like a harpoon – daily and nightly\n"
       TextWrapper.wrap(input, width: 21)
         .must_equal "something grabs a\nhold of me tightly;\n" +
-          "flow like a harpoon –\ndaily and nightly\n"
+          "flow like a harpoon\n– daily and nightly\n"
     end
 
     it 'supports all the example use-cases' do
