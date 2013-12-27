@@ -1,12 +1,9 @@
 module LovelyRufus class TextWrapper
   def self.wrap text, width: 72
     best = wrap_text_to text, width
-    (width - 1).downto 1 do |new_width|
-      shorter = wrap_text_to best, new_width
-      break if shorter.lines.count > best.lines.count
-      best = shorter
-    end
-    best
+    (1..(width - 1)).map { |len| wrap_text_to best, len }.find do |shorter|
+      shorter.lines.count <= best.lines.count
+    end or best
   end
 
   private
