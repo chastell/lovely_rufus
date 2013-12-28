@@ -8,8 +8,8 @@ module LovelyRufus class TextWrapper
   end
 
   def wrapped
-    best = wrap_text_to text, width
-    (1..(width - 1)).map { |len| wrap_text_to best, len }.find do |shorter|
+    best = wrap_to width
+    (1..(width - 1)).map { |len| wrap_to len }.find do |shorter|
       shorter.lines.count <= best.lines.count
     end or best
   end
@@ -19,7 +19,7 @@ module LovelyRufus class TextWrapper
 
   private
 
-  def wrap_text_to text, width
+  def wrap_to width
     text.tr("\n", ' ').strip.gsub(/(.{1,#{width}})( |$\n?)/, "\\1\n")
   end
 end end
