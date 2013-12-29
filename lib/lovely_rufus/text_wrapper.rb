@@ -8,10 +8,7 @@ module LovelyRufus class TextWrapper
   end
 
   def wrapped
-    best = wrap_to width
-    (1..(width - 1)).map { |len| wrap_to len }.find do |shorter|
-      shorter.lines.count <= best.lines.count
-    end or best
+    (1..width).map { |size| wrap_to size }.min_by { |wrap| wrap.lines.count }
   end
 
   attr_reader :text, :width
