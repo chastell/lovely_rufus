@@ -9,4 +9,5 @@ NestedIterators:
 UnusedParameters:
   exclude:
   - LovelyRufus::CLIWrapper#initialize
+  - LovelyRufus::TextWrapper#initialize
   - LovelyRufus::TextWrapper#self.wrap
