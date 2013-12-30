@@ -1,4 +1,5 @@
 require 'minitest/autorun'
+require 'minitest/focus'
 require 'minitest/pride'
 require 'bogus/minitest'
 require 'yaml'
