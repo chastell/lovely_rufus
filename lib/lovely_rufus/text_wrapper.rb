@@ -4,7 +4,8 @@ module LovelyRufus class TextWrapper
   end
 
   def initialize text, width: 72
-    @text, @width = text, width
+    @text  = text.tr("\n", ' ').strip.gsub(/ ([^ ]) /, ' \\1 ')
+    @width = width
   end
 
   def wrapped
@@ -17,7 +18,6 @@ module LovelyRufus class TextWrapper
   private
 
   def wrap_to size
-    text.tr("\n", ' ').strip.gsub(/ ([^ ]) /, ' \\1 ')
-      .gsub(/(.{1,#{size}})( |$\n?)/, "\\1\n")
+    text.gsub(/(.{1,#{size}})( |$\n?)/, "\\1\n")
   end
 end end
