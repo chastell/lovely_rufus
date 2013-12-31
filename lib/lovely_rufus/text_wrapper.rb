@@ -18,6 +18,19 @@ module LovelyRufus class TextWrapper
   private
 
   def wrap_to size
-    text.gsub(/(.{1,#{size}})( |$\n?)/, "\\1\n")
+    wrapped = text.gsub(/(.{1,#{size}})( |$\n?)/, "\\1\n")
+    lines   = wrapped.lines.map(&:chomp)
+    hangout = lines.each_index.find do |i|
+      next unless pos = lines[i].rindex(/\p{Space}/)
+      to_prev = i > 0 && pos >= lines[i - 1].size
+      to_next = i < lines.size - 1 && pos >= lines[i + 1].size
+      to_prev or to_next
+    end
+    if hangout
+      lines[hangout] << ' '
+      fixed = lines.join(' ').gsub('  ', ' ')
+      wrapped = fixed.gsub(/(.{1,#{size}})( |$\n?)/, "\\1\n")
+    end
+    wrapped
   end
 end end

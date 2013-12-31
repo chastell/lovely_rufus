@@ -2,12 +2,12 @@
 - input: ‘Etiquette’ by Sir William Schwenck Gilbert
   output: ‘Etiquette’ by Sir William Schwenck Gilbert
 
-# wraps short input if requested to wrap it shorter
+# wraps short input if requested to wrap it shorter, avoiding hangouts
 - width: 16
   input: ‘Etiquette’ by Sir William Schwenck Gilbert
   output: |-
-    ‘Etiquette’ by
-    Sir William
+    ‘Etiquette’
+    by Sir William
     Schwenck Gilbert
 
 # wraps long input to 72 characters by default, targetting similar line length
@@ -49,7 +49,7 @@
     These passengers, by reason of
     their clinging to a mast, Upon
     a desert island were eventually
-    cast. They hunted for their
-    meals, as ALEXANDER SELKIRK used,
-    But they couldn’t chat together
-    — they had not been introduced.
+    cast. They hunted for their meals,
+    as ALEXANDER SELKIRK used, But
+    they couldn’t chat together
+    — they had not been introduced.
