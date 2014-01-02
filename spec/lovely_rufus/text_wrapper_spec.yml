@@ -7,7 +7,7 @@
   input: ‘Etiquette’ by Sir William Schwenck Gilbert
   output: |-
     ‘Etiquette’
-    by Sir William
+    by Sir William
     Schwenck Gilbert
 
 # wraps long input to 72 characters by default, targetting similar line length
@@ -52,4 +52,4 @@
     cast. They hunted for their meals,
     as ALEXANDER SELKIRK used, But
     they couldn’t chat together
-    — they had not been introduced.
+    — they had not been introduced.

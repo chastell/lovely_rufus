@@ -19,14 +19,18 @@ module LovelyRufus class TextWrapper
 
   def wrap_to size
     wrapped = text.gsub(/(.{1,#{size}})( |$\n?)/, "\\1\n")
-    lines   = wrapped.lines.map(&:chomp)
-    hangout = HangoutFinder.hangout_line(lines)
-    if hangout
-      lines[hangout] << ' '
-      fixed = lines.join(' ').gsub('  ', ' ')
-      wrapped = fixed.gsub(/(.{1,#{size}})( |$\n?)/, "\\1\n")
+    loop do
+      lines   = wrapped.lines.map(&:chomp)
+      hangout = HangoutFinder.hangout_line(lines)
+      if hangout
+        lines[hangout] << "\u1FFF"
+        fixed = lines.join(' ').gsub("\u1FFF ", "\u1FFF")
+        wrapped = fixed.gsub(/(.{1,#{size}})( |$\n?)/, "\\1\n")
+      else
+        break
+      end
     end
-    wrapped
+    wrapped.gsub("\u1FFF", ' ')
   end
 
   class HangoutFinder
