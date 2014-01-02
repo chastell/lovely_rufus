@@ -22,13 +22,10 @@ module LovelyRufus class TextWrapper
     loop do
       lines   = wrapped.lines.map(&:chomp)
       hangout = HangoutFinder.hangout_line(lines)
-      if hangout
-        lines[hangout] << "\u1FFF"
-        fixed = lines.join(' ').gsub("\u1FFF ", "\u1FFF")
-        wrapped = fixed.gsub(/(.{1,#{size}})( |$\n?)/, "\\1\n")
-      else
-        break
-      end
+      break unless hangout
+      lines[hangout] << "\u1FFF"
+      fixed = lines.join(' ').gsub("\u1FFF ", "\u1FFF")
+      wrapped = fixed.gsub(/(.{1,#{size}})( |$\n?)/, "\\1\n")
     end
     wrapped.gsub("\u1FFF", ' ')
   end
