@@ -18,16 +18,8 @@ module LovelyRufus class TextWrapper
   private
 
   def wrap_to size
-    wrapped = text.gsub(/(.{1,#{size}})( |$\n?)/, "\\1\n")
-    loop do
-      lines   = wrapped.lines.map(&:chomp)
-      hangout = HangoutFinder.hangout_line(lines)
-      break unless hangout
-      lines[hangout] << "\u1FFF"
-      fixed = lines.join(' ').gsub("\u1FFF ", "\u1FFF")
-      wrapped = fixed.gsub(/(.{1,#{size}})( |$\n?)/, "\\1\n")
-    end
-    wrapped.gsub("\u1FFF", ' ')
+    fixed = text.gsub(/(.{1,#{size}})( |$\n?)/, "\\1\n")
+    HangoutWrapper.new(fixed, width: size).wrapped
   end
 
   class HangoutFinder
@@ -40,5 +32,27 @@ module LovelyRufus class TextWrapper
         to_prev or to_next
       end
     end
+  end
+
+  class HangoutWrapper
+    def initialize text, width: 72
+      @text, @width = text, width
+    end
+
+    def wrapped
+      wrapped = text
+      loop do
+        lines   = wrapped.lines.map(&:chomp)
+        hangout = HangoutFinder.hangout_line(lines)
+        break unless hangout
+        lines[hangout] << "\u1FFF"
+        fixed = lines.join(' ').gsub("\u1FFF ", "\u1FFF")
+        wrapped = fixed.gsub(/(.{1,#{width}})( |$\n?)/, "\\1\n")
+      end
+      wrapped.gsub("\u1FFF", ' ')
+    end
+
+    attr_reader :text, :width
+    private     :text, :width
   end
 end end
