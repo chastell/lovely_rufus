@@ -22,18 +22,6 @@ module LovelyRufus class TextWrapper
     HangoutWrapper.new(fixed, width: size).wrapped
   end
 
-  class HangoutFinder
-    def self.hangout_line lines
-      lines.each_index.find do |i|
-        pos = lines[i].rindex(/\p{Space}/)
-        next unless pos
-        to_prev = i > 0 && pos >= lines[i - 1].size
-        to_next = i < lines.size - 1 && pos >= lines[i + 1].size
-        to_prev or to_next
-      end
-    end
-  end
-
   class HangoutWrapper
     def initialize text, width: 72
       @text, @width = text, width
@@ -43,7 +31,7 @@ module LovelyRufus class TextWrapper
       wrapped = text
       loop do
         lines   = wrapped.lines.map(&:chomp)
-        hangout = HangoutFinder.hangout_line(lines)
+        hangout = hangout_line(lines)
         break unless hangout
         lines[hangout] << "\u1FFF"
         fixed = lines.join(' ').gsub("\u1FFF ", "\u1FFF")
@@ -54,5 +42,17 @@ module LovelyRufus class TextWrapper
 
     attr_reader :text, :width
     private     :text, :width
+
+    private
+
+    def hangout_line lines
+      lines.each_index.find do |i|
+        pos = lines[i].rindex(/\p{Space}/)
+        next unless pos
+        to_prev = i > 0 && pos >= lines[i - 1].size
+        to_next = i < lines.size - 1 && pos >= lines[i + 1].size
+        to_prev or to_next
+      end
+    end
   end
 end end
