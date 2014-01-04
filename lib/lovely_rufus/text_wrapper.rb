@@ -30,10 +30,9 @@ module LovelyRufus class TextWrapper
 
     def wrapped
       return lines.join("\n") + "\n" unless hangout_line
-      fixed_lines = lines
-      fixed_lines[hangout_line] << "\u1FFF"
-      fixed = fixed_lines.join(' ').gsub("\u1FFF ", "\u1FFF")
-      wrapped = fixed.gsub(/(.{1,#{width}})( |$\n?)/, "\\1\n")
+      lines[hangout_line] << "\u1FFF"
+      unfolded = lines.join(' ').gsub("\u1FFF ", "\u1FFF")
+      wrapped  = unfolded.gsub(/(.{1,#{width}})( |$\n?)/, "\\1\n")
       HangoutWrapper.new(wrapped, width: width).wrapped.gsub("\u1FFF", ' ')
     end
 
