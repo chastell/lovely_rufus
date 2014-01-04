@@ -28,14 +28,12 @@ module LovelyRufus class TextWrapper
     end
 
     def wrapped
-      loop do
-        break unless hangout_line
-        fixed_lines = lines
-        fixed_lines[hangout_line] << "\u1FFF"
-        fixed = fixed_lines.join(' ').gsub("\u1FFF ", "\u1FFF")
-        @text = fixed.gsub(/(.{1,#{width}})( |$\n?)/, "\\1\n")
-      end
-      text.gsub("\u1FFF", ' ')
+      return text unless hangout_line
+      fixed_lines = lines
+      fixed_lines[hangout_line] << "\u1FFF"
+      fixed = fixed_lines.join(' ').gsub("\u1FFF ", "\u1FFF")
+      wrapped = fixed.gsub(/(.{1,#{width}})( |$\n?)/, "\\1\n")
+      HangoutWrapper.new(wrapped, width: width).wrapped.gsub("\u1FFF", ' ')
     end
 
     attr_reader :text, :width
