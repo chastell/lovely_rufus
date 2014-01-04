@@ -29,11 +29,10 @@ module LovelyRufus class TextWrapper
 
     def wrapped
       loop do
-        lines   = text.lines.map(&:chomp)
-        hangout = hangout_line
-        break unless hangout
-        lines[hangout] << "\u1FFF"
-        fixed = lines.join(' ').gsub("\u1FFF ", "\u1FFF")
+        break unless hangout_line
+        fixed_lines = lines
+        fixed_lines[hangout_line] << "\u1FFF"
+        fixed = fixed_lines.join(' ').gsub("\u1FFF ", "\u1FFF")
         @text = fixed.gsub(/(.{1,#{width}})( |$\n?)/, "\\1\n")
       end
       text.gsub("\u1FFF", ' ')
@@ -45,7 +44,6 @@ module LovelyRufus class TextWrapper
     private
 
     def hangout_line
-      lines = text.lines.map(&:chomp)
       lines.each_index.find do |i|
         pos = lines[i].rindex(/\p{Space}/)
         next unless pos
@@ -53,6 +51,10 @@ module LovelyRufus class TextWrapper
         to_next = i < lines.size - 1 && pos >= lines[i + 1].size
         to_prev or to_next
       end
+    end
+
+    def lines
+      text.lines.map(&:chomp)
     end
   end
 end end
