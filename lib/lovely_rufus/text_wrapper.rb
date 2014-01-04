@@ -18,8 +18,8 @@ module LovelyRufus class TextWrapper
   private
 
   def wrap_to size
-    fixed = text.gsub(/(.{1,#{size}})( |$\n?)/, "\\1\n")
-    HangoutWrapper.new(fixed, width: size).wrapped
+    wrapped = text.gsub(/(.{1,#{size}})( |$\n?)/, "\\1\n")
+    HangoutWrapper.new(wrapped, width: size).wrapped
   end
 
   class HangoutWrapper
