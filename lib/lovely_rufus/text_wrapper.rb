@@ -42,14 +42,10 @@ module LovelyRufus class TextWrapper
     private
 
     def hangout_line
-      hangout_line, _ = lines.each.with_index.find do |line, i|
-        pos = lines[i].rindex(/\p{Space}/)
-        next unless pos
-        to_prev = i > 0 && pos >= lines[i - 1].size
-        to_next = i < lines.size - 1 && pos >= lines[i + 1].size
-        to_prev or to_next
+      lines.each_cons 2 do |a, b|
+        return a if a[/\p{Space}/] and a.rindex(/\p{Space}/) >= b.size
+        return b if b[/\p{Space}/] and b.rindex(/\p{Space}/) >= a.size
       end
-      hangout_line
     end
   end
 end end
