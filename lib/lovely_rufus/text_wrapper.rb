@@ -30,7 +30,7 @@ module LovelyRufus class TextWrapper
 
     def wrapped
       return lines.join("\n") + "\n" unless hangout_line
-      lines[hangout_line] << "\u1FFF"
+      hangout_line << "\u1FFF"
       unfolded = lines.join(' ').gsub("\u1FFF ", "\u1FFF")
       wrapped  = unfolded.gsub(/(.{1,#{width}})( |$\n?)/, "\\1\n")
       HangoutWrapper.new(wrapped, width: width).wrapped.gsub("\u1FFF", ' ')
@@ -42,13 +42,14 @@ module LovelyRufus class TextWrapper
     private
 
     def hangout_line
-      lines.each_index.find do |i|
+      hangout_line, _ = lines.each.with_index.find do |line, i|
         pos = lines[i].rindex(/\p{Space}/)
         next unless pos
         to_prev = i > 0 && pos >= lines[i - 1].size
         to_next = i < lines.size - 1 && pos >= lines[i + 1].size
         to_prev or to_next
       end
+      hangout_line
     end
   end
 end end
