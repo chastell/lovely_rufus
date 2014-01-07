@@ -4,7 +4,7 @@ module LovelyRufus class TextWrapper
   end
 
   def initialize text, width: 72
-    @text  = text.tr("\n", ' ').strip.gsub(/ ([^ ]) /, ' \\1 ')
+    @text  = text.tr("\n", ' ').strip
     @width = width
   end
 
@@ -18,7 +18,8 @@ module LovelyRufus class TextWrapper
   private
 
   def wrap_to size
-    wrapped = BasicWrapper.new(text, width: size).wrapped
+    glued   = OneLetterGluer.new(text, width: size).wrapped
+    wrapped = BasicWrapper.new(glued, width: size).wrapped
     HangoutWrapper.new(wrapped, width: size).wrapped
   end
 
@@ -60,5 +61,18 @@ module LovelyRufus class TextWrapper
         return b if b[/\p{Space}/] and b.rindex(/\p{Space}/) >= a.size
       end
     end
+  end
+
+  class OneLetterGluer
+    def initialize text, width: 72
+      @text = text
+    end
+
+    def wrapped
+      text.gsub(/ ([^ ]) /, ' \\1 ')
+    end
+
+    attr_reader :text
+    private     :text
   end
 end end
