@@ -1,6 +1,6 @@
 module LovelyRufus class TextWrapper
   def self.wrap text, width: 72
-    new(text, width: width).wrapped
+    new(text, width: width).call
   end
 
   def initialize text, width: 72
@@ -8,7 +8,7 @@ module LovelyRufus class TextWrapper
     @width = width
   end
 
-  def wrapped
+  def call
     (1..width).map { |size| wrap_to size }.min_by { |wrap| wrap.lines.count }
   end
 
@@ -18,9 +18,9 @@ module LovelyRufus class TextWrapper
   private
 
   def wrap_to size
-    glued   = OneLetterGluer.new(text, width: size).wrapped
-    wrapped = BasicWrapper.new(glued, width: size).wrapped
-    HangoutWrapper.new(wrapped, width: size).wrapped
+    glued   = OneLetterGluer.new(text, width: size).call
+    wrapped = BasicWrapper.new(glued, width: size).call
+    HangoutWrapper.new(wrapped, width: size).call
   end
 
   class BasicWrapper
@@ -28,7 +28,7 @@ module LovelyRufus class TextWrapper
       @text, @width = text, width
     end
 
-    def wrapped
+    def call
       text.gsub(/(.{1,#{width}})( |$\n?)/, "\\1\n")
     end
 
@@ -42,12 +42,12 @@ module LovelyRufus class TextWrapper
       @width = width
     end
 
-    def wrapped
+    def call
       return lines.join("\n") + "\n" unless hangout_line
       hangout_line << "\u1FFF"
       unfolded = lines.join(' ').gsub("\u1FFF ", "\u1FFF")
-      wrapped  = BasicWrapper.new(unfolded, width: width).wrapped
-      HangoutWrapper.new(wrapped, width: width).wrapped.gsub("\u1FFF", ' ')
+      wrapped  = BasicWrapper.new(unfolded, width: width).call
+      HangoutWrapper.new(wrapped, width: width).call.gsub("\u1FFF", ' ')
     end
 
     attr_reader :lines, :width
@@ -68,7 +68,7 @@ module LovelyRufus class TextWrapper
       @text = text
     end
 
-    def wrapped
+    def call
       text.gsub(/ ([^ ]) /, ' \\1 ')
     end
 
