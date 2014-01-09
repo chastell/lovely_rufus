@@ -15,4 +15,6 @@ UnusedParameters:
   - LovelyRufus::CLIWrapper#initialize
   - LovelyRufus::TextWrapper#initialize
   - LovelyRufus::TextWrapper#self.wrap
+  - LovelyRufus::TextWrapper::BasicWrapper#initialize
   - LovelyRufus::TextWrapper::HangoutWrapper#initialize
+  - LovelyRufus::TextWrapper::OneLetterGluer#initialize
