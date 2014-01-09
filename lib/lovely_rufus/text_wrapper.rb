@@ -18,9 +18,11 @@ module LovelyRufus class TextWrapper
   private
 
   def wrap_to size
-    glued   = OneLetterGluer.new(text, width: size).call
-    wrapped = BasicWrapper.new(glued, width: size).call
-    HangoutWrapper.new(wrapped, width: size).call
+    processed = text
+    [OneLetterGluer, BasicWrapper, HangoutWrapper].each do |filter|
+      processed = filter.new(processed, width: size).call
+    end
+    processed
   end
 
   class BasicWrapper
