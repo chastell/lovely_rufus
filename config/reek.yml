@@ -4,6 +4,10 @@ IrresponsibleModule:
 NestedIterators:
   max_allowed_nesting: 2
 
+UncommunicativeVariableName:
+  exclude:
+  - LovelyRufus::TextWrapper::HangoutWrapper#hangout_line
+
 # side-step Reek treating all kwargs as unused:
 # https://github.com/troessner/reek/pull/237
 UnusedParameters:
