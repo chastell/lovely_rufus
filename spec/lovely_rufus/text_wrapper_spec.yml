@@ -53,3 +53,25 @@
     as ALEXANDER SELKIRK used, But
     they couldn’t chat together
     — they had not been introduced.
+
+# multiple paragraphs are wrapped independently
+- input: |-
+    For PETER GRAY, and SOMERS too, though certainly in trade,
+    Were properly particular about the friends they made;
+    And somehow thus they settled it without a word of mouth —
+    That GRAY should take the northern half while SOMERS took the south.
+
+    On PETER’S portion oysters grew — a delicacy rare,
+    But oysters were a delicacy PETER couldn’t bear.
+    On SOMERS’ side was turtle, on the shingle lying thick,
+    Which SOMERS couldn’t eat, because it always made him sick.
+  output: |-
+    For PETER GRAY, and SOMERS too, though certainly in trade, Were
+    properly particular about the friends they made; And somehow
+    thus they settled it without a word of mouth — That GRAY
+    should take the northern half while SOMERS took the south.
+
+    On PETER’S portion oysters grew — a delicacy rare, But
+    oysters were a delicacy PETER couldn’t bear. On SOMERS’
+    side was turtle, on the shingle lying thick, Which
+    SOMERS couldn’t eat, because it always made him sick.
