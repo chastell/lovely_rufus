@@ -1,7 +1,6 @@
 module LovelyRufus class HangoutWrapper
   def initialize text, width: 72
-    @lines = text.lines.map(&:chomp)
-    @width = width
+    @text, @width = text, width
   end
 
   def call
@@ -12,8 +11,8 @@ module LovelyRufus class HangoutWrapper
     HangoutWrapper.new(wrapped, width: width).call.gsub("\u1FFF", ' ')
   end
 
-  attr_reader :lines, :width
-  private     :lines, :width
+  attr_reader :text, :width
+  private     :text, :width
 
   private
 
@@ -22,5 +21,9 @@ module LovelyRufus class HangoutWrapper
       return a if a[/\p{Space}/] and a.rindex(/\p{Space}/) >= b.size
       return b if b[/\p{Space}/] and b.rindex(/\p{Space}/) >= a.size
     end
+  end
+
+  def lines
+    @lines ||= text.lines.map(&:chomp)
   end
 end end
