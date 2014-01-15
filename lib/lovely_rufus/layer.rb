@@ -4,7 +4,7 @@ module LovelyRufus class Layer
   end
 
   def call
-    raise NotImplementedError, 'descendants need to implement #call'
+    fail NotImplementedError, 'descendants need to implement #call'
   end
 
   attr_reader :text, :width
