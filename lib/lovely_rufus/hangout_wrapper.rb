@@ -1,8 +1,4 @@
-module LovelyRufus class HangoutWrapper
-  def initialize text, width: 72
-    @text, @width = text, width
-  end
-
+module LovelyRufus class HangoutWrapper < Layer
   def call
     return lines.join("\n") + "\n" unless hangout_line
     hangout_line << "\u1FFF"
@@ -10,9 +6,6 @@ module LovelyRufus class HangoutWrapper
     wrapped  = BasicWrapper.new(unfolded, width: width).call
     HangoutWrapper.new(wrapped, width: width).call.gsub("\u1FFF", ' ')
   end
-
-  attr_reader :text, :width
-  private     :text, :width
 
   private
 
