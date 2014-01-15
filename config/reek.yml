@@ -12,9 +12,7 @@ UncommunicativeVariableName:
 # https://github.com/troessner/reek/pull/237
 UnusedParameters:
   exclude:
-  - LovelyRufus::BasicWrapper#initialize
+  - LovelyRufus::Layer#initialize
   - LovelyRufus::CLIWrapper#initialize
-  - LovelyRufus::HangoutWrapper#initialize
-  - LovelyRufus::OneLetterGluer#initialize
   - LovelyRufus::TextWrapper#initialize
   - LovelyRufus::TextWrapper#self.wrap
