@@ -4,18 +4,21 @@ module LovelyRufus class TextWrapper
   end
 
   def initialize text, width: 72
-    @paras = text.split("\n\n").map { |para| para.tr("\n", ' ').strip }
-    @width = width
+    @text, @width = text, width
   end
 
   def call
     (1..width).map { |size| wrap_to size }.min_by { |wrap| wrap.lines.count }
   end
 
-  attr_reader :paras, :width
-  private     :paras, :width
+  attr_reader :text, :width
+  private     :text, :width
 
   private
+
+  def paras
+    @paras ||= text.split("\n\n").map { |para| para.tr("\n", ' ').strip }
+  end
 
   def wrap_to size
     paras.map do |para|
