@@ -5,7 +5,7 @@ module LovelyRufus describe OneLetterGluer do
     it 'replaces spaces after one-letter words with non-break spaces' do
       text = 'I go crazy when I hear a cymbal and a hi-hat ' +
         'with a souped-up tempo'
-      OneLetterGluer.new(text).call.must_equal 'I go crazy when ' +
+      OneLetterGluer.new.call(text).must_equal 'I go crazy when ' +
         'I hear a cymbal and a hi-hat with a souped-up tempo'
     end
   end

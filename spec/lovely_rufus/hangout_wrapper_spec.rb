@@ -7,7 +7,7 @@ module LovelyRufus describe HangoutWrapper do
         I go crazy when I hear a cymbal and
         a hi-hat with a souped-up tempo
       end
-      HangoutWrapper.new(text, width: 35).call.must_equal <<-end.dedent
+      HangoutWrapper.new.call(text, width: 35).must_equal <<-end.dedent
         I go crazy when I hear a cymbal
         and a hi-hat with a souped-up tempo
       end
