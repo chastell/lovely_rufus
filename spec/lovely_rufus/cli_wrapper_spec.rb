@@ -13,7 +13,10 @@ module LovelyRufus describe CLIWrapper do
     end
 
     it 'accepts the desired width and passes it to TextWrapper' do
-      wrap = "all right: stop,\ncollaborate and listen\n"
+      wrap = <<-end.dedent
+        all right: stop,
+        collaborate and listen
+      end
       stub(text_wrapper).wrap(text, width: 22) { wrap }
       lambda do
         stream = StringIO.new text
