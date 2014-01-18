@@ -5,7 +5,7 @@ module LovelyRufus describe BasicWrapper do
     it 'wraps text to the given width' do
       text = 'I go crazy when I hear a cymbal and a hi-hat ' +
         'with a souped-up tempo'
-      BasicWrapper.new.call(text, width: 22).must_equal <<-end.dedent
+      BasicWrapper.new.call(text: text, width: 22).must_equal <<-end.dedent
         I go crazy when I hear
         a cymbal and a hi-hat
         with a souped-up tempo

@@ -1,11 +1,11 @@
 module LovelyRufus class HangoutWrapper
-  def call text, width: 72
+  def call text: text, width: 72
     @lines = text.lines.map(&:chomp)
     return lines.join("\n") + "\n" unless hangout_line
     hangout_line << "\u1FFF"
     unfolded = lines.join(' ').gsub("\u1FFF ", "\u1FFF")
-    wrapped  = BasicWrapper.new.call unfolded, width: width
-    HangoutWrapper.new.call(wrapped, width: width).gsub("\u1FFF", ' ')
+    wrapped  = BasicWrapper.new.call text: unfolded, width: width
+    HangoutWrapper.new.call(text: wrapped, width: width).gsub("\u1FFF", ' ')
   end
 
   attr_reader :lines
