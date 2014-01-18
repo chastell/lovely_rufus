@@ -11,5 +11,10 @@ module LovelyRufus describe BasicWrapper do
         with a souped-up tempo
       end
     end
+
+    it 'passes the fixed text to the next layer and returns its outcome' do
+      mock(layer = fake).call(text: "a\nb\n", width: 2) { "a b\n" }
+      BasicWrapper.new(layer).call(text: 'a b', width: 2).must_equal "a b\n"
+    end
   end
 end end
