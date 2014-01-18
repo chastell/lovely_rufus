@@ -1,3 +1,4 @@
+require_relative 'lovely_rufus/layer'
 require_relative 'lovely_rufus/basic_wrapper'
 require_relative 'lovely_rufus/cli_wrapper'
 require_relative 'lovely_rufus/hangout_wrapper'

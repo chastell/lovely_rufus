@@ -1,8 +1,4 @@
-module LovelyRufus class HangoutWrapper
-  def initialize next_layer = ->(text: '', width: 72) { text }
-    @next_layer = next_layer
-  end
-
+module LovelyRufus class HangoutWrapper < Layer
   def call text: text, width: 72
     @lines = text.lines.map(&:chomp)
     if hangout_line
@@ -15,8 +11,8 @@ module LovelyRufus class HangoutWrapper
     end
   end
 
-  attr_reader :lines, :next_layer
-  private     :lines, :next_layer
+  attr_reader :lines
+  private     :lines
 
   private
 
