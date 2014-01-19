@@ -22,7 +22,8 @@ module LovelyRufus class TextWrapper
 
   def wrap_to size
     paras.map do |para|
-      chain = OneLetterGluer.new(BasicWrapper.new(HangoutWrapper.new))
+      chain = [OneLetterGluer, BasicWrapper, HangoutWrapper].reverse
+        .reduce(-> hash { hash }) { |inner, outer| outer.new inner }
       chain.call(text: para, width: size)[:text]
     end.join "\n"
   end
