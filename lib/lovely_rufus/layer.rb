@@ -1,5 +1,5 @@
 module LovelyRufus class Layer
-  def initialize next_layer = ->(text: '', width: 72) { text }
+  def initialize next_layer = -> hash { hash }
     @next_layer = next_layer
   end
 
