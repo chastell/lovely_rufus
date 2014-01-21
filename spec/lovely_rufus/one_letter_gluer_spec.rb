@@ -3,12 +3,17 @@ require_relative '../spec_helper'
 module LovelyRufus describe OneLetterGluer do
   describe '#call' do
     it 'replaces spaces after one-letter words with non-break spaces' do
-      text = 'I go crazy when I hear a cymbal and a hi-hat ' +
-        'with a souped-up tempo'
-      glue = 'I go crazy when I hear a cymbal and a hi-hat ' +
-        'with a souped-up tempo'
-      OneLetterGluer.new.call(text: text, width: 42)
-        .must_equal text: glue, width: 42
+      text = 'I go crazy when I hear a cymbal and a hi-hat'
+      glue = 'I go crazy when I hear a cymbal and a hi-hat'
+      olg  = OneLetterGluer.new
+      olg.call(text: text, width: 42).must_equal text: glue, width: 42
+    end
+
+    it 'glues subsequent one-letter words' do
+      text = 'Will it ever stop? Yo – I don’t know!'
+      glue = 'Will it ever stop? Yo – I don’t know!'
+      olg  = OneLetterGluer.new
+      olg.call(text: text, width: 42).must_equal text: glue, width: 42
     end
 
     it 'passes the fixed text to the next layer and returns its outcome' do
