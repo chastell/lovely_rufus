@@ -10,8 +10,8 @@ module LovelyRufus describe OneLetterGluer do
     end
 
     it 'glues subsequent one-letter words' do
-      text = 'Will it ever stop? Yo – I don’t know!'
-      glue = 'Will it ever stop? Yo – I don’t know!'
+      text = 'one-letter words in English: a, I & o'
+      glue = 'one-letter words in English: a, I & o'
       olg  = OneLetterGluer.new
       olg.call(text: text, width: 42).must_equal text: glue, width: 42
     end
