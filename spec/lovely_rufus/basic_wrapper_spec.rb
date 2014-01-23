@@ -15,9 +15,9 @@ module LovelyRufus describe BasicWrapper do
     end
 
     it 'passes the fixed text to the next layer and returns its outcome' do
-      final = { text: "a b\n", width: 7 }
-      mock(layer = fake).call(text: "a\nb\n", width: 2) { final }
-      BasicWrapper.new(layer).call(text: 'a b', width: 2).must_equal final
+      final = { text: "I O U\n", width: 7 }
+      mock(layer = fake).call(text: "I\nO\nU\n", width: 2) { final }
+      BasicWrapper.new(layer).call(text: 'I O U', width: 2).must_equal final
     end
   end
 end end
