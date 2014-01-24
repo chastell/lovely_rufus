@@ -6,7 +6,7 @@ module LovelyRufus class HangoutWrapper < Layer
       unfolded = lines.join(' ').gsub("\u1FFF ", "\u1FFF")
       wrapped  = BasicWrapper.new.call(text: unfolded, width: width)[:text]
       final    = HangoutWrapper.new.call(text: wrapped, width: width)[:text]
-      { text: final.gsub("\u1FFF", ' '), width: width }
+      next_layer.call text: final.gsub("\u1FFF", ' '), width: width
     else
       next_layer.call text: lines.join("\n") + "\n", width: width
     end
