@@ -7,7 +7,7 @@ module LovelyRufus describe TextWrapper do
       long  = short + ' – Ice is back with a brand new invention'
       wrap  = <<-end.dedent
         all right: stop, collaborate and listen
-        – Ice is back with a brand new invention
+        – Ice is back with a brand new invention
       end
       TextWrapper.wrap(short).must_equal "#{short}\n"
       TextWrapper.wrap(long).must_equal wrap
@@ -17,13 +17,13 @@ module LovelyRufus describe TextWrapper do
       input = 'something grabs a hold of me tightly; ' +
         'flow like a harpoon – daily and nightly'
       TextWrapper.wrap(input, width: 40).must_equal <<-end.dedent
-        something grabs a hold of me tightly;
-        flow like a harpoon – daily and nightly
+        something grabs a hold of me tightly;
+        flow like a harpoon – daily and nightly
       end
       TextWrapper.wrap(input, width: 21).must_equal <<-end.dedent
         something grabs
-        a hold of me tightly;
-        flow like a harpoon
+        a hold of me tightly;
+        flow like a harpoon
         – daily and nightly
       end
     end

@@ -1,5 +1,5 @@
 module LovelyRufus class HangoutWrapper < Layer
-  Glue = "\u1FFF"
+  Glue = "\u00A0"
 
   def call text: text, width: 72
     @lines = text.lines.map(&:chomp)
