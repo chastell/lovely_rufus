@@ -9,7 +9,7 @@ module LovelyRufus describe HangoutWrapper do
       end
       wrap = <<-end.dedent
         I go crazy when I hear a cymbal
-        and a hi-hat with a souped-up tempo
+        and a hi-hat with a souped-up tempo
       end
       HangoutWrapper.new.call(text: text, width: 35)
         .must_equal text: wrap, width: 35

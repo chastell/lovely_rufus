@@ -9,7 +9,7 @@ module LovelyRufus class HangoutWrapper < Layer
     else
       lines.join("\n") + "\n"
     end
-    next_layer.call text: text.tr(NBSP, ' '), width: width
+    next_layer.call text: text, width: width
   end
 
   attr_reader :lines

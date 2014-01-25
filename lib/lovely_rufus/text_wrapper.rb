@@ -26,6 +26,8 @@ module LovelyRufus class TextWrapper
   end
 
   def wrap_to size
-    paras.map { |para| chain.call(text: para, width: size)[:text] }.join "\n"
+    paras.map do |para|
+      chain.call(text: para, width: size)[:text].tr NBSP, ' '
+    end.join "\n"
   end
 end end
