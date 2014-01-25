@@ -17,7 +17,7 @@ module LovelyRufus describe HangoutWrapper do
 
     it 'passes the fixed text to the next layer and returns its outcome' do
       final = fake :hash
-      mock(layer = fake).call(text: "I O\nU\n", width: 4) { final }
+      mock(layer = fake(:layer)).call(text: "I O\nU\n", width: 4) { final }
       BasicWrapper.new(layer).call(text: "I O\nU", width: 4).must_equal final
     end
   end

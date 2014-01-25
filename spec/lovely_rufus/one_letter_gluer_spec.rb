@@ -18,7 +18,7 @@ module LovelyRufus describe OneLetterGluer do
 
     it 'passes the fixed text to the next layer and returns its outcome' do
       final = fake :hash
-      mock(layer = fake).call(text: 'I O U', width: 69) { final }
+      mock(layer = fake(:layer)).call(text: 'I O U', width: 69) { final }
       OneLetterGluer.new(layer).call(text: 'I O U', width: 69).must_equal final
     end
   end
