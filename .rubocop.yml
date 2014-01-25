@@ -4,6 +4,9 @@ AccessModifierIndentation:
 AndOr:
   Enabled: false
 
+ConstantName:
+  Enabled: false
+
 Documentation:
   Enabled: false
 
