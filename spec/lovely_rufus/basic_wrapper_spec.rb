@@ -14,6 +14,25 @@ module LovelyRufus describe BasicWrapper do
         .must_equal text: wrap, width: 22
     end
 
+    it 'never extends past the given width, chopping words if necessary' do
+      text = 'I’m killing your brain like a poisonous mushroom'
+      wrap = <<-end.dedent
+        I’m
+        killi
+        ng
+        your
+        brain
+        like
+        a
+        poiso
+        nous
+        mushr
+        oom
+      end
+      BasicWrapper.new.call(text: text, width: 5)
+        .must_equal text: wrap, width: 5
+    end
+
     it 'passes the fixed text to the next layer and returns its outcome' do
       final = fake :hash
       mock(layer = fake(:layer)).call(text: "I\nO\nU\n", width: 2) { final }
