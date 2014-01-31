@@ -1,19 +1,16 @@
 module LovelyRufus class HangoutWrapper < Layer
   def call text: text, width: 72
-    @text = text
+    @text, @width = text, width
     final = if hangout_line
-      hangout_line << NBSP
-      unfolded = lines.join(' ').gsub("#{NBSP} ", NBSP)
-      wrapped  = BasicWrapper.new.call(text: unfolded, width: width)[:text]
-      HangoutWrapper.new.call(text: wrapped, width: width)[:text]
+      rewrapped
     else
       lines.join("\n") + "\n"
     end
     next_layer.call text: final, width: width
   end
 
-  attr_reader :text
-  private     :text
+  attr_reader :text, :width
+  private     :text, :width
 
   private
 
@@ -26,5 +23,12 @@ module LovelyRufus class HangoutWrapper < Layer
 
   def lines
     @lines ||= text.lines.map(&:chomp)
+  end
+
+  def rewrapped
+    hangout_line << NBSP
+    unfolded = lines.join(' ').gsub("#{NBSP} ", NBSP)
+    wrapped  = BasicWrapper.new.call(text: unfolded, width: width)[:text]
+    HangoutWrapper.new.call(text: wrapped, width: width)[:text]
   end
 end end
