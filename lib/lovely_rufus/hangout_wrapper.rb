@@ -2,7 +2,7 @@ module LovelyRufus class HangoutWrapper < Layer
   def call text: text, width: 72
     @text  = text
     @width = width
-    final  = hangout_line ? rewrapped : lines.join("\n") + "\n"
+    final  = hangout_line ? rewrapped : text
     next_layer.call text: final, width: width
   end
 
