@@ -1,6 +1,7 @@
 module LovelyRufus class OneLetterGluer < Layer
-  def call text: text, width: 72
+  def call wrap
     pattern = /(?<=\p{space})(&|\p{letter})\p{space}/
-    next_layer.call text: text.gsub(pattern, "\\1\\2#{NBSP}"), width: width
+    text    = wrap.text.gsub pattern, "\\1\\2#{NBSP}"
+    next_layer.call Wrap.new text: text, width: wrap.width
   end
 end end

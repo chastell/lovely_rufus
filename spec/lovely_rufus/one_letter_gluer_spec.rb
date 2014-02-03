@@ -6,20 +6,24 @@ module LovelyRufus describe OneLetterGluer do
       text = 'I go crazy when I hear a cymbal and a hi-hat'
       glue = 'I go crazy when I hear a cymbal and a hi-hat'
       olg  = OneLetterGluer.new
-      olg.call(text: text, width: 42).must_equal text: glue, width: 42
+      olg.call(Wrap.new text: text, width: 42)
+        .must_equal Wrap.new text: glue, width: 42
     end
 
     it 'glues subsequent one-letter words' do
       text = 'one-letter words in English: a, I & o'
       glue = 'one-letter words in English: a, I & o'
       olg  = OneLetterGluer.new
-      olg.call(text: text, width: 42).must_equal text: glue, width: 42
+      olg.call(Wrap.new text: text, width: 42)
+        .must_equal Wrap.new text: glue, width: 42
     end
 
     it 'passes the fixed text to the next layer and returns its outcome' do
-      final = fake :hash
-      mock(layer = fake(:layer)).call(text: 'I O U', width: 69) { final }
-      OneLetterGluer.new(layer).call(text: 'I O U', width: 69).must_equal final
+      final = fake :wrap
+      layer = fake :layer
+      mock(layer).call(Wrap.new text: 'I O U', width: 69) { final }
+      OneLetterGluer.new(layer).call(Wrap.new text: 'I O U', width: 69)
+        .must_equal final
     end
   end
 end end

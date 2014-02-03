@@ -1,5 +1,5 @@
 module LovelyRufus class Layer
-  def initialize next_layer = -> hash { hash }
+  def initialize next_layer = -> wrap { wrap }
     @next_layer = next_layer
   end
 
