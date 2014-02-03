@@ -6,6 +6,11 @@ module LovelyRufus describe Wrap do
       Wrap.new(text: 'Ice Ice Baby', width: 7).text.must_equal  'Ice Ice Baby'
       Wrap.new(text: 'Ice Ice Baby', width: 7).width.must_equal 7
     end
+
+    it 'defaults to empty text and width of 72' do
+      Wrap.new.text.must_equal  ''
+      Wrap.new.width.must_equal 72
+    end
   end
 
   describe '#text' do
