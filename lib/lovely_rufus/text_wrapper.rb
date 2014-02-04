@@ -1,6 +1,6 @@
 module LovelyRufus class TextWrapper
   def self.wrap text, width: 72
-    new(Wrap.new text: text, width: width).call
+    new(Wrap[text, width: width]).call
   end
 
   def initialize wrap
@@ -32,7 +32,7 @@ module LovelyRufus class TextWrapper
 
   def wrap_to size
     paras.map do |para|
-      chain.call(Wrap.new text: para, width: size).text.tr NBSP, ' '
+      chain.call(Wrap[para, width: size]).text.tr NBSP, ' '
     end.join "\n"
   end
 end end

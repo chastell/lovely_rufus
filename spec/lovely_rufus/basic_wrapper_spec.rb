@@ -10,8 +10,8 @@ module LovelyRufus describe BasicWrapper do
         a cymbal and a hi-hat
         with a souped-up tempo
       end
-      BasicWrapper.new.call(Wrap.new text: text, width: 22)
-        .must_equal Wrap.new text: wrap, width: 22
+      BasicWrapper.new.call(Wrap[text, width: 22])
+        .must_equal Wrap[wrap, width: 22]
     end
 
     it 'never extends past the given width, chopping words if necessary' do
@@ -29,16 +29,15 @@ module LovelyRufus describe BasicWrapper do
         mushr
         oom
       end
-      BasicWrapper.new.call(Wrap.new text: text, width: 5)
-        .must_equal Wrap.new text: wrap, width: 5
+      BasicWrapper.new.call(Wrap[text, width: 5])
+        .must_equal Wrap[wrap, width: 5]
     end
 
     it 'passes the fixed text to the next layer and returns its outcome' do
       final = fake :wrap
       layer = fake :layer
-      mock(layer).call(Wrap.new text: "I\nO\nU\n", width: 2) { final }
-      BasicWrapper.new(layer).call(Wrap.new text: 'I O U', width: 2)
-        .must_equal final
+      mock(layer).call(Wrap["I\nO\nU\n", width: 2]) { final }
+      BasicWrapper.new(layer).call(Wrap['I O U', width: 2]).must_equal final
     end
   end
 end end

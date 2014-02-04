@@ -11,16 +11,15 @@ module LovelyRufus describe HangoutWrapper do
         I go crazy when I hear a cymbal
         and a hi-hat with a souped-up tempo
       end
-      HangoutWrapper.new.call(Wrap.new text: text, width: 35)
-        .must_equal Wrap.new text: wrap, width: 35
+      HangoutWrapper.new.call(Wrap[text, width: 35])
+        .must_equal Wrap[wrap, width: 35]
     end
 
     it 'passes the fixed text to the next layer and returns its outcome' do
       final = fake :wrap
       layer = fake :layer
-      mock(layer).call(Wrap.new(text: "I O\nU\n", width: 4)) { final }
-      BasicWrapper.new(layer).call(Wrap.new text: "I O\nU", width: 4)
-        .must_equal final
+      mock(layer).call(Wrap["I O\nU\n", width: 4]) { final }
+      BasicWrapper.new(layer).call(Wrap["I O\nU", width: 4]).must_equal final
     end
   end
 end end
