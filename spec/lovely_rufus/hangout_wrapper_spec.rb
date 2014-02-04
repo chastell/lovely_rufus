@@ -11,8 +11,8 @@ module LovelyRufus describe HangoutWrapper do
         I go crazy when I hear a cymbal
         and a hi-hat with a souped-up tempo
       end
-      HangoutWrapper.new.call(Wrap[text, width: 35])
-        .must_equal Wrap[wrap, width: 35]
+      hw = HangoutWrapper.new
+      hw.call(Wrap[text, width: 35]).must_equal Wrap[wrap, width: 35]
     end
 
     it 'passes the fixed text to the next layer and returns its outcome' do
