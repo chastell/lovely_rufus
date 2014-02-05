@@ -13,7 +13,9 @@ module LovelyRufus class HangoutWrapper < Layer
   def hangout_line
     lines.each_cons 2 do |a, b|
       return a if a[/\p{space}/] and a.rindex(/\p{space}/) >= b.size
-      return b if b[/\p{space}/] and b.rindex(/\p{space}/) >= a.size
+      unless b == lines.last
+        return b if b[/\p{space}/] and b.rindex(/\p{space}/) >= a.size
+      end
     end
   end
 
