@@ -3,20 +3,13 @@ require_relative '../spec_helper'
 module LovelyRufus describe Wrap do
   describe '.[]' do
     it 'creates a Wrap with the given text and target width' do
-      Wrap['Ice Ice Baby', width: 7]
-        .must_equal Wrap.new text: 'Ice Ice Baby', width: 7
-    end
-  end
-
-  describe '.new' do
-    it 'creates a Wrap with the given text and target width' do
-      Wrap.new(text: 'Ice Ice Baby', width: 7).text.must_equal  'Ice Ice Baby'
-      Wrap.new(text: 'Ice Ice Baby', width: 7).width.must_equal 7
+      Wrap['Ice Ice Baby', width: 7].text.must_equal  'Ice Ice Baby'
+      Wrap['Ice Ice Baby', width: 7].width.must_equal 7
     end
 
     it 'defaults to empty text and width of 72' do
-      Wrap.new.text.must_equal  ''
-      Wrap.new.width.must_equal 72
+      Wrap[].text.must_equal  ''
+      Wrap[].width.must_equal 72
     end
   end
 

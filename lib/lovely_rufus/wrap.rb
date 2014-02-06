@@ -3,12 +3,8 @@ module LovelyRufus
     class << self
       undef []
       def [] text = '', width: 72
-        new text: text, width: width
+        new text, width
       end
-    end
-
-    def initialize text: '', width: 72
-      super text, width
     end
   end
 end
