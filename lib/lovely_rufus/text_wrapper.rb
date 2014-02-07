@@ -22,8 +22,8 @@ module LovelyRufus class TextWrapper
   private
 
   def chain
-    chain = [OneLetterGluer, BasicWrapper, HangoutWrapper].reverse
-    chain.reduce(-> wrap { wrap }) { |inner, outer| outer.new inner }
+    chain = [QuoteStripper, OneLetterGluer, BasicWrapper, HangoutWrapper]
+    chain.reverse.reduce(-> wrap { wrap }) { |inner, outer| outer.new inner }
   end
 
   def paras
