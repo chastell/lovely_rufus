@@ -11,7 +11,7 @@ module LovelyRufus describe QuoteStripper do
         To the extreme I rock a mic like a vandal
         light up a stage and wax a chump like a candle
       end
-      layer = fake :layer, call: Wrap[unquoted, width: 72]
+      layer = fake :layer, call: Wrap[unquoted, width: 70]
       QuoteStripper.new(layer).call Wrap[quoted, width: 72]
       layer.must_have_received :call, [Wrap[unquoted, width: 70]]
     end
