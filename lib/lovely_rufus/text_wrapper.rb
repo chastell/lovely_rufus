@@ -27,7 +27,7 @@ module LovelyRufus class TextWrapper
   end
 
   def paras
-    @paras ||= wrap.text.split("\n\n").map { |para| para.tr "\n", ' ' }
+    @paras ||= wrap.text.split "\n\n"
   end
 
   def wrap_to size
