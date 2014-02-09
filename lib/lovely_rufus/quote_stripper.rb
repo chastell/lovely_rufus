@@ -12,7 +12,8 @@ module LovelyRufus class QuoteStripper < Layer
   private
 
   def quote
-    @quote ||= wrap.text.lines.all? { |l| l.start_with? '> ' } ? '> ' : ''
+    starts = wrap.text.lines.map { |line| line[/^>+ /] }.uniq
+    starts.size == 1 ? starts.first || '' : ''
   end
 
   def stripped_wrap

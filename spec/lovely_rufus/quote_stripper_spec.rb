@@ -38,5 +38,19 @@ module LovelyRufus describe QuoteStripper do
       wrap = Wrap['> foo > bar']
       QuoteStripper.new.call(wrap).must_equal wrap
     end
+
+    it 'strips multilevel quotes' do
+      quoted = <<-end.dedent
+        >> ’Cause my style’s like a chemical spill
+        >> Feasible rhymes that you can vision and feel
+      end
+      unquoted = <<-end.dedent
+        ’Cause my style’s like a chemical spill
+        Feasible rhymes that you can vision and feel
+      end
+      layer = fake :layer, call: Wrap[unquoted, width: 69]
+      QuoteStripper.new(layer).call Wrap[quoted, width: 72]
+      layer.must_have_received :call, [Wrap[unquoted, width: 69]]
+    end
   end
 end end

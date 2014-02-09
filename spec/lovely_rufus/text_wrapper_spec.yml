@@ -87,3 +87,15 @@
     > oysters were a delicacy PETER couldn’t bear. On SOMERS’
     > side was turtle, on the shingle lying thick, Which
     > SOMERS couldn’t eat, because it always made him sick.
+
+# email quotes can be of any depth
+- input: |-
+    >> GRAY gnashed his teeth with envy as he saw a mighty store
+    >> Of turtle unmolested on his fellow-creature’s shore:
+    >> The oysters at his feet aside impatiently he shoved,
+    >> For turtle and his mother were the only things he loved.
+  output: |-
+    >> GRAY gnashed his teeth with envy as he saw a mighty store
+    >> Of turtle unmolested on his fellow-creature’s shore:
+    >> The oysters at his feet aside impatiently he shoved,
+    >> For turtle and his mother were the only things he loved.
