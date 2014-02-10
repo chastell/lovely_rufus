@@ -99,3 +99,15 @@
     >> Of turtle unmolested on his fellow-creature’s shore:
     >> The oysters at his feet aside impatiently he shoved,
     >> For turtle and his mother were the only things he loved.
+
+# email quotes are normalised upon wrapping
+- input: |-
+    > > >And SOMERS sighed in sorrow as he settled in the south,
+    > > >For the thought of PETER’S oysters brought the water to his mouth.
+    > > >He longed to lay him down upon the shelly bed, and stuff:
+    > > >He had often eaten oysters, but had never had enough.
+  output: |-
+    >>> And SOMERS sighed in sorrow as he settled in the south, For
+    >>> the thought of PETER’S oysters brought the water to his mouth.
+    >>> He longed to lay him down upon the shelly bed, and stuff:
+    >>> He had often eaten oysters, but had never had enough.
