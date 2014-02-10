@@ -12,7 +12,7 @@ module LovelyRufus class QuoteStripper < Layer
   private
 
   def quote
-    starts = wrap.text.lines.map { |line| line[/^>+ /] }.uniq
+    starts = wrap.text.lines.map { |line| line[/^>[> ]*/] }.uniq
     starts.size == 1 ? starts.first || '' : ''
   end
 

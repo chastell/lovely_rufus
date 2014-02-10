@@ -52,5 +52,19 @@ module LovelyRufus describe QuoteStripper do
       QuoteStripper.new(layer).call Wrap[quoted, width: 72]
       layer.must_have_received :call, [Wrap[unquoted, width: 69]]
     end
+
+    it 'strips broken quotes properly' do
+      quoted = <<-end.dedent
+        > > >conducted and formed this is a hell of a concept
+        > > >we make it hype and you want to step with this
+      end
+      unquoted = <<-end.dedent
+        conducted and formed this is a hell of a concept
+        we make it hype and you want to step with this
+      end
+      layer = fake :layer, call: Wrap[unquoted, width: 67]
+      QuoteStripper.new(layer).call Wrap[quoted, width: 72]
+      layer.must_have_received :call, [Wrap[unquoted, width: 67]]
+    end
   end
 end end
