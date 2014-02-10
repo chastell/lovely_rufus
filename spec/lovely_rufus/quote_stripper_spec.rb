@@ -66,5 +66,20 @@ module LovelyRufus describe QuoteStripper do
       QuoteStripper.new(layer).call Wrap[quoted, width: 72]
       layer.must_have_received :call, [Wrap[unquoted, width: 67]]
     end
+
+    it 'fixes broken quotes when adding them back in' do
+      quoted = <<-end.dedent
+        > > >Shay plays on the fade,
+        > > >slice like a ninja
+        > > >cut like a razor blade
+      end
+      fixed = <<-end.dedent
+        >>> Shay plays on the fade,
+        >>> slice like a ninja
+        >>> cut like a razor blade
+      end
+      wrap = Wrap[quoted, width: 72]
+      QuoteStripper.new.call(wrap).must_equal Wrap[fixed, width: 71]
+    end
   end
 end end
