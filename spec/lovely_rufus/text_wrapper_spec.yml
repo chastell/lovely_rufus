@@ -111,3 +111,24 @@
     >>> the thought of PETER’S oysters brought the water to his mouth.
     >>> He longed to lay him down upon the shelly bed, and stuff:
     >>> He had often eaten oysters, but had never had enough.
+
+# quoted paragraph breaks are cleared
+- input: |-
+    >> How they wished an introduction to each other they had had
+    >> When on board The Ballyshannon! And it drove them nearly mad
+    >> To think how very friendly with each other they might get,
+    >> If it wasn’t for the arbitrary rule of etiquette!
+    > 
+    > One day, when out a-hunting for the mus ridiculus,
+    > GRAY overheard his fellow-man soliloquising thus:
+    > ‘I wonder how the playmates of my youth are getting on,
+    > MCCONNELL, S. B. WALTERS, PADDY BYLES, and ROBINSON?’
+  output: |-
+    >> How they wished an introduction to each other they had had
+    >> When on board The Ballyshannon! And it drove them nearly
+    >> mad To think how very friendly with each other they might
+    >> get, If it wasn’t for the arbitrary rule of etiquette!
+
+    > One day, when out a-hunting for the mus ridiculus, GRAY overheard his
+    > fellow-man soliloquising thus: ‘I wonder how the playmates of my youth
+    > are getting on, MCCONNELL, S. B. WALTERS, PADDY BYLES, and ROBINSON?’
