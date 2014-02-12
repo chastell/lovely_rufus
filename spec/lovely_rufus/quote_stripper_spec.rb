@@ -62,9 +62,9 @@ module LovelyRufus describe QuoteStripper do
         conducted and formed this is a hell of a concept
         we make it hype and you want to step with this
       end
-      layer = fake :layer, call: Wrap[unquoted, width: 67]
+      layer = fake :layer, call: Wrap[unquoted, width: 68]
       QuoteStripper.new(layer).call Wrap[quoted, width: 72]
-      layer.must_have_received :call, [Wrap[unquoted, width: 67]]
+      layer.must_have_received :call, [Wrap[unquoted, width: 68]]
     end
 
     it 'fixes broken quotes when adding them back in' do
@@ -79,7 +79,7 @@ module LovelyRufus describe QuoteStripper do
         >>> cut like a razor blade
       end
       wrap = Wrap[quoted, width: 72]
-      QuoteStripper.new.call(wrap).must_equal Wrap[fixed, width: 71]
+      QuoteStripper.new.call(wrap).must_equal Wrap[fixed, width: 72]
     end
   end
 end end
