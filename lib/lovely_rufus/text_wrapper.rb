@@ -27,7 +27,9 @@ module LovelyRufus class TextWrapper
   end
 
   def paras
-    @paras ||= wrap.text.split(/\n(>[> ]*)?\n/).reject { |p| p[/^(>[> ]*)?$/] }
+    @paras ||= wrap.text.split(/\n#{QUOTES}?\n/).reject do |para|
+      para[/^#{QUOTES}?$/]
+    end
   end
 
   def wrap_to size

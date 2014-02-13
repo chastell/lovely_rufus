@@ -16,7 +16,7 @@ module LovelyRufus class QuoteStripper < Layer
   end
 
   def quote
-    starts = wrap.text.lines.map { |line| line[/^>[> ]*/] }.uniq
+    starts = wrap.text.lines.map { |line| line[/^#{QUOTES}/] }.uniq
     starts.size == 1 ? starts.first || '' : ''
   end
 

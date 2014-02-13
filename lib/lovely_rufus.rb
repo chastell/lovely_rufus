@@ -8,5 +8,6 @@ require_relative 'lovely_rufus/text_wrapper'
 require_relative 'lovely_rufus/wrap'
 
 module LovelyRufus
-  NBSP = "\u00A0"
+  NBSP   = "\u00A0"
+  QUOTES = />[> ]*/
 end
