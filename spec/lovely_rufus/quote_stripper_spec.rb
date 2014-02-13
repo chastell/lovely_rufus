@@ -81,5 +81,33 @@ module LovelyRufus describe QuoteStripper do
       wrap = Wrap[quoted, width: 72]
       QuoteStripper.new.call(wrap).must_equal Wrap[fixed, width: 72]
     end
+
+    it 'strips // code comments' do
+      quoted = <<-end.dedent
+        // so fast other DJs say ‘damn!’
+        // if my rhyme was a drug I’d sell it by the gram
+      end
+      unquoted = <<-end.dedent
+        so fast other DJs say ‘damn!’
+        if my rhyme was a drug I’d sell it by the gram
+      end
+      layer = fake :layer, call: Wrap[unquoted, width: 69]
+      QuoteStripper.new(layer).call Wrap[quoted, width: 72]
+      layer.must_have_received :call, [Wrap[unquoted, width: 69]]
+    end
+
+    it 'strips # code comments' do
+      quoted = <<-end.dedent
+        # keep my composure when it’s time to get loose
+        # magnetized by the mic while I kick my juice
+      end
+      unquoted = <<-end.dedent
+        keep my composure when it’s time to get loose
+        magnetized by the mic while I kick my juice
+      end
+      layer = fake :layer, call: Wrap[unquoted, width: 70]
+      QuoteStripper.new(layer).call Wrap[quoted, width: 72]
+      layer.must_have_received :call, [Wrap[unquoted, width: 70]]
+    end
   end
 end end
