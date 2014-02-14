@@ -34,9 +34,9 @@
     And SOMERS, who from Eastern shores imported indigo.
   output: |-
     Besides the captain and the mate, the owners and the crew,
-    The passengers were also drowned, excepting only two:
-    Young PETER GRAY, who tasted teas for BAKER, CROOP, AND
-    CO., And SOMERS, who from Eastern shores imported indigo.
+    The passengers were also drowned, excepting only two: Young
+    PETER GRAY, who tasted teas for BAKER, CROOP, AND CO.,
+    And SOMERS, who from Eastern shores imported indigo.
 
 # one-letter words are not left at line ends
 - width: 39
@@ -46,10 +46,10 @@
     They hunted for their meals, as ALEXANDER SELKIRK used,
     But they couldn’t chat together — they had not been introduced.
   output: |-
-    These passengers, by reason of
-    their clinging to a mast, Upon
-    a desert island were eventually
-    cast. They hunted for their meals,
+    These passengers, by reason of their
+    clinging to a mast, Upon a desert
+    island were eventually cast.
+    They hunted for their meals,
     as ALEXANDER SELKIRK used, But
     they couldn’t chat together —
     they had not been introduced.
@@ -150,9 +150,9 @@
     And MR. SOMERS’ turtle was at PETER’S service quite,
     And MR. SOMERS punished PETER’S oyster-beds all night.
   output: |-
-    // These simple words made PETER as delighted as could be, Old
-    // chummies at the Charterhouse were ROBINSON and he! He walked
-    // straight up to SOMERS, then he turned extremely red, Hesitated,
+    // These simple words made PETER as delighted as could be, Old chummies
+    // at the Charterhouse were ROBINSON and he! He walked straight
+    // up to SOMERS, then he turned extremely red, Hesitated,
     // hummed and hawed a bit, then cleared his throat, and said:
 
     # ‘I beg your pardon—pray forgive me if I seem too bold,
