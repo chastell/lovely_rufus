@@ -8,7 +8,9 @@ module LovelyRufus class TextWrapper
   end
 
   def call
-    wrap_to wrap.width
+    paras.map do |para|
+      chain.call(Wrap[para, width: wrap.width]).text.tr NBSP, ' '
+    end.join "\n"
   end
 
   attr_reader :wrap
@@ -23,11 +25,5 @@ module LovelyRufus class TextWrapper
 
   def paras
     wrap.text.split(/\n#{QUOTES}?\n/).reject { |para| para[/^#{QUOTES}?$/] }
-  end
-
-  def wrap_to size
-    paras.map do |para|
-      chain.call(Wrap[para, width: size]).text.tr NBSP, ' '
-    end.join "\n"
   end
 end end
