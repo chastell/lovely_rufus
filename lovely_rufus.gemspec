@@ -5,6 +5,7 @@ Gem::Specification.new do |gem|
   gem.homepage = 'http://github.com/chastell/lovely_rufus'
   gem.author   = 'Piotr Szotkowski'
   gem.email    = 'chastell@chastell.net'
+  gem.license  = 'AGPL-3.0'
 
   gem.files       = `git ls-files -z`.split "\0"
   gem.executables = gem.files.grep(%r{^bin/}).map { |path| File.basename path }
