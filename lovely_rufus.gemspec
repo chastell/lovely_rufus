@@ -1,11 +1,12 @@
 Gem::Specification.new do |gem|
-  gem.name     = 'lovely_rufus'
-  gem.version  = '0.1.0'
-  gem.summary  = 'lovely_rufus: text wrapper'
-  gem.homepage = 'http://github.com/chastell/lovely_rufus'
-  gem.author   = 'Piotr Szotkowski'
-  gem.email    = 'chastell@chastell.net'
-  gem.license  = 'AGPL-3.0'
+  gem.name        = 'lovely_rufus'
+  gem.version     = '0.1.0'
+  gem.summary     = 'lovely_rufus: text wrapper'
+  gem.homepage    = 'http://github.com/chastell/lovely_rufus'
+  gem.author      = 'Piotr Szotkowski'
+  gem.email       = 'chastell@chastell.net'
+  gem.license     = 'AGPL-3.0'
+  gem.description = 'An executable and a Ruby library for wrapping paragraphs of text.'
 
   gem.files       = `git ls-files -z`.split "\0"
   gem.executables = gem.files.grep(%r{^bin/}).map { |path| File.basename path }
