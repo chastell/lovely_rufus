@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/lovely_rufus'
+LovelyRufus::CLIWrapper.new.run
