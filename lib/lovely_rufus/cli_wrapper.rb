@@ -1,10 +1,12 @@
+require 'optparse'
+
 module LovelyRufus class CLIWrapper
-  def initialize args = [], text_wrapper: TextWrapper
+  def initialize args = ARGV, text_wrapper: TextWrapper
     @settings     = Settings.new args
     @text_wrapper = text_wrapper
   end
 
-  def run stream
+  def run stream = $stdin
     puts text_wrapper.wrap stream.read, width: settings.width
   end
 
