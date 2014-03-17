@@ -20,7 +20,7 @@ module LovelyRufus describe CLIWrapper do
       stub(text_wrapper).wrap(text, width: 22) { wrap }
       lambda do
         stream = StringIO.new text
-        CLIWrapper.new(%w[--width 22], text_wrapper: text_wrapper).run stream
+        CLIWrapper.new(%w(--width 22), text_wrapper: text_wrapper).run stream
       end.must_output wrap
     end
   end
