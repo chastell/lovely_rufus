@@ -14,20 +14,17 @@ module LovelyRufus describe BasicWrapper do
       bw.call(Wrap[text, width: 22]).must_equal Wrap[wrap, width: 22]
     end
 
-    it 'never extends past the given width, chopping words if necessary' do
+    it 'extends past the given width when necessary' do
       text = 'I’m killing your brain like a poisonous mushroom'
       wrap = <<-end.dedent
         I’m
-        killi
-        ng
+        killing
         your
         brain
         like
         a
-        poiso
-        nous
-        mushr
-        oom
+        poisonous
+        mushroom
       end
       bw = BasicWrapper.new
       bw.call(Wrap[text, width: 5]).must_equal Wrap[wrap, width: 5]
