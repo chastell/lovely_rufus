@@ -1,3 +1,8 @@
+DuplicateMethodCall:
+  exclude:
+  - LovelyRufus::BasicWrapper#call
+  - LovelyRufus::HangoutWrapper#rewrapped
+
 IrresponsibleModule:
   enabled: false
 
