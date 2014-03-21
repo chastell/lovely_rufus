@@ -3,6 +3,12 @@ DuplicateMethodCall:
   - LovelyRufus::BasicWrapper#call
   - LovelyRufus::HangoutWrapper#rewrapped
 
+FeatureEnvy:
+  exclude:
+  - LovelyRufus::HangoutWrapper#hangout_line
+  - LovelyRufus::OneLetterGluer#call
+  - LovelyRufus::QuoteStripper#quote
+
 IrresponsibleModule:
   enabled: false
 
