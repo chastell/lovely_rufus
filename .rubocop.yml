@@ -10,6 +10,10 @@ Documentation:
 EndAlignment:
   Enabled: false
 
+FileName:
+  Exclude:
+    - bin/lovely-rufus
+
 IndentationWidth:
   Enabled: false
 
