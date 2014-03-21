@@ -5,6 +5,7 @@ DuplicateMethodCall:
 
 FeatureEnvy:
   exclude:
+  - LovelyRufus::BasicWrapper#call
   - LovelyRufus::HangoutWrapper#hangout_line
   - LovelyRufus::OneLetterGluer#call
   - LovelyRufus::QuoteStripper#quote
