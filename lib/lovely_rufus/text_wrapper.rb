@@ -24,6 +24,6 @@ module LovelyRufus class TextWrapper
   end
 
   def paras
-    wrap.text.split(/\n#{QUOTES}?\n/).reject { |para| para[/^#{QUOTES}?$/] }
+    wrap.text.split(/\n#{QUOTES}?\n/).reject { |para| para[/^(#{QUOTES}| )$/] }
   end
 end end

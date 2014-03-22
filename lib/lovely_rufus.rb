@@ -9,5 +9,5 @@ require_relative 'lovely_rufus/wrap'
 
 module LovelyRufus
   NBSP   = "\u00A0"
-  QUOTES = %r{[>/#][>/# ]*}
+  QUOTES = /([>\/#])(\1| )*/
 end

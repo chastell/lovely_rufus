@@ -109,5 +109,19 @@ module LovelyRufus describe QuoteStripper do
       QuoteStripper.new(layer).call Wrap[quoted, width: 72]
       layer.must_have_received :call, [Wrap[unquoted, width: 70]]
     end
+
+    it 'only considers homogenous characters as comments' do
+      quoted = <<-end.dedent
+        > /if there was a problem,
+        > yo – I’ll solve it!/
+      end
+      unquoted = <<-end.dedent
+        /if there was a problem,
+        yo – I’ll solve it!/
+      end
+      layer = fake :layer, call: Wrap[unquoted, width: 70]
+      QuoteStripper.new(layer).call Wrap[quoted, width: 72]
+      layer.must_have_received :call, [Wrap[unquoted, width: 70]]
+    end
   end
 end end
