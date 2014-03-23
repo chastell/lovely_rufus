@@ -35,7 +35,7 @@ module LovelyRufus describe QuoteStripper do
     end
 
     it 'does not alter text contents' do
-      wrap = Wrap['> foo > bar']
+      wrap = Wrap['> Ice > Ice > Baby']
       QuoteStripper.new.call(wrap).must_equal wrap
     end
 
