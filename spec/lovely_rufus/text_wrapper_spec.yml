@@ -34,9 +34,9 @@
     And SOMERS, who from Eastern shores imported indigo.
   output: |-
     Besides the captain and the mate, the owners and the crew,
-    The passengers were also drowned, excepting only two:
-    Young PETER GRAY, who tasted teas for BAKER, CROOP, AND
-    CO., And SOMERS, who from Eastern shores imported indigo.
+    The passengers were also drowned, excepting only two: Young
+    PETER GRAY, who tasted teas for BAKER, CROOP, AND CO.,
+    And SOMERS, who from Eastern shores imported indigo.
 
 # one-letter words are not left at line ends
 - width: 39
@@ -46,10 +46,10 @@
     They hunted for their meals, as ALEXANDER SELKIRK used,
     But they couldn’t chat together — they had not been introduced.
   output: |-
-    These passengers, by reason of
-    their clinging to a mast, Upon
-    a desert island were eventually
-    cast. They hunted for their meals,
+    These passengers, by reason of their
+    clinging to a mast, Upon a desert
+    island were eventually cast.
+    They hunted for their meals,
     as ALEXANDER SELKIRK used, But
     they couldn’t chat together —
     they had not been introduced.
@@ -107,10 +107,10 @@
     > > >He longed to lay him down upon the shelly bed, and stuff:
     > > >He had often eaten oysters, but had never had enough.
   output: |-
-    >>> And SOMERS sighed in sorrow as he settled in the south,
-    >>> For the thought of PETER’S oysters brought the water to
-    >>> his mouth. He longed to lay him down upon the shelly bed,
-    >>> and stuff: He had often eaten oysters, but had never had enough.
+    >>> And SOMERS sighed in sorrow as he settled in the south, For
+    >>> the thought of PETER’S oysters brought the water to his mouth.
+    >>> He longed to lay him down upon the shelly bed, and stuff:
+    >>> He had often eaten oysters, but had never had enough.
 
 # quoted paragraph breaks are cleared
 - input: |-
@@ -157,8 +157,8 @@
 
     # ‘I beg your pardon—pray forgive me if I seem too bold,
     # But you have breathed a name I knew familiarly of old.
-    # You spoke aloud of ROBINSON – I happened to be by—
-    # You know him?’ ‘Yes, extremely well.’ ‘Allow me – so do I!’
+    # You spoke aloud of ROBINSON – I happened to be by— You
+    # know him?’ ‘Yes, extremely well.’ ‘Allow me – so do I!’
 
     It was enough: they felt they could more sociably get on,
     For (ah, the magic of the fact!) they each knew ROBINSON!
