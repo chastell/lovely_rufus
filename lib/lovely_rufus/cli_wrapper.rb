@@ -13,8 +13,6 @@ module LovelyRufus class CLIWrapper
   attr_reader :settings, :text_wrapper
   private     :settings, :text_wrapper
 
-  private
-
   class Settings
     attr_reader :width
 
