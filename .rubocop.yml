@@ -22,3 +22,6 @@ MethodDefParentheses:
 
 SingleLineBlockParams:
   Enabled: false
+
+SingleSpaceBeforeFirstArg:
+  Enabled: false
