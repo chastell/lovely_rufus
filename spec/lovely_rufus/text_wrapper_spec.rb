@@ -28,6 +28,14 @@ module LovelyRufus describe TextWrapper do
       end
     end
 
+    it 'rewraps a String from zero' do
+      broken = <<-end.dedent
+        turn off
+        the lights and I’ll glow
+      end
+      TextWrapper.wrap(broken).must_equal "turn off the lights and I’ll glow\n"
+    end
+
     it 'supports all the example use-cases' do
       path = File.expand_path 'text_wrapper_spec.yml', __dir__
       YAML.load_file(path).each do |spec|
