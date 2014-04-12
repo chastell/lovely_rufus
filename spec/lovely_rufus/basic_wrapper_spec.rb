@@ -30,6 +30,15 @@ module LovelyRufus describe BasicWrapper do
       bw.call(Wrap[text, width: 5]).must_equal Wrap[wrap, width: 5]
     end
 
+    it 'rewraps a String from zero' do
+      text = <<-end.dedent
+        turn off
+        the lights and I’ll glow
+      end
+      wrap = "turn off the lights and I’ll glow\n"
+      BasicWrapper.new.call(Wrap[text]).must_equal Wrap[wrap]
+    end
+
     it 'passes the fixed text to the next layer and returns its outcome' do
       final = fake :wrap
       layer = fake :layer
