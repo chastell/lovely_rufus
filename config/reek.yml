@@ -23,4 +23,3 @@ UncommunicativeVariableName:
 UnusedParameters:
   exclude:
   - LovelyRufus::Layer#call
-  - LovelyRufus::OneLetterGluer#call
