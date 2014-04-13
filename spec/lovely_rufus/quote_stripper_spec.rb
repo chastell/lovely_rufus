@@ -1,4 +1,5 @@
 require_relative '../spec_helper'
+require_relative '../../lib/lovely_rufus/quote_stripper'
 
 module LovelyRufus describe QuoteStripper do
   describe '#call' do

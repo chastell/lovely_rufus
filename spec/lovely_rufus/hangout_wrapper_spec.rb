@@ -1,4 +1,5 @@
 require_relative '../spec_helper'
+require_relative '../../lib/lovely_rufus/hangout_wrapper'
 
 module LovelyRufus describe HangoutWrapper do
   describe '#call' do

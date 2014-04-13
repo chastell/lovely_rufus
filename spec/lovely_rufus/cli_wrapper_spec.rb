@@ -1,4 +1,5 @@
 require_relative '../spec_helper'
+require_relative '../../lib/lovely_rufus/cli_wrapper'
 
 module LovelyRufus describe CLIWrapper do
   describe '#run' do

@@ -1,4 +1,5 @@
 require 'optparse'
+require_relative 'text_wrapper'
 
 module LovelyRufus class CLIWrapper
   def initialize args = ARGV, text_wrapper: TextWrapper

@@ -1,4 +1,5 @@
 require_relative '../spec_helper'
+require_relative '../../lib/lovely_rufus/one_letter_gluer'
 
 module LovelyRufus describe OneLetterGluer do
   describe '#call' do

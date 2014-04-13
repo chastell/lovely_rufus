@@ -1,3 +1,9 @@
+require_relative 'basic_wrapper'
+require_relative 'hangout_wrapper'
+require_relative 'one_letter_gluer'
+require_relative 'quote_stripper'
+require_relative 'wrap'
+
 module LovelyRufus class TextWrapper
   def self.wrap text, width: 72
     new(Wrap[text, width: width]).call

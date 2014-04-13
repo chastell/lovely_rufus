@@ -1,3 +1,7 @@
+require_relative 'basic_wrapper'
+require_relative 'layer'
+require_relative 'wrap'
+
 module LovelyRufus class HangoutWrapper < Layer
   def call wrap
     @wrap  = wrap

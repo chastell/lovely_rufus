@@ -1,3 +1,6 @@
+require_relative 'layer'
+require_relative 'wrap'
+
 module LovelyRufus class QuoteStripper < Layer
   def call wrap
     @wrap   = wrap

@@ -1,3 +1,6 @@
+require_relative 'layer'
+require_relative 'wrap'
+
 module LovelyRufus class OneLetterGluer < Layer
   def call wrap
     pattern = /(?<=\p{space})(&|\p{letter})\p{space}/

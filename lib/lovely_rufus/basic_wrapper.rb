@@ -1,3 +1,6 @@
+require_relative 'layer'
+require_relative 'wrap'
+
 module LovelyRufus class BasicWrapper < Layer
   def call wrap
     unwrapped = wrap.text.tr("\n", ' ').strip

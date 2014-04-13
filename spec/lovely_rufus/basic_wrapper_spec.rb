@@ -1,4 +1,5 @@
 require_relative '../spec_helper'
+require_relative '../../lib/lovely_rufus/basic_wrapper'
 
 module LovelyRufus describe BasicWrapper do
   describe '#call' do

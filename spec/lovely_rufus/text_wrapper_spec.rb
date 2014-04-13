@@ -1,4 +1,5 @@
 require_relative '../spec_helper'
+require_relative '../../lib/lovely_rufus/text_wrapper'
 
 module LovelyRufus describe TextWrapper do
   describe '.wrap' do
