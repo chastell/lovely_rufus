@@ -1,3 +1,4 @@
+require 'yaml'
 require_relative '../spec_helper'
 require_relative '../../lib/lovely_rufus/text_wrapper'
 
