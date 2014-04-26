@@ -1,6 +1,7 @@
 Gem::Specification.new do |gem|
   gem.author      = 'Piotr Szotkowski'
-  gem.description = 'An executable and a Ruby library for wrapping paragraphs of text.'
+  gem.description = 'An executable and a Ruby library for wrapping ' \
+                    'paragraphs of text.'
   gem.email       = 'chastell@chastell.net'
   gem.homepage    = 'http://github.com/chastell/lovely_rufus'
   gem.license     = 'AGPL-3.0'
