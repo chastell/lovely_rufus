@@ -3,7 +3,7 @@ module LovelyRufus class Layer
     @next_layer = next_layer
   end
 
-  def call opts = {}
+  def call _opts = {}
     fail 'Layer subclasses must define #call'
   end
 

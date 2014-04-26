@@ -19,7 +19,3 @@ NestedIterators:
 UncommunicativeVariableName:
   exclude:
   - LovelyRufus::HangoutWrapper#hangout_line
-
-UnusedParameters:
-  exclude:
-  - LovelyRufus::Layer#call
