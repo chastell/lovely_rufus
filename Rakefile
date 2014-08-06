@@ -15,4 +15,4 @@ Reek::Rake::Task.new do |task|
   task.reek_opts     = '--quiet'
 end
 
-Rubocop::RakeTask.new
+RuboCop::RakeTask.new
