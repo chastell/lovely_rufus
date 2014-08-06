@@ -1,21 +1,12 @@
-AccessModifierIndentation:
-  Enabled: false
-
 AndOr:
   Enabled: false
 
 Documentation:
   Enabled: false
 
-EndAlignment:
-  Enabled: false
-
 FileName:
   Exclude:
     - bin/lovely-rufus
-
-IndentationWidth:
-  Enabled: false
 
 MethodDefParentheses:
   EnforcedStyle: require_no_parentheses
