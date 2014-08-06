@@ -4,7 +4,7 @@ require_relative 'wrap'
 
 module LovelyRufus
   class HangoutWrapper < Layer
-    def call wrap
+    def call(wrap)
       @wrap  = wrap
       final  = hangout_line ? rewrapped : wrap.text
       next_layer.call Wrap[final, width: wrap.width]

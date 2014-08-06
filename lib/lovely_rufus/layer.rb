@@ -1,10 +1,10 @@
 module LovelyRufus
   class Layer
-    def initialize next_layer = -> wrap { wrap }
+    def initialize(next_layer = -> wrap { wrap })
       @next_layer = next_layer
     end
 
-    def call _opts = {}
+    def call(_opts = {})
       fail 'Layer subclasses must define #call'
     end
 

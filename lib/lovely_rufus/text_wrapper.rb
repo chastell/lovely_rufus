@@ -6,11 +6,11 @@ require_relative 'wrap'
 
 module LovelyRufus
   class TextWrapper
-    def self.wrap text, width: 72
+    def self.wrap(text, width: 72)
       new(Wrap[text, width: width]).call
     end
 
-    def initialize wrap
+    def initialize(wrap)
       @wrap = wrap
     end
 

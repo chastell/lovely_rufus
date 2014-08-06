@@ -3,12 +3,12 @@ require_relative 'text_wrapper'
 
 module LovelyRufus
   class CLIWrapper
-    def initialize args = ARGV, text_wrapper: TextWrapper
+    def initialize(args = ARGV, text_wrapper: TextWrapper)
       @settings     = Settings.new args
       @text_wrapper = text_wrapper
     end
 
-    def run stream = $stdin
+    def run(stream = $stdin)
       puts text_wrapper.wrap stream.read, width: settings.width
     end
 
@@ -18,7 +18,7 @@ module LovelyRufus
     class Settings
       attr_reader :width
 
-      def initialize args
+      def initialize(args)
         @width = 72
         OptionParser.new do |opts|
           opts.on '-w', '--width WIDTH', Integer, 'Wrapping width' do |width|

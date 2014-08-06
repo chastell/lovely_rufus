@@ -3,7 +3,7 @@ require_relative 'wrap'
 
 module LovelyRufus
   class QuoteStripper < Layer
-    def call wrap
+    def call(wrap)
       @wrap   = wrap
       wrapped = next_layer.call stripped_wrap
       quoted  = wrapped.text.lines.map { |line| fixed_quote + line }.join
