@@ -8,9 +8,6 @@ FileName:
   Exclude:
     - bin/lovely-rufus
 
-MethodDefParentheses:
-  EnforcedStyle: require_no_parentheses
-
 SingleLineBlockParams:
   Enabled: false
 
