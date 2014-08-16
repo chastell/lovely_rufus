@@ -1,4 +1,4 @@
-require 'optparse'
+require_relative 'settings'
 require_relative 'text_wrapper'
 
 module LovelyRufus
@@ -14,18 +14,5 @@ module LovelyRufus
 
     attr_reader :settings, :text_wrapper
     private     :settings, :text_wrapper
-
-    class Settings
-      attr_reader :width
-
-      def initialize(args)
-        @width = 72
-        OptionParser.new do |opts|
-          opts.on '-w', '--width WIDTH', Integer, 'Wrapping width' do |width|
-            @width = width
-          end
-        end.parse! args
-      end
-    end
   end
 end
