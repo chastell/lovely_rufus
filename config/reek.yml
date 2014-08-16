@@ -1,14 +1,14 @@
 DuplicateMethodCall:
   exclude:
-  - LovelyRufus::BasicWrapper#call
-  - LovelyRufus::HangoutWrapper#rewrapped
+    - LovelyRufus::BasicWrapper#call
+    - LovelyRufus::HangoutWrapper#rewrapped
 
 FeatureEnvy:
   exclude:
-  - LovelyRufus::BasicWrapper#call
-  - LovelyRufus::HangoutWrapper#hangout_line
-  - LovelyRufus::OneLetterGluer#call
-  - LovelyRufus::QuoteStripper#quote
+    - LovelyRufus::BasicWrapper#call
+    - LovelyRufus::HangoutWrapper#hangout_line
+    - LovelyRufus::OneLetterGluer#call
+    - LovelyRufus::QuoteStripper#quote
 
 IrresponsibleModule:
   enabled: false
@@ -18,4 +18,4 @@ NestedIterators:
 
 UncommunicativeVariableName:
   exclude:
-  - LovelyRufus::HangoutWrapper#hangout_line
+    - LovelyRufus::HangoutWrapper#hangout_line
