@@ -8,10 +8,6 @@ FileName:
   Exclude:
     - bin/lovely-rufus
 
-Next:
-  Exclude:
-    - lib/lovely_rufus/hangout_wrapper.rb
-
 SingleLineBlockParams:
   Enabled: false
 
