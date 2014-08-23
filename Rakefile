@@ -15,4 +15,6 @@ Reek::Rake::Task.new do |task|
   task.reek_opts     = '--quiet'
 end
 
-RuboCop::RakeTask.new
+RuboCop::RakeTask.new do |task|
+  task.options << '--display-cop-names'
+end
