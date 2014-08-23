@@ -1,14 +1,12 @@
 require 'optparse'
 
 module LovelyRufus
-  class Settings
-    attr_reader :width
-
+  Settings = Struct.new :width do
     def initialize(args)
-      @width = 72
+      self.width = 72
       OptionParser.new do |opts|
         opts.on '-w', '--width WIDTH', Integer, 'Wrapping width' do |width|
-          @width = width
+          self.width = width
         end
       end.parse! args
     end
