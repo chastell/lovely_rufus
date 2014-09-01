@@ -5,7 +5,7 @@ module LovelyRufus
     def initialize(args)
       self.width = 72
       OptionParser.new do |opts|
-        opts.on '-w', '--width=WIDTH', Integer, 'Wrapping width' do |width|
+        opts.on('-w', '--width=WIDTH', Integer, 'Wrapping width') do |width|
           self.width = width
         end
       end.parse! args
