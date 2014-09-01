@@ -27,7 +27,8 @@ module LovelyRufus
 
     def chain
       layers = [QuoteStripper, OneLetterGluer, BasicWrapper, HangoutWrapper]
-      layers.reverse.reduce(-> wrap { wrap }) { |inner, outer| outer.new inner }
+      identity = -> (wrap) { wrap }
+      layers.reverse.reduce(identity) { |inner, outer| outer.new inner }
     end
 
     def paras
