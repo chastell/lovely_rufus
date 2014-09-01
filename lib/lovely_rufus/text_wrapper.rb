@@ -16,8 +16,8 @@ module LovelyRufus
 
     def call
       paras.map do |para|
-        chain.call(Wrap[para, width: wrap.width]).text.tr NBSP, ' '
-      end.join "\n"
+        chain.call(Wrap[para, width: wrap.width]).text.tr(NBSP, ' ')
+      end.join("\n")
     end
 
     attr_reader :wrap
@@ -28,7 +28,7 @@ module LovelyRufus
     def chain
       layers = [QuoteStripper, OneLetterGluer, BasicWrapper, HangoutWrapper]
       identity = -> (wrap) { wrap }
-      layers.reverse.reduce(identity) { |inner, outer| outer.new inner }
+      layers.reverse.reduce(identity) { |inner, outer| outer.new(inner) }
     end
 
     def paras

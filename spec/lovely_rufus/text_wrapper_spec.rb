@@ -36,12 +36,12 @@ module LovelyRufus
           turn off
           the lights and I’ll glow
         end
-        wrapped = TextWrapper.wrap broken
+        wrapped = TextWrapper.wrap(broken)
         wrapped.must_equal "turn off the lights and I’ll glow\n"
       end
 
       it 'supports all the example use-cases' do
-        path = File.expand_path 'text_wrapper_spec.yml', __dir__
+        path = File.expand_path('text_wrapper_spec.yml', __dir__)
         YAML.load_file(path).each do |spec|
           width = spec.fetch('width') { 72 }
           wrap  = "#{spec['output']}\n"

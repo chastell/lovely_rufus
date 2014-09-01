@@ -7,7 +7,7 @@ module LovelyRufus
     def call(wrap)
       @wrap  = wrap
       final  = hangout_line ? rewrapped : wrap.text
-      next_layer.call Wrap[final, width: wrap.width]
+      next_layer.call(Wrap[final, width: wrap.width])
     end
 
     attr_reader :wrap

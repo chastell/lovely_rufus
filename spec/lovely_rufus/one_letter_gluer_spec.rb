@@ -20,10 +20,10 @@ module LovelyRufus
       end
 
       it 'passes the fixed text to the next layer and returns its outcome' do
-        final = fake :wrap
-        layer = fake :layer
+        final = fake(:wrap)
+        layer = fake(:layer)
         mock(layer).call(Wrap['I O U', width: 69]) { final }
-        glued = OneLetterGluer.new(layer).call Wrap['I O U', width: 69]
+        glued = OneLetterGluer.new(layer).call(Wrap['I O U', width: 69])
         glued.must_equal final
       end
     end

@@ -1,7 +1,7 @@
 require 'optparse'
 
 module LovelyRufus
-  Settings = Struct.new :width do
+  Settings = Struct.new(:width) do
     def initialize(args)
       self.width = 72
       OptionParser.new do |opts|

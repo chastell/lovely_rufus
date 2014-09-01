@@ -14,8 +14,8 @@ module LovelyRufus
           to the extreme I rock a mic like a vandal
           light up a stage and wax a chump like a candle
         end
-        layer = fake :layer, call: Wrap[unquoted, width: 70]
-        QuoteStripper.new(layer).call Wrap[quoted, width: 72]
+        layer = fake(:layer, call: Wrap[unquoted, width: 70])
+        QuoteStripper.new(layer).call(Wrap[quoted, width: 72])
         layer.must_have_received :call, [Wrap[unquoted, width: 70]]
       end
 
@@ -51,8 +51,8 @@ module LovelyRufus
           ’cause my style’s like a chemical spill
           feasible rhymes that you can vision and feel
         end
-        layer = fake :layer, call: Wrap[unquoted, width: 69]
-        QuoteStripper.new(layer).call Wrap[quoted, width: 72]
+        layer = fake(:layer, call: Wrap[unquoted, width: 69])
+        QuoteStripper.new(layer).call(Wrap[quoted, width: 72])
         layer.must_have_received :call, [Wrap[unquoted, width: 69]]
       end
 
@@ -65,8 +65,8 @@ module LovelyRufus
           conducted and formed this is a hell of a concept
           we make it hype and you want to step with this
         end
-        layer = fake :layer, call: Wrap[unquoted, width: 68]
-        QuoteStripper.new(layer).call Wrap[quoted, width: 72]
+        layer = fake(:layer, call: Wrap[unquoted, width: 68])
+        QuoteStripper.new(layer).call(Wrap[quoted, width: 72])
         layer.must_have_received :call, [Wrap[unquoted, width: 68]]
       end
 
@@ -94,8 +94,8 @@ module LovelyRufus
           so fast other DJs say ‘damn!’
           if my rhyme was a drug I’d sell it by the gram
         end
-        layer = fake :layer, call: Wrap[unquoted, width: 69]
-        QuoteStripper.new(layer).call Wrap[quoted, width: 72]
+        layer = fake(:layer, call: Wrap[unquoted, width: 69])
+        QuoteStripper.new(layer).call(Wrap[quoted, width: 72])
         layer.must_have_received :call, [Wrap[unquoted, width: 69]]
       end
 
@@ -108,8 +108,8 @@ module LovelyRufus
           keep my composure when it’s time to get loose
           magnetized by the mic while I kick my juice
         end
-        layer = fake :layer, call: Wrap[unquoted, width: 70]
-        QuoteStripper.new(layer).call Wrap[quoted, width: 72]
+        layer = fake(:layer, call: Wrap[unquoted, width: 70])
+        QuoteStripper.new(layer).call(Wrap[quoted, width: 72])
         layer.must_have_received :call, [Wrap[unquoted, width: 70]]
       end
 
@@ -122,8 +122,8 @@ module LovelyRufus
           /if there was a problem,
           yo – I’ll solve it!/
         end
-        layer = fake :layer, call: Wrap[unquoted, width: 70]
-        QuoteStripper.new(layer).call Wrap[quoted, width: 72]
+        layer = fake(:layer, call: Wrap[unquoted, width: 70])
+        QuoteStripper.new(layer).call(Wrap[quoted, width: 72])
         layer.must_have_received :call, [Wrap[unquoted, width: 70]]
       end
     end

@@ -43,8 +43,8 @@ module LovelyRufus
       end
 
       it 'passes the fixed text to the next layer and returns its outcome' do
-        final = fake :wrap
-        layer = fake :layer
+        final = fake(:wrap)
+        layer = fake(:layer)
         mock(layer).call(Wrap["I\nO\nU\n", width: 2]) { final }
         BasicWrapper.new(layer).call(Wrap['I O U', width: 2]).must_equal final
       end
