@@ -9,6 +9,6 @@ Bogus.configure { |config| config.search_modules << LovelyRufus }
 
 class String
   def dedent
-    gsub(/^#{self[/\A\s*/]}/, '')
+    gsub(/^#{scan(/^ +/).min}/, '')
   end
 end
