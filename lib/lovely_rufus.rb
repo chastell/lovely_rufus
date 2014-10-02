@@ -2,8 +2,8 @@ module LovelyRufus
   NBSP   = "\u00A0"
   QUOTES = /^([>\/#])(\1| )*/
 
-  def self.wrap(text, width: 72)
-    TextWrapper.wrap(text, width: width)
+  def self.wrap(text, text_wrapper: TextWrapper, width: 72)
+    text_wrapper.wrap(text, width: width)
   end
 end
 

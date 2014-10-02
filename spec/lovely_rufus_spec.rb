@@ -4,6 +4,13 @@ require_relative '../lib/lovely_rufus'
 
 describe LovelyRufus do
   describe '.wrap' do
+    it 'forwards the wrapping to TextWrapper' do
+      text_wrapper = fake(:text_wrapper, as: :class)
+      stub(text_wrapper).wrap('Ice Ice Baby', width: 7) { "Ice Ice\nBaby" }
+      LovelyRufus.wrap('Ice Ice Baby', text_wrapper: text_wrapper, width: 7)
+        .must_equal "Ice Ice\nBaby"
+    end
+
     it 'wraps the passed String to 72 characters by default' do
       short = 'all right: stop, collaborate and listen'
       long  = short + ' – Ice is back with a brand new invention'
