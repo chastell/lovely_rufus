@@ -4,7 +4,7 @@ require_relative '../lib/lovely_rufus'
 
 describe LovelyRufus do
   describe '.wrap' do
-    it 'forwards the wrapping to TextWrapper' do
+    it 'offloads the wrapping to TextWrapper' do
       text_wrapper = fake(:text_wrapper, as: :class)
       stub(text_wrapper).wrap('Ice Ice Baby', width: 7) { "Ice Ice\nBaby" }
       LovelyRufus.wrap('Ice Ice Baby', text_wrapper: text_wrapper, width: 7)
