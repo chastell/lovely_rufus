@@ -12,14 +12,9 @@ describe LovelyRufus do
     end
 
     it 'wraps the passed String to 72 characters by default' do
-      short = 'all right: stop, collaborate and listen'
-      long  = short + ' – Ice is back with a brand new invention'
-      wrap  = <<-end.dedent
-        all right: stop, collaborate and listen
-        – Ice is back with a brand new invention
-      end
-      LovelyRufus.wrap(short).must_equal "#{short}\n"
-      LovelyRufus.wrap(long).must_equal wrap
+      text_wrapper = fake(:text_wrapper, as: :class)
+      LovelyRufus.wrap 'Ice Ice Baby', text_wrapper: text_wrapper
+      text_wrapper.must_have_received :wrap, ['Ice Ice Baby', { width: 72 }]
     end
 
     it 'wraps the passed String to the given number of characters' do
