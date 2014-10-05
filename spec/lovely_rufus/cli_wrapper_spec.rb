@@ -16,15 +16,11 @@ module LovelyRufus
       end
 
       it 'accepts the desired width and passes it to TextWrapper' do
-        wrap = <<-end.dedent
-          all right: stop,
-          collaborate and listen
-        end
-        stub(text_wrapper).wrap(text, width: 22) { wrap }
-        lambda do
+        capture_io do
           stream = StringIO.new(text)
           CLIWrapper.new(%w(--width=22), text_wrapper: text_wrapper).run stream
-        end.must_output wrap
+        end
+        text_wrapper.must_have_received :wrap, [text, { width: 22 }]
       end
     end
   end
