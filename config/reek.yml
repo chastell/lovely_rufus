@@ -13,10 +13,6 @@ FeatureEnvy:
 IrresponsibleModule:
   enabled: false
 
-NestedIterators:
-  exclude:
-    - LovelyRufus#initialize
-
 UncommunicativeVariableName:
   exclude:
     - LovelyRufus::HangoutWrapper#hangout_line
