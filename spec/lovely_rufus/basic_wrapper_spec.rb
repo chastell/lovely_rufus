@@ -6,20 +6,21 @@ module LovelyRufus
   describe BasicWrapper do
     describe '#call' do
       it 'wraps text to the given width' do
-        text = 'I go crazy when I hear a cymbal and a hi-hat ' \
-          'with a souped-up tempo'
-        wrap = <<-end.dedent
+        text, wrap = <<-TEXT.dedent, <<-WRAP.dedent
+          I go crazy when I hear a cymbal and a hi-hat with a souped-up tempo
+        TEXT
           I go crazy when I hear
           a cymbal and a hi-hat
           with a souped-up tempo
-        end
+        WRAP
         bw = BasicWrapper.new
         bw.call(Wrap[text, width: 22]).must_equal Wrap[wrap, width: 22]
       end
 
       it 'extends past the given width when necessary' do
-        text = 'I’m killing your brain like a poisonous mushroom'
-        wrap = <<-end.dedent
+        text, wrap = <<-TEXT.dedent, <<-WRAP.dedent
+          I’m killing your brain like a poisonous mushroom
+        TEXT
           I’m
           killing
           your
@@ -28,17 +29,18 @@ module LovelyRufus
           a
           poisonous
           mushroom
-        end
+        WRAP
         bw = BasicWrapper.new
         bw.call(Wrap[text, width: 5]).must_equal Wrap[wrap, width: 5]
       end
 
       it 'rewraps a String from zero' do
-        text = <<-end.dedent
+        text, wrap = <<-TEXT.dedent, <<-WRAP.dedent
           turn off
           the lights and I’ll glow
-        end
-        wrap = "turn off the lights and I’ll glow\n"
+        TEXT
+          turn off the lights and I’ll glow
+        WRAP
         BasicWrapper.new.call(Wrap[text]).must_equal Wrap[wrap]
       end
 
