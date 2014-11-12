@@ -20,7 +20,7 @@ GEM
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
-    minitest (5.4.2)
+    minitest (5.4.3)
     minitest-focus (1.1.0)
       minitest (>= 4, < 6)
     parser (2.2.0.pre.7)
