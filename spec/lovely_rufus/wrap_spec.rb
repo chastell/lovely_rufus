@@ -15,6 +15,14 @@ module LovelyRufus
       end
     end
 
+    describe '#lines' do
+      it 'accesses the lines of the text' do
+        Wrap["all right: stop,\ncollaborate and listen\n"].lines.must_equal [
+          "all right: stop,\n", "collaborate and listen\n"
+        ]
+      end
+    end
+
     describe '#text' do
       it 'accesses the text of the Wrap' do
         Wrap['Ice Ice Baby', width: 7].text.must_equal 'Ice Ice Baby'
