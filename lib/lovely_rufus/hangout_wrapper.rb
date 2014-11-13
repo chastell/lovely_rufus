@@ -25,7 +25,7 @@ module LovelyRufus
     end
 
     def lines
-      @lines ||= wrap.text.lines.map(&:chomp)
+      @lines ||= wrap.lines.map(&:chomp)
     end
 
     def rewrapped
