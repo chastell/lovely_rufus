@@ -15,12 +15,14 @@ module LovelyRufus
 
     private
 
+    def hangout_between?(line_a, line_b)
+      line_a[/\p{space}/] and line_a.rindex(/\p{space}/) >= line_b.size
+    end
+
     def hangout_line
       lines.each_cons(2).with_index do |(a, b), i|
-        return a if a[/\p{space}/] and a.rindex(/\p{space}/) >= b.size
-        unless i == lines.size - 2
-          return b if b[/\p{space}/] and b.rindex(/\p{space}/) >= a.size
-        end
+        return a if hangout_between?(a, b)
+        return b if hangout_between?(b, a) unless i == lines.size - 2
       end
     end
 
