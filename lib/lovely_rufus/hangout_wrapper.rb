@@ -24,10 +24,7 @@ module LovelyRufus
       lines.each_cons(2).with_index do |(a, b), i|
         if hangout_between?(a, b)
           if i == lines.size - 2
-            cut = a.chomp.rindex(/\p{space}/)
-            a_after = a[0...cut] + "\n"
-            b_after = a[(cut + 1)..-1] + b
-            return a unless b_after.chomp.rindex(/\p{space}/) > a_after.size
+            return a unless reverse_hangout?(a, b)
           else
             return a
           end
@@ -37,6 +34,13 @@ module LovelyRufus
 
     def lines
       @lines ||= wrap.lines
+    end
+
+    def reverse_hangout?(line_a, line_b)
+      cut = line_a.chomp.rindex(/\p{space}/)
+      a_after = line_a[0...cut] + "\n"
+      b_after = line_a[(cut + 1)..-1] + line_b
+      b_after.chomp.rindex(/\p{space}/) > a_after.size
     end
 
     def rewrapped
