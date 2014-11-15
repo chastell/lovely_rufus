@@ -22,8 +22,16 @@ module LovelyRufus
 
     def hangout_line
       lines.each_cons(2).with_index do |(a, b), i|
-        return a if hangout_between?(a, b)
-        return b if hangout_between?(b, a) unless i == lines.size - 2
+        if hangout_between?(a, b)
+          if i == lines.size - 2
+            cut = a.chomp.rindex(/\p{space}/)
+            a_after = a[0...cut] + "\n"
+            b_after = a[(cut + 1)..-1] + b
+            return a unless b_after.chomp.rindex(/\p{space}/) > a_after.size
+          else
+            return a
+          end
+        end
       end
     end
 

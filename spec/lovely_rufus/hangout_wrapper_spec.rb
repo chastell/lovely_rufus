@@ -25,6 +25,14 @@ module LovelyRufus
         wrapped = HangoutWrapper.new(layer).call(Wrap["I O\nU", width: 4])
         wrapped.must_equal final
       end
+
+      it 'doesn’t let the last line to hang out' do
+        text = <<-end.dedent
+          Just found out the Finnish term for grammar Nazi is pilkunnussija.
+          Direct translation: comma fucker. You’re welcome.
+        end
+        HangoutWrapper.new.call(Wrap[text, width: 76]).text.must_equal text
+      end
     end
   end
 end
