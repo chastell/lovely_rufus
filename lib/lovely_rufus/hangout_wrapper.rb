@@ -16,8 +16,8 @@ module LovelyRufus
     private
 
     def hangout_between?(line_a, line_b)
-      line_a, line_b = line_a.chomp, line_b.chomp
-      line_a[/\p{space}/] and line_a.rindex(/\p{space}/) >= line_b.size
+      last_space = line_a.chomp.rindex(/\p{space}/)
+      last_space and last_space >= line_b.chomp.size
     end
 
     def hangout_line
