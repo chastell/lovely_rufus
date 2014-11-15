@@ -15,14 +15,18 @@ module LovelyRufus
 
     private
 
-    def hangout_between?(line_a, line_b)
-      last_space = line_a.chomp.rindex(/\p{space}/)
-      last_space and last_space >= line_b.chomp.size
+    module HangoutFinder
+      module_function
+
+      def between?(line_a, line_b)
+        last_space = line_a.chomp.rindex(/\p{space}/)
+        last_space and last_space >= line_b.chomp.size
+      end
     end
 
     def hangout_line
       lines.each_cons(2).with_index do |(a, b), i|
-        if hangout_between?(a, b)
+        if HangoutFinder.between?(a, b)
           return a unless i == lines.size - 2 and reverse_hangout?(a, b)
         end
       end
