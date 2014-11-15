@@ -6,8 +6,8 @@ module LovelyRufus
   class HangoutWrapper < Layer
     def call(wrap)
       @wrap = wrap
-      final = hangout_line ? rewrapped : wrap.text
-      next_layer.call(Wrap[final, width: wrap.width])
+      final = hangout_line ? rewrapped : wrap
+      next_layer.call(final)
     end
 
     attr_reader :wrap
@@ -32,7 +32,7 @@ module LovelyRufus
 
     def rewrapped
       hangout_line << NBSP
-      HangoutWrapper.new.call(Wrap[wrapped, width: wrap.width]).text
+      HangoutWrapper.new.call(Wrap[wrapped, width: wrap.width])
     end
 
     def wrapped
