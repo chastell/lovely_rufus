@@ -16,9 +16,9 @@ module LovelyRufus
     private
 
     def hangout_line
-      lines.each_cons(2) do |a, b|
+      lines.each_cons(2).with_index do |(a, b), i|
         return a if a[/\p{space}/] and a.rindex(/\p{space}/) >= b.size
-        unless b == lines.last
+        unless i == lines.size - 2
           return b if b[/\p{space}/] and b.rindex(/\p{space}/) >= a.size
         end
       end
