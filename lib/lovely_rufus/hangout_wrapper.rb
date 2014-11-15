@@ -23,11 +23,7 @@ module LovelyRufus
     def hangout_line
       lines.each_cons(2).with_index do |(a, b), i|
         if hangout_between?(a, b)
-          if i == lines.size - 2
-            return a unless reverse_hangout?(a, b)
-          else
-            return a
-          end
+          return a unless i == lines.size - 2 and reverse_hangout?(a, b)
         end
       end
     end
