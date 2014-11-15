@@ -16,6 +16,7 @@ module LovelyRufus
     private
 
     def hangout_between?(line_a, line_b)
+      line_a, line_b = line_a.chomp, line_b.chomp
       line_a[/\p{space}/] and line_a.rindex(/\p{space}/) >= line_b.size
     end
 
@@ -27,16 +28,16 @@ module LovelyRufus
     end
 
     def lines
-      @lines ||= wrap.lines.map(&:chomp)
+      @lines ||= wrap.lines
     end
 
     def rewrapped
-      hangout_line << NBSP
+      hangout_line[-1] = NBSP
       HangoutWrapper.new.call(wrapped)
     end
 
     def wrapped
-      unfolded = Wrap[lines.join(' ').gsub("#{NBSP} ", NBSP), width: wrap.width]
+      unfolded = Wrap[lines.join, width: wrap.width]
       BasicWrapper.new.call(unfolded)
     end
   end
