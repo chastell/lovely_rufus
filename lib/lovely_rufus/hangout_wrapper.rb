@@ -36,8 +36,8 @@ module LovelyRufus
     end
 
     def wrapped
-      unfolded = lines.join(' ').gsub("#{NBSP} ", NBSP)
-      BasicWrapper.new.call(Wrap[unfolded, width: wrap.width])
+      unfolded = Wrap[lines.join(' ').gsub("#{NBSP} ", NBSP), width: wrap.width]
+      BasicWrapper.new.call(unfolded)
     end
   end
 end
