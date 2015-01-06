@@ -1,4 +1,4 @@
-require_relative '../spec_helper'
+require_relative '../test_helper'
 require_relative '../../lib/lovely_rufus/basic_wrapper'
 require_relative '../../lib/lovely_rufus/wrap'
 

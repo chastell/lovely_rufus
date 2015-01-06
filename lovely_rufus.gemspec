@@ -11,7 +11,7 @@ Gem::Specification.new do |gem|
 
   gem.files       = `git ls-files -z`.split("\0")
   gem.executables = gem.files.grep(/^bin\//).map { |path| File.basename(path) }
-  gem.test_files  = gem.files.grep(/^spec\/.*\.rb$/)
+  gem.test_files  = gem.files.grep(/^test\/.*\.rb$/)
 
   gem.add_development_dependency 'bogus',          '~> 0.1.4'
   gem.add_development_dependency 'minitest',       '~> 5.0'

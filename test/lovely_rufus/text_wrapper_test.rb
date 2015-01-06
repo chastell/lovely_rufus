@@ -1,5 +1,5 @@
 require 'yaml'
-require_relative '../spec_helper'
+require_relative '../test_helper'
 require_relative '../../lib/lovely_rufus/text_wrapper'
 
 module LovelyRufus
@@ -41,7 +41,7 @@ module LovelyRufus
       end
 
       it 'supports all the example use-cases' do
-        path = File.expand_path('text_wrapper_spec.yml', __dir__)
+        path = File.expand_path('text_wrapper_test.yml', __dir__)
         YAML.load_file(path).each do |spec|
           width = spec.fetch('width') { 72 }
           wrap  = "#{spec['output']}\n"

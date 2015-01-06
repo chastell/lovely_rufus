@@ -1,5 +1,5 @@
 require 'stringio'
-require_relative '../spec_helper'
+require_relative '../test_helper'
 require_relative '../../lib/lovely_rufus/cli_wrapper'
 
 module LovelyRufus

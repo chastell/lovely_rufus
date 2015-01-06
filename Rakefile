@@ -2,11 +2,11 @@ require 'rake/testtask'
 require 'reek/rake/task'
 require 'rubocop/rake_task'
 
-task default: %i(spec rubocop reek)
+task default: %i(test rubocop reek)
 
-Rake::TestTask.new(:spec) do |task|
-  task.test_files = FileList['spec/**/*_spec.rb']
-  task.warning    = true
+Rake::TestTask.new do |task|
+  task.pattern = 'test/**/*_test.rb'
+  task.warning = true
 end
 
 Reek::Rake::Task.new do |task|
