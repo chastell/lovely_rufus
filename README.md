@@ -58,7 +58,7 @@ Currently, Lovely Rufus sports the following features:
 Name and history
 ----------------
 
-Lovely Rufus was created as a [Ruby Mendicant University](http://blog.majesticseacreature.com/tag/rubymendicant) project and is named after [a certain _Love Actually_ character](http://en.wikipedia.org/wiki/Love_Actually#Rufus) who’s [exceptionally good at wrapping](http://www.youtube.com/watch?v=W6E1wPwOaE4).
+Lovely Rufus was created as a [Ruby Mendicant University](http://blog.majesticseacreature.com/tag/rubymendicant) project and is named after [a certain _Love Actually_ character](http://en.wikipedia.org/wiki/Love_Actually#Rufus) who’s [exceptionally good at wrapping](https://www.youtube.com/watch?v=E3rB_qx0wRM).
 
 
 
