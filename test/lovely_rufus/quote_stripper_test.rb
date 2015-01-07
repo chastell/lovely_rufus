@@ -126,6 +126,13 @@ module LovelyRufus
         QuoteStripper.new(layer).call(Wrap[quoted, width: 72])
         layer.must_have_received :call, [Wrap[unquoted, width: 70]]
       end
+
+      it 'pays proper homage to K&R' do
+        not_really_quoted = '#define ASSERT(msg, cond) // TODO'
+        layer = fake(:layer, call: Wrap[not_really_quoted])
+        QuoteStripper.new(layer).call(Wrap[not_really_quoted])
+        layer.must_have_received :call, [Wrap[not_really_quoted]]
+      end
     end
   end
 end

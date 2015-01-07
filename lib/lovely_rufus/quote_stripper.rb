@@ -20,6 +20,7 @@ module LovelyRufus
     end
 
     def quote
+      return '' if wrap.lines.any? { |line| line.start_with?('#define ') }
       starts = wrap.lines.map { |line| line[QUOTES] }.uniq
       starts.size == 1 ? starts.first || '' : ''
     end
