@@ -2,12 +2,7 @@ require 'rake/testtask'
 require 'reek/rake/task'
 require 'rubocop/rake_task'
 
-# https://github.com/mbj/unparser/issues/33
-unparser = Gem::Specification.find { |spec| spec.name == 'unparser' }
-if unparser.version > Gem::Version.new('0.1.16')
-  fail 'add reek to default task again and see whether it works now'
-end
-task default: %i(test rubocop)
+task default: %i(test rubocop reek)
 
 Rake::TestTask.new do |task|
   task.pattern = 'test/**/*_test.rb'
