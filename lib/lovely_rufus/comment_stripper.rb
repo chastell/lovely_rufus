@@ -3,6 +3,8 @@ require_relative 'wrap'
 
 module LovelyRufus
   class CommentStripper < Layer
+    QUOTES = /^([>\/#])(\1| )*/
+
     def call(wrap)
       @wrap   = wrap
       wrapped = next_layer.call(stripped_wrap)
