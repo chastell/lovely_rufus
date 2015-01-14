@@ -3,7 +3,7 @@ require_relative 'wrap'
 
 module LovelyRufus
   class EmailQuoteStripper < Layer
-    QUOTES = /^([>\/#])(\1| )*/
+    QUOTES = /^>[> ]*/
 
     def call(wrap)
       @wrap   = wrap
