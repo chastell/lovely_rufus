@@ -70,6 +70,21 @@ module LovelyRufus
         layer.must_have_received :call, [Wrap[uncommented, width: 70]]
       end
 
+      it 'strips initial space indentation' do
+        indented = '  // check out the hook'
+        layer = fake(:layer, call: Wrap['check out the hook', width: 67])
+        CommentStripper.new(layer).call(Wrap[indented, width: 72])
+        layer.must_have_received :call, [Wrap['check out the hook', width: 67]]
+      end
+
+      it 'strips initial tab indentation' do
+        indented = "\t// while my DJ revolves it"
+        stripped = 'while my DJ revolves it'
+        layer = fake(:layer, call: Wrap[stripped, width: 68])
+        CommentStripper.new(layer).call(Wrap[indented, width: 72])
+        layer.must_have_received :call, [Wrap[stripped, width: 68]]
+      end
+
       it 'pays proper homage to K&R' do
         not_really_commented = '#define ASSERT(msg, cond) // TODO'
         layer = fake(:layer, call: Wrap[not_really_commented])
