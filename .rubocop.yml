@@ -1,15 +1,15 @@
-AndOr:
+Style/AndOr:
   Enabled: false
 
-Documentation:
+Style/Documentation:
   Enabled: false
 
-FileName:
+Style/FileName:
   Exclude:
     - bin/lovely-rufus
 
-SingleLineBlockParams:
+Style/SingleLineBlockParams:
   Enabled: false
 
-SingleSpaceBeforeFirstArg:
+Style/SingleSpaceBeforeFirstArg:
   Enabled: false
