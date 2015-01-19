@@ -15,10 +15,6 @@ module LovelyRufus
 
     private
 
-    def fixed_quote
-      quote.size > 0 ? quote.delete(' ') + ' ' : ''
-    end
-
     def quote
       starts = wrap.lines.map { |line| line[self.class::QUOTES] }.uniq
       starts.size == 1 ? starts.first || '' : ''

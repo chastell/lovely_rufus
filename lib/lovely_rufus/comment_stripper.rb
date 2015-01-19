@@ -4,8 +4,8 @@ module LovelyRufus
   class CommentStripper < QuoteStripper
     QUOTES = %r{^(\s*//|#) }
 
-    def fixed_quote
-      quote
-    end
+    private
+
+    alias_method :fixed_quote, :quote
   end
 end
