@@ -78,11 +78,11 @@ module LovelyRufus
       end
 
       it 'strips initial tab indentation' do
-        indented = "\t// while my DJ revolves it"
+        indented = "\t# while my DJ revolves it"
         stripped = 'while my DJ revolves it'
-        layer = fake(:layer, call: Wrap[stripped, width: 68])
+        layer = fake(:layer, call: Wrap[stripped, width: 69])
         CommentStripper.new(layer).call(Wrap[indented, width: 72])
-        layer.must_have_received :call, [Wrap[stripped, width: 68]]
+        layer.must_have_received :call, [Wrap[stripped, width: 69]]
       end
 
       it 'pays proper homage to K&R' do
