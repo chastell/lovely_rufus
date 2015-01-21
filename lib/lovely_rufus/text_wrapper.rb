@@ -1,5 +1,5 @@
 require_relative 'basic_wrapper'
-require_relative 'comment_stripper'
+require_relative 'code_comment_stripper'
 require_relative 'email_quote_stripper'
 require_relative 'hangout_wrapper'
 require_relative 'one_letter_gluer'
@@ -29,7 +29,7 @@ module LovelyRufus
     private
 
     def chain
-      layers = [CommentStripper, EmailQuoteStripper, OneLetterGluer,
+      layers = [CodeCommentStripper, EmailQuoteStripper, OneLetterGluer,
                 BasicWrapper, HangoutWrapper]
       identity = -> (wrap) { wrap }
       layers.reverse.reduce(identity) { |inner, outer| outer.new(inner) }

@@ -1,9 +1,9 @@
 require_relative '../test_helper'
-require_relative '../../lib/lovely_rufus/comment_stripper'
+require_relative '../../lib/lovely_rufus/code_comment_stripper'
 require_relative '../../lib/lovely_rufus/wrap'
 
 module LovelyRufus
-  describe CommentStripper do
+  describe CodeCommentStripper do
     describe '#call' do
       it 'strips comments and adjusts width before calling the next layer' do
         commented = <<-end.dedent
@@ -15,7 +15,7 @@ module LovelyRufus
           light up a stage and wax a chump like a candle
         end
         layer = fake(:layer, call: Wrap[uncommented, width: 70])
-        CommentStripper.new(layer).call(Wrap[commented, width: 72])
+        CodeCommentStripper.new(layer).call(Wrap[commented, width: 72])
         layer.must_have_received :call, [Wrap[uncommented, width: 70]]
       end
 
@@ -25,7 +25,7 @@ module LovelyRufus
           # Miami’s on the scene just in case you didn’t know it
         end
         wrap = Wrap[commented, width: 72]
-        CommentStripper.new.call(wrap).must_equal wrap
+        CodeCommentStripper.new.call(wrap).must_equal wrap
       end
 
       it 'does not touch non-commented texts' do
@@ -34,12 +34,12 @@ module LovelyRufus
           enough to shake and kick holes in the ground
         end
         wrap = Wrap[plain, width: 72]
-        CommentStripper.new.call(wrap).must_equal wrap
+        CodeCommentStripper.new.call(wrap).must_equal wrap
       end
 
       it 'does not alter text contents' do
         wrap = Wrap['# Ice # Ice # Baby']
-        CommentStripper.new.call(wrap).must_equal wrap
+        CodeCommentStripper.new.call(wrap).must_equal wrap
       end
 
       it 'strips // code comments' do
@@ -52,7 +52,7 @@ module LovelyRufus
           if my rhyme was a drug I’d sell it by the gram
         end
         layer = fake(:layer, call: Wrap[uncommented, width: 69])
-        CommentStripper.new(layer).call(Wrap[commented, width: 72])
+        CodeCommentStripper.new(layer).call(Wrap[commented, width: 72])
         layer.must_have_received :call, [Wrap[uncommented, width: 69]]
       end
 
@@ -66,14 +66,14 @@ module LovelyRufus
           yo – I’ll solve it!/
         end
         layer = fake(:layer, call: Wrap[uncommented, width: 70])
-        CommentStripper.new(layer).call(Wrap[commented, width: 72])
+        CodeCommentStripper.new(layer).call(Wrap[commented, width: 72])
         layer.must_have_received :call, [Wrap[uncommented, width: 70]]
       end
 
       it 'strips initial space indentation' do
         indented = '  // check out the hook'
         layer = fake(:layer, call: Wrap['check out the hook', width: 67])
-        CommentStripper.new(layer).call(Wrap[indented, width: 72])
+        CodeCommentStripper.new(layer).call(Wrap[indented, width: 72])
         layer.must_have_received :call, [Wrap['check out the hook', width: 67]]
       end
 
@@ -81,14 +81,14 @@ module LovelyRufus
         indented = "\t# while my DJ revolves it"
         stripped = 'while my DJ revolves it'
         layer = fake(:layer, call: Wrap[stripped, width: 69])
-        CommentStripper.new(layer).call(Wrap[indented, width: 72])
+        CodeCommentStripper.new(layer).call(Wrap[indented, width: 72])
         layer.must_have_received :call, [Wrap[stripped, width: 69]]
       end
 
       it 'pays proper homage to K&R' do
         not_really_commented = '#define ASSERT(msg, cond) // TODO'
         layer = fake(:layer, call: Wrap[not_really_commented])
-        CommentStripper.new(layer).call(Wrap[not_really_commented])
+        CodeCommentStripper.new(layer).call(Wrap[not_really_commented])
         layer.must_have_received :call, [Wrap[not_really_commented]]
       end
     end
