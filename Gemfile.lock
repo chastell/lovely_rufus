@@ -44,7 +44,7 @@ GEM
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
-    reek (1.6.3)
+    reek (1.6.4)
       parser (~> 2.2.0.pre.7)
       rainbow (>= 1.99, < 3.0)
       unparser (~> 0.2.2)
