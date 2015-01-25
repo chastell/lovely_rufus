@@ -14,27 +14,26 @@ module LovelyRufus
           to the extreme I rock a mic like a vandal
           light up a stage and wax a chump like a candle
         end
-        layer = fake(:layer, call: Wrap[uncommented, width: 70])
-        CodeCommentStripper.new(layer).call(Wrap[commented, width: 72])
-        layer.must_have_received :call, [Wrap[uncommented, width: 70]]
+        CodeCommentStripper.must_pass_to_next Wrap[commented,   width: 72],
+                                              Wrap[uncommented, width: 70]
       end
 
       it 'adds comments back in (and adjusts width) before returning' do
-        commented = <<-end.dedent
+        text = <<-end.dedent
           # take heed, ’cause I’m a lyrical poet
           # Miami’s on the scene just in case you didn’t know it
         end
-        wrap = Wrap[commented, width: 72]
-        CodeCommentStripper.new.call(wrap).must_equal wrap
+        commented = Wrap[text, width: 72]
+        CodeCommentStripper.new.call(commented).must_equal commented
       end
 
       it 'does not touch non-commented texts' do
-        plain = <<-end.dedent
+        text = <<-end.dedent
           my town, that created all the bass sound
           enough to shake and kick holes in the ground
         end
-        wrap = Wrap[plain, width: 72]
-        CodeCommentStripper.new.call(wrap).must_equal wrap
+        uncommented = Wrap[text, width: 72]
+        CodeCommentStripper.new.call(uncommented).must_equal uncommented
       end
 
       it 'does not alter text contents' do
@@ -51,9 +50,8 @@ module LovelyRufus
           so fast other DJs say ‘damn!’
           if my rhyme was a drug I’d sell it by the gram
         end
-        layer = fake(:layer, call: Wrap[uncommented, width: 69])
-        CodeCommentStripper.new(layer).call(Wrap[commented, width: 72])
-        layer.must_have_received :call, [Wrap[uncommented, width: 69]]
+        CodeCommentStripper.must_pass_to_next Wrap[commented,   width: 72],
+                                              Wrap[uncommented, width: 69]
       end
 
       it 'only considers homogenous characters as comments' do
@@ -65,31 +63,25 @@ module LovelyRufus
           /if there was a problem,
           yo – I’ll solve it!/
         end
-        layer = fake(:layer, call: Wrap[uncommented, width: 70])
-        CodeCommentStripper.new(layer).call(Wrap[commented, width: 72])
-        layer.must_have_received :call, [Wrap[uncommented, width: 70]]
+        CodeCommentStripper.must_pass_to_next Wrap[commented,   width: 72],
+                                              Wrap[uncommented, width: 70]
       end
 
       it 'strips initial space indentation' do
-        indented = '  // check out the hook'
-        layer = fake(:layer, call: Wrap['check out the hook', width: 67])
-        CodeCommentStripper.new(layer).call(Wrap[indented, width: 72])
-        layer.must_have_received :call, [Wrap['check out the hook', width: 67]]
+        indented = Wrap['  // check out the hook', width: 72]
+        passed   = Wrap['check out the hook',      width: 67]
+        CodeCommentStripper.must_pass_to_next indented, passed
       end
 
       it 'strips initial tab indentation' do
-        indented = "\t# while my DJ revolves it"
-        stripped = 'while my DJ revolves it'
-        layer = fake(:layer, call: Wrap[stripped, width: 69])
-        CodeCommentStripper.new(layer).call(Wrap[indented, width: 72])
-        layer.must_have_received :call, [Wrap[stripped, width: 69]]
+        indented = Wrap["\t# while my DJ revolves it", width: 72]
+        stripped = Wrap['while my DJ revolves it',     width: 69]
+        CodeCommentStripper.must_pass_to_next indented, stripped
       end
 
       it 'pays proper homage to K&R' do
-        not_really_commented = '#define ASSERT(msg, cond) // TODO'
-        layer = fake(:layer, call: Wrap[not_really_commented])
-        CodeCommentStripper.new(layer).call(Wrap[not_really_commented])
-        layer.must_have_received :call, [Wrap[not_really_commented]]
+        not_commented = Wrap['#define ASSERT(msg, cond) // TODO']
+        CodeCommentStripper.must_pass_to_next not_commented, not_commented
       end
     end
   end
