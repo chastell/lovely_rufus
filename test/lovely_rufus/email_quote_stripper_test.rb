@@ -14,9 +14,8 @@ module LovelyRufus
           to the extreme I rock a mic like a vandal
           light up a stage and wax a chump like a candle
         end
-        layer = fake(:layer, call: Wrap[unquoted, width: 70])
-        EmailQuoteStripper.new(layer).call(Wrap[quoted, width: 72])
-        layer.must_have_received :call, [Wrap[unquoted, width: 70]]
+        EmailQuoteStripper.must_pass_to_next Wrap[quoted,   width: 72],
+                                             Wrap[unquoted, width: 70]
       end
 
       it 'adds quotes back in (and adjusts width) before returning' do
@@ -51,9 +50,8 @@ module LovelyRufus
           ’cause my style’s like a chemical spill
           feasible rhymes that you can vision and feel
         end
-        layer = fake(:layer, call: Wrap[unquoted, width: 69])
-        EmailQuoteStripper.new(layer).call(Wrap[quoted, width: 72])
-        layer.must_have_received :call, [Wrap[unquoted, width: 69]]
+        EmailQuoteStripper.must_pass_to_next Wrap[quoted,   width: 72],
+                                             Wrap[unquoted, width: 69]
       end
 
       it 'strips broken quotes properly' do
@@ -65,9 +63,8 @@ module LovelyRufus
           conducted and formed this is a hell of a concept
           we make it hype and you want to step with this
         end
-        layer = fake(:layer, call: Wrap[unquoted, width: 68])
-        EmailQuoteStripper.new(layer).call(Wrap[quoted, width: 72])
-        layer.must_have_received :call, [Wrap[unquoted, width: 68]]
+        EmailQuoteStripper.must_pass_to_next Wrap[quoted,   width: 72],
+                                             Wrap[unquoted, width: 68]
       end
 
       it 'fixes broken quotes when adding them back in' do
@@ -94,9 +91,8 @@ module LovelyRufus
           /if there was a problem,
           yo – I’ll solve it!/
         end
-        layer = fake(:layer, call: Wrap[unquoted, width: 70])
-        EmailQuoteStripper.new(layer).call(Wrap[quoted, width: 72])
-        layer.must_have_received :call, [Wrap[unquoted, width: 70]]
+        EmailQuoteStripper.must_pass_to_next Wrap[quoted,   width: 72],
+                                             Wrap[unquoted, width: 70]
       end
     end
   end
