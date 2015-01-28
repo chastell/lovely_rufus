@@ -4,10 +4,13 @@ require 'minitest/focus'
 require 'minitest/pride'
 require 'bogus/minitest/spec'
 require 'lovely_rufus'
-require_relative '../lib/lovely_rufus/layer'
+require_relative '../lib/lovely_rufus/layers/layer'
 require_relative '../lib/lovely_rufus/wrap'
 
-Bogus.configure { |config| config.search_modules << LovelyRufus }
+Bogus.configure do |config|
+  config.search_modules << LovelyRufus
+  config.search_modules << LovelyRufus::Layers
+end
 
 class String
   def dedent
@@ -27,7 +30,7 @@ Minitest::Test.include CustomAssertions
 
 module Minitest
   module Expectations
-    class << LovelyRufus::Layer
+    class << LovelyRufus::Layers::Layer
       infect_an_assertion :assert_passes_to_next, :must_pass_to_next, true
     end
   end

@@ -1,23 +1,23 @@
 DuplicateMethodCall:
   exclude:
-    - LovelyRufus::BasicWrapper#call
+    - LovelyRufus::Layers::BasicWrapper#call
 
 FeatureEnvy:
   exclude:
-    - LovelyRufus::BasicWrapper#call
-    - LovelyRufus::OneLetterGluer#call
-    - LovelyRufus::QuoteStripper#quote
+    - LovelyRufus::Layers::BasicWrapper#call
+    - LovelyRufus::Layers::OneLetterGluer#call
+    - LovelyRufus::Layers::QuoteStripper#quote
     # https://github.com/troessner/reek/issues/53
-    - LovelyRufus::HangoutWrapper::HangoutFinder
+    - LovelyRufus::Layers::HangoutWrapper::HangoutFinder
 
 IrresponsibleModule:
   enabled: false
 
 UncommunicativeVariableName:
   exclude:
-    - LovelyRufus::HangoutWrapper#hangout_line
+    - LovelyRufus::Layers::HangoutWrapper#hangout_line
 
 UtilityFunction:
   exclude:
     # https://github.com/troessner/reek/issues/27
-    - LovelyRufus::HangoutWrapper::HangoutFinder
+    - LovelyRufus::Layers::HangoutWrapper::HangoutFinder
