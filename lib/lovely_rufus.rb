@@ -2,10 +2,8 @@ class Class
   private
 
   def private_attr_reader(*attrs)
-    attrs.each do |attr|
-      attr_reader attr
-      private     attr
-    end
+    attr_reader(*attrs)
+    private(*attrs)
   end
 end
 
