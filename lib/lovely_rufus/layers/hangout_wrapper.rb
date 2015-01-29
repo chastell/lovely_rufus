@@ -11,8 +11,7 @@ module LovelyRufus
         next_layer.call(final)
       end
 
-      attr_reader :wrap
-      private     :wrap
+      private_attr_reader :wrap
 
       private
 

@@ -11,8 +11,7 @@ module LovelyRufus
         Wrap[quoted, width: wrapped.width + fixed_quote.size]
       end
 
-      attr_reader :wrap
-      private     :wrap
+      private_attr_reader :wrap
 
       private
 

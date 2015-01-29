@@ -12,7 +12,6 @@ module LovelyRufus
       puts text_wrapper.wrap(stream.read, width: settings.width)
     end
 
-    attr_reader :settings, :text_wrapper
-    private     :settings, :text_wrapper
+    private_attr_reader :settings, :text_wrapper
   end
 end
