@@ -1,11 +1,13 @@
-class Class
-  private
+module PrivateAttrReader
+  module_function
 
   def private_attr_reader(*attrs)
     attr_reader(*attrs)
     private(*attrs)
   end
 end
+
+Class.include PrivateAttrReader
 
 module LovelyRufus
   NBSP = "\u00A0"
