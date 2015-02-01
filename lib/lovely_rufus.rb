@@ -1,7 +1,12 @@
-orig_verbose = $VERBOSE
-$VERBOSE = false
-require 'private_attr'
-$VERBOSE = orig_verbose
+def self.warn_off
+  orig_verbose = $VERBOSE
+  $VERBOSE = false
+  yield
+ensure
+  $VERBOSE = orig_verbose
+end
+
+warn_off { require 'private_attr' }
 
 Class.include PrivateAttr
 
