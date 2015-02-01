@@ -1,13 +1,6 @@
-module PrivateAttrReader
-  module_function
+require 'private_attr'
 
-  def private_attr_reader(*attrs)
-    attr_reader(*attrs)
-    private(*attrs)
-  end
-end
-
-Class.include PrivateAttrReader
+Class.include PrivateAttr
 
 module LovelyRufus
   NBSP = "\u00A0"
