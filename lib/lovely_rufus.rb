@@ -1,4 +1,7 @@
+orig_verbose = $VERBOSE
+$VERBOSE = false
 require 'private_attr'
+$VERBOSE = orig_verbose
 
 Class.include PrivateAttr
 
