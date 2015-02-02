@@ -10,6 +10,3 @@ Style/FileName:
 
 Style/SingleLineBlockParams:
   Enabled: false
-
-Style/SingleSpaceBeforeFirstArg:
-  Enabled: false
