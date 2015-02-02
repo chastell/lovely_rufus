@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     lovely_rufus (0.2.1)
-      private_attr (~> 0.1)
+      private_attr (~> 0.1.1)
 
 GEM
   remote: https://rubygems.org/
