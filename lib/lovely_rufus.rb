@@ -1,6 +1,8 @@
 require 'private_attr'
 Class.include PrivateAttr
 
+require_relative 'lovely_rufus/text_wrapper'
+
 module LovelyRufus
   NBSP = "\u00A0"
 
@@ -8,6 +10,3 @@ module LovelyRufus
     text_wrapper.wrap(text, width: width)
   end
 end
-
-require_relative 'lovely_rufus/cli_wrapper'
-require_relative 'lovely_rufus/text_wrapper'
