@@ -7,7 +7,7 @@ Gem::Specification.new do |gem|
   gem.license     = 'AGPL-3.0'
   gem.name        = 'lovely_rufus'
   gem.summary     = 'lovely_rufus: text wrapper'
-  gem.version     = '0.2.1'
+  gem.version     = '0.3.0'
 
   gem.files       = `git ls-files -z`.split("\0")
   gem.executables = gem.files.grep(/^bin\//).map { |path| File.basename(path) }
