@@ -1,6 +1,4 @@
-require 'private_attr'
-Class.include PrivateAttr
-
+require 'private_attr/everywhere'
 require_relative 'lovely_rufus/text_wrapper'
 
 module LovelyRufus
