@@ -6,8 +6,6 @@ FeatureEnvy:
   exclude:
     - LovelyRufus::Layers::BasicWrapper#call
     - LovelyRufus::Layers::OneLetterGluer#call
-    # https://github.com/troessner/reek/issues/53
-    - LovelyRufus::Layers::HangoutWrapper::HangoutFinder
 
 IrresponsibleModule:
   enabled: false
