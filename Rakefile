@@ -10,7 +10,6 @@ Rake::TestTask.new do |task|
 end
 
 Reek::Rake::Task.new do |task|
-  task.config_file   = 'config/reek.yml'
   task.fail_on_error = false
 end
 
