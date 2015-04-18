@@ -8,8 +8,7 @@ require_relative '../lib/lovely_rufus/layers/layer'
 require_relative '../lib/lovely_rufus/wrap'
 
 Bogus.configure do |config|
-  config.search_modules << LovelyRufus
-  config.search_modules << LovelyRufus::Layers
+  config.search_modules << LovelyRufus << LovelyRufus::Layers
 end
 
 class String
