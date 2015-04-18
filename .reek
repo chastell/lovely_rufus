@@ -6,7 +6,6 @@ FeatureEnvy:
   exclude:
     - LovelyRufus::Layers::BasicWrapper#call
     - LovelyRufus::Layers::OneLetterGluer#call
-    - LovelyRufus::Layers::QuoteStripper#quote
     # https://github.com/troessner/reek/issues/53
     - LovelyRufus::Layers::HangoutWrapper::HangoutFinder
 
@@ -20,4 +19,5 @@ UncommunicativeVariableName:
 UtilityFunction:
   exclude:
     # https://github.com/troessner/reek/issues/27
+    - LovelyRufus#wrap
     - LovelyRufus::Layers::HangoutWrapper::HangoutFinder
