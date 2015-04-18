@@ -7,7 +7,7 @@ require_relative 'wrap'
 
 module LovelyRufus
   class TextWrapper
-    QUOTES = /^([>\/#])(\1| )*/
+    QUOTES = %r{^([>/#])(\1| )*}
 
     def self.wrap(text, width: 72)
       new(Wrap[text, width: width]).call
