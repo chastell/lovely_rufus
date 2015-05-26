@@ -25,7 +25,7 @@ module LovelyRufus
             > Miami’s on the scene just in case you didn’t know it
           end
           wrap = Wrap[quoted, width: 72]
-          EmailQuoteStripper.new.call(wrap).must_equal wrap
+          _(EmailQuoteStripper.new.call(wrap)).must_equal wrap
         end
 
         it 'does not touch non-quoted texts' do
@@ -34,12 +34,12 @@ module LovelyRufus
             enough to shake and kick holes in the ground
           end
           wrap = Wrap[plain, width: 72]
-          EmailQuoteStripper.new.call(wrap).must_equal wrap
+          _(EmailQuoteStripper.new.call(wrap)).must_equal wrap
         end
 
         it 'does not alter text contents' do
           wrap = Wrap['> Ice > Ice > Baby']
-          EmailQuoteStripper.new.call(wrap).must_equal wrap
+          _(EmailQuoteStripper.new.call(wrap)).must_equal wrap
         end
 
         it 'strips multilevel quotes' do
@@ -80,7 +80,7 @@ module LovelyRufus
             >>> cut like a razor blade
           end
           wrap = Wrap[quoted, width: 72]
-          EmailQuoteStripper.new.call(wrap).must_equal Wrap[fixed, width: 72]
+          _(EmailQuoteStripper.new.call(wrap)).must_equal Wrap[fixed, width: 72]
         end
 
         it 'only considers homogenous characters as comments' do
