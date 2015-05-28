@@ -25,7 +25,7 @@ module LovelyRufus
             # Miami’s on the scene just in case you didn’t know it
           end
           commented = Wrap[text, width: 72]
-          CodeCommentStripper.new.call(commented).must_equal commented
+          _(CodeCommentStripper.new.call(commented)).must_equal commented
         end
 
         it 'does not touch non-commented texts' do
@@ -34,12 +34,12 @@ module LovelyRufus
             enough to shake and kick holes in the ground
           end
           uncommented = Wrap[text, width: 72]
-          CodeCommentStripper.new.call(uncommented).must_equal uncommented
+          _(CodeCommentStripper.new.call(uncommented)).must_equal uncommented
         end
 
         it 'does not alter text contents' do
           wrap = Wrap['# Ice # Ice # Baby']
-          CodeCommentStripper.new.call(wrap).must_equal wrap
+          _(CodeCommentStripper.new.call(wrap)).must_equal wrap
         end
 
         it 'strips // code comments' do
