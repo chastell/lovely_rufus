@@ -15,7 +15,7 @@ module LovelyRufus
             with a souped-up tempo
           end
           bw = BasicWrapper.new
-          bw.call(Wrap[text, width: 22]).must_equal Wrap[wrap, width: 22]
+          _(bw.call(Wrap[text, width: 22])).must_equal Wrap[wrap, width: 22]
         end
 
         it 'extends past the given width when necessary' do
@@ -31,7 +31,7 @@ module LovelyRufus
             mushroom
           end
           bw = BasicWrapper.new
-          bw.call(Wrap[text, width: 5]).must_equal Wrap[wrap, width: 5]
+          _(bw.call(Wrap[text, width: 5])).must_equal Wrap[wrap, width: 5]
         end
 
         it 'rewraps a String from zero' do
@@ -40,14 +40,15 @@ module LovelyRufus
             the lights and I’ll glow
           end
           wrap = "turn off the lights and I’ll glow\n"
-          BasicWrapper.new.call(Wrap[text]).must_equal Wrap[wrap]
+          _(BasicWrapper.new.call(Wrap[text])).must_equal Wrap[wrap]
         end
 
         it 'passes the fixed text to the next layer and returns its outcome' do
           final = fake(:wrap)
           layer = fake(:layer)
           mock(layer).call(Wrap["I\nO\nU\n", width: 2]) { final }
-          BasicWrapper.new(layer).call(Wrap['I O U', width: 2]).must_equal final
+          call = BasicWrapper.new(layer).call(Wrap['I O U', width: 2])
+          _(call).must_equal final
         end
       end
     end
