@@ -12,18 +12,18 @@ module LovelyRufus
           all right: stop, collaborate and listen
           – Ice is back with a brand new invention
         end
-        TextWrapper.wrap(short).must_equal "#{short}\n"
-        TextWrapper.wrap(long).must_equal wrap
+        _(TextWrapper.wrap(short)).must_equal "#{short}\n"
+        _(TextWrapper.wrap(long)).must_equal wrap
       end
 
       it 'wraps the passed String to the given number of characters' do
         input = 'something grabs a hold of me tightly; ' \
           'flow like a harpoon – daily and nightly'
-        TextWrapper.wrap(input, width: 40).must_equal <<-end.dedent
+        _(TextWrapper.wrap(input, width: 40)).must_equal <<-end.dedent
           something grabs a hold of me tightly;
           flow like a harpoon – daily and nightly
         end
-        TextWrapper.wrap(input, width: 21).must_equal <<-end.dedent
+        _(TextWrapper.wrap(input, width: 21)).must_equal <<-end.dedent
           something grabs
           a hold of me tightly;
           flow like a harpoon
@@ -37,7 +37,7 @@ module LovelyRufus
           the lights and I’ll glow
         end
         wrapped = TextWrapper.wrap(broken)
-        wrapped.must_equal "turn off the lights and I’ll glow\n"
+        _(wrapped).must_equal "turn off the lights and I’ll glow\n"
       end
 
       it 'supports all the example use-cases' do
@@ -45,7 +45,7 @@ module LovelyRufus
         YAML.load_file(path).each do |spec|
           width = spec.fetch('width') { 72 }
           wrap  = "#{spec['output']}\n"
-          TextWrapper.wrap(spec['input'], width: width).must_equal wrap
+          _(TextWrapper.wrap(spec['input'], width: width)).must_equal wrap
         end
       end
     end
