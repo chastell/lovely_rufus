@@ -1,3 +1,4 @@
+ENV['MT_NO_EXPECTATIONS'] = 'true'
 require 'bundler/setup'
 require 'minitest/autorun'
 require 'minitest/focus'
