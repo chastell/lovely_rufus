@@ -16,7 +16,7 @@ module LovelyRufus
             and a hi-hat with a souped-up tempo
           end
           hw = HangoutWrapper.new
-          hw.call(Wrap[text, width: 35]).must_equal Wrap[wrap, width: 35]
+          _(hw.call(Wrap[text, width: 35])).must_equal Wrap[wrap, width: 35]
         end
 
         it 'passes the fixed text to the next layer and returns its outcome' do
@@ -24,7 +24,7 @@ module LovelyRufus
           layer = fake(:layer)
           mock(layer).call(any(Wrap)) { final }
           wrapped = HangoutWrapper.new(layer).call(Wrap["I O\nU", width: 4])
-          wrapped.must_equal final
+          _(wrapped).must_equal final
         end
 
         it 'doesn’t let the last line to hang out' do
@@ -32,7 +32,7 @@ module LovelyRufus
             Just found out the Finnish term for grammar Nazi is pilkunnussija.
             Direct translation: comma fucker. You’re welcome.
           end
-          HangoutWrapper.new.call(Wrap[text, width: 76]).text.must_equal text
+          _(HangoutWrapper.new.call(Wrap[text, width: 76]).text).must_equal text
         end
       end
     end
