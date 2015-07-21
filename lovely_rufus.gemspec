@@ -9,6 +9,8 @@ Gem::Specification.new do |gem|
   gem.summary     = 'lovely_rufus: text wrapper'
   gem.version     = '0.3.1'
 
+  gem.required_ruby_version = '~> 2.1'
+
   gem.files       = `git ls-files -z`.split("\0")
   gem.executables = gem.files.grep(%r{^bin/}).map { |path| File.basename(path) }
   gem.test_files  = gem.files.grep(%r{^test/.*\.rb$})
