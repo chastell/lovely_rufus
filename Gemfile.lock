@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    lovely_rufus (0.3.1)
+    lovely_rufus (0.3.2)
       private_attr (~> 1.1)
 
 GEM
