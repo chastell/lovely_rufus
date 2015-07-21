@@ -13,9 +13,3 @@ IrresponsibleModule:
 UncommunicativeVariableName:
   exclude:
     - LovelyRufus::Layers::HangoutWrapper#hangout_line
-
-UtilityFunction:
-  exclude:
-    # https://github.com/troessner/reek/issues/27
-    - LovelyRufus#wrap
-    - LovelyRufus::Layers::HangoutWrapper::HangoutFinder
