@@ -1,15 +1,2 @@
-DuplicateMethodCall:
-  exclude:
-    - LovelyRufus::Layers::BasicWrapper#call
-
-FeatureEnvy:
-  exclude:
-    - LovelyRufus::Layers::BasicWrapper#call
-    - LovelyRufus::Layers::OneLetterGluer#call
-
 IrresponsibleModule:
   enabled: false
-
-UncommunicativeVariableName:
-  exclude:
-    - LovelyRufus::Layers::HangoutWrapper#hangout_line
