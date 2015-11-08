@@ -14,21 +14,21 @@ Lovely Rufus can be used from the command-line by piping text through the `lovel
     The Ballyshannon foundered off the coast of Cariboo,
     And down in fathoms many went the captain and the crew;
 
-Lovely Rufus can also be used from Ruby code through the `TextWrapper` class:
+Lovely Rufus can also be used from Ruby code through the `wrap` method:
 
     $ irb
     >> require 'lovely_rufus'
     >> text = 'The Ballyshannon foundered off the coast of Cariboo, And down in fathoms many went the captain and the crew;'
-    >> puts LovelyRufus::TextWrapper.wrap text
+    >> puts LovelyRufus.wrap(text)
     The Ballyshannon foundered off the coast of Cariboo,
     And down in fathoms many went the captain and the crew;
 
-Note that `TextWrapper.wrap` can take optional desired width:
+Note that `wrap` can take optional desired width:
 
     $ irb
     >> require 'lovely_rufus'
     >> text = 'The Ballyshannon foundered off the coast of Cariboo, And down in fathoms many went the captain and the crew;'
-    >> puts LovelyRufus::TextWrapper.wrap text, width: 15
+    >> puts LovelyRufus.wrap(text, width: 15)
     The
     Ballyshannon
     foundered off
