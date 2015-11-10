@@ -1,3 +1,6 @@
+require 'English'
+require 'pathname'
+
 Gem::Specification.new do |gem|
   gem.author      = 'Piotr Szotkowski'
   gem.description = 'An executable and a Ruby library for wrapping ' \
@@ -14,6 +17,11 @@ Gem::Specification.new do |gem|
   gem.files       = `git ls-files -z`.split("\0")
   gem.executables = gem.files.grep(%r{^bin/}).map { |path| File.basename(path) }
   gem.test_files  = gem.files.grep(%r{^test/.*\.rb$})
+
+  gem.cert_chain  = ['certs/chastell.pem']
+  if Pathname.new($PROGRAM_NAME).basename == Pathname.new('gem')
+    gem.signing_key = Pathname.new('~/.ssh/gem-private_key.pem').expand_path
+  end
 
   gem.add_dependency 'private_attr', '~> 1.1'
 
