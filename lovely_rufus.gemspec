@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.license     = 'AGPL-3.0'
   gem.name        = 'lovely_rufus'
   gem.summary     = 'lovely_rufus: text wrapper'
-  gem.version     = '0.3.2'
+  gem.version     = '1.0.0'
 
   gem.required_ruby_version = '~> 2.1'
 
