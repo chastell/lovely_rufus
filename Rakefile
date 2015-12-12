@@ -11,6 +11,7 @@ end
 
 Reek::Rake::Task.new do |task|
   task.fail_on_error = false
+  task.reek_opts     = '--no-wiki-links'
 end
 
 RuboCop::RakeTask.new do |task|
