@@ -5,9 +5,10 @@ module LovelyRufus
   module Layers
     class BasicWrapper < Layer
       def call(wrap)
+        width     = wrap.width
         unwrapped = wrap.text.tr("\n", ' ').strip
-        wrapped   = unwrapped.gsub(/(.{1,#{wrap.width}})( |$\n?)/, "\\1\n")
-        next_layer.call(Wrap[wrapped, width: wrap.width])
+        wrapped   = unwrapped.gsub(/(.{1,#{width}})( |$\n?)/, "\\1\n")
+        next_layer.call(Wrap[wrapped, width: width])
       end
     end
   end
