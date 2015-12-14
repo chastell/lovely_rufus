@@ -4,6 +4,7 @@ require_relative 'layer'
 module LovelyRufus
   module Layers
     class BasicWrapper < Layer
+      # :reek:FeatureEnvy
       def call(wrap)
         width     = wrap.width
         unwrapped = wrap.text.tr("\n", ' ').strip
