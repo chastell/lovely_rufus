@@ -15,28 +15,32 @@ module LovelyRufus
 
       private
 
-      module HangoutFinder
-        module_function
-
-        def between?(line_a, line_b)
-          last_space = line_a.chomp.rindex(/\p{space}/)
-          last_space and last_space >= line_b.chomp.size
+      class HangoutFinder
+        def initialize(upper, lower)
+          @lower = lower
+          @upper = upper
         end
 
-        def reverse?(line_a, line_b)
-          cut = line_a.chomp.rindex(/\p{space}/)
-          a_after = line_a[0...cut] + "\n"
-          b_after = line_a[(cut + 1)..-1] + line_b
-          b_after.chomp.rindex(/\p{space}/) > a_after.size
+        def between?
+          last_space = upper.chomp.rindex(/\p{space}/)
+          last_space and last_space >= lower.chomp.size
         end
+
+        def reverse? # rubocop:disable Metrics/AbcSize
+          cut = upper.chomp.rindex(/\p{space}/)
+          upper_after = upper[0...cut] + "\n"
+          lower_after = upper[(cut + 1)..-1] + lower
+          lower_after.chomp.rindex(/\p{space}/) > upper_after.size
+        end
+
+        private_attr_reader :lower, :upper
       end
 
       def hangout_line
         lines.each_cons(2).with_index do |(upper, lower), i|
-          if HangoutFinder.between?(upper, lower)
-            unless i == lines.size - 2 and HangoutFinder.reverse?(upper, lower)
-              return upper
-            end
+          finder = HangoutFinder.new(upper, lower)
+          if finder.between?
+            return upper unless i == lines.size - 2 and finder.reverse?
           end
         end
       end
