@@ -32,9 +32,11 @@ module LovelyRufus
       end
 
       def hangout_line
-        lines.each_cons(2).with_index do |(a, b), i|
-          if HangoutFinder.between?(a, b)
-            return a unless i == lines.size - 2 and HangoutFinder.reverse?(a, b)
+        lines.each_cons(2).with_index do |(upper, lower), i|
+          if HangoutFinder.between?(upper, lower)
+            unless i == lines.size - 2 and HangoutFinder.reverse?(upper, lower)
+              return upper
+            end
           end
         end
       end
