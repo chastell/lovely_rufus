@@ -8,5 +8,8 @@ Style/FileName:
   Exclude:
     - bin/lovely-rufus
 
+Style/Not:
+  Enabled: false
+
 Style/SingleLineBlockParams:
   Enabled: false

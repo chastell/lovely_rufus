@@ -22,6 +22,14 @@ module LovelyRufus
           @upper        = upper
         end
 
+        def hangout?
+          between? and not (next_to_last? and reverse?)
+        end
+
+        private
+
+        private_attr_reader :lower, :next_to_last, :upper
+
         def between?
           last_space = upper.chomp.rindex(/\p{space}/)
           last_space and last_space >= lower.chomp.size
@@ -37,16 +45,12 @@ module LovelyRufus
           lower_after = upper[(cut + 1)..-1] + lower
           lower_after.chomp.rindex(/\p{space}/) > upper_after.size
         end
-
-        private_attr_reader :lower, :next_to_last, :upper
       end
 
       def hangout_line
         lines.each_cons(2).with_index do |(upper, lower), i|
           finder = HangoutFinder.new(upper, lower, i == lines.size - 2)
-          if finder.between?
-            return upper unless finder.next_to_last? and finder.reverse?
-          end
+          return upper if finder.hangout?
         end
       end
 
