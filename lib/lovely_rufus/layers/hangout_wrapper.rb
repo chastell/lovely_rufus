@@ -16,30 +16,28 @@ module LovelyRufus
       private
 
       class HangoutFinder
-        def initialize(upper, lower, next_to_last)
-          @lower        = lower
-          @next_to_last = next_to_last
-          @upper        = upper
+        def initialize(upper, lower, last)
+          @upper = upper
+          @lower = lower
+          @last  = last
         end
 
         def hangout?
-          between? and not (next_to_last? and reverse?)
+          exists? and not (last? and useless_fix?)
         end
 
         private
 
-        private_attr_reader :lower, :next_to_last, :upper
+        private_attr_reader :last, :lower, :upper
 
-        def between?
+        def exists?
           last_space = upper.chomp.rindex(/\p{space}/)
           last_space and last_space >= lower.chomp.size
         end
 
-        def next_to_last?
-          next_to_last
-        end
+        alias_method :last?, :last
 
-        def reverse? # rubocop:disable Metrics/AbcSize
+        def useless_fix? # rubocop:disable Metrics/AbcSize
           cut = upper.chomp.rindex(/\p{space}/)
           upper_after = upper[0...cut] + "\n"
           lower_after = upper[(cut + 1)..-1] + lower
