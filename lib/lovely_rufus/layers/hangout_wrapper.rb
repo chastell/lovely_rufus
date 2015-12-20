@@ -46,8 +46,8 @@ module LovelyRufus
       end
 
       def hangout_line
-        lines.each_cons(2).with_index do |(upper, lower), i|
-          finder = HangoutFinder.new(upper, lower, i == lines.size - 2)
+        lines.each_cons(2).with_index do |(upper, lower), index|
+          finder = HangoutFinder.new(upper, lower, index == lines.size - 2)
           return upper if finder.hangout?
         end
       end
