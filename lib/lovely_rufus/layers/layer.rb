@@ -9,7 +9,9 @@ module LovelyRufus
         fail 'Layer subclasses must define #call that takes a Wrap'
       end
 
-      private_attr_reader :next_layer
+      private
+
+      attr_reader :next_layer
     end
   end
 end

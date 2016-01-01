@@ -11,9 +11,9 @@ module LovelyRufus
         Wrap[quoted, width: wrapped.width + fixed_quote.size]
       end
 
-      private_attr_reader :wrap
-
       private
+
+      attr_reader :wrap
 
       def quote
         starts = wrap.lines.map { |line| line[self.class::QUOTES] }.uniq

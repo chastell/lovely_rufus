@@ -23,9 +23,9 @@ module LovelyRufus
       end.join("\n")
     end
 
-    private_attr_reader :wrap
-
     private
+
+    attr_reader :wrap
 
     def chain
       layers = [Layers::CodeCommentStripper, Layers::EmailQuoteStripper,

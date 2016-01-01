@@ -11,9 +11,9 @@ module LovelyRufus
         next_layer.call(final)
       end
 
-      private_attr_reader :wrap
-
       private
+
+      attr_reader :wrap
 
       class HangoutFinder
         def initialize(upper, lower, last)
@@ -28,7 +28,7 @@ module LovelyRufus
 
         private
 
-        private_attr_reader :last, :lower, :upper
+        attr_reader :last, :lower, :upper
 
         def exists?
           last_space = upper.chomp.rindex(/\p{space}/)

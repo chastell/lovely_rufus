@@ -23,8 +23,6 @@ Gem::Specification.new do |gem|
     gem.signing_key = Pathname.new('~/.ssh/gem-private_key.pem').expand_path
   end
 
-  gem.add_dependency 'private_attr', '~> 1.1'
-
   gem.add_development_dependency 'bogus',          '~> 0.1.4'
   gem.add_development_dependency 'minitest',       '~> 5.6'
   gem.add_development_dependency 'minitest-focus', '~> 1.1'
