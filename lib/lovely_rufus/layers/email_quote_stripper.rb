@@ -7,6 +7,7 @@ module LovelyRufus
 
       private
 
+      # :reek:UnusedPrivateMethod
       def fixed_quote
         quote.size > 0 ? quote.delete(' ') + ' ' : ''
       end
