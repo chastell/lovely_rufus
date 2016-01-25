@@ -35,7 +35,7 @@ module LovelyRufus
           last_space and last_space >= lower.chomp.size
         end
 
-        alias_method :last?, :last
+        alias last? last
 
         def useless_fix? # rubocop:disable Metrics/AbcSize
           cut = upper.chomp.rindex(/\p{space}/)

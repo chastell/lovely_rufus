@@ -7,7 +7,7 @@ module LovelyRufus
 
       private
 
-      alias_method :fixed_quote, :quote
+      alias fixed_quote quote
     end
   end
 end
