@@ -5,8 +5,6 @@ module LovelyRufus
     class CodeCommentStripper < QuoteStripper
       QUOTES = %r{^\s*(//|#) }
 
-      private
-
       alias fixed_quote quote
     end
   end
