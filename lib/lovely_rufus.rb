@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require_relative 'lovely_rufus/text_wrapper'
 
 module LovelyRufus
-  NBSP = "\u00A0"
+  NBSP = "\u00A0".freeze
 
   module_function
 
