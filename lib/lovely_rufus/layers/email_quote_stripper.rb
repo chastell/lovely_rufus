@@ -9,7 +9,7 @@ module LovelyRufus
       private
 
       def fixed_quote
-        quote.size > 0 ? quote.delete(' ') + ' ' : ''
+        quote.empty? ? '' : quote.delete(' ') + ' '
       end
     end
   end
