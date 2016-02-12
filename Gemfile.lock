@@ -29,7 +29,7 @@ GEM
     minitest (5.8.4)
     minitest-focus (1.1.2)
       minitest (>= 4, < 6)
-    parser (2.3.0.4)
+    parser (2.3.0.5)
       ast (~> 2.2)
     powerpack (0.1.1)
     private_attr (1.1.0)
