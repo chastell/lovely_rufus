@@ -13,3 +13,6 @@ Style/Not:
 
 Style/SingleLineBlockParams:
   Enabled: false
+
+Style/SpaceAfterNot:
+  Enabled: false
