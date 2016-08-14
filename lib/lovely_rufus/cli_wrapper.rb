@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'settings'
 require_relative 'text_wrapper'
 

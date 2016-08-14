@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ENV['MT_NO_EXPECTATIONS'] = 'true'
 require 'bundler/setup'
 require 'minitest/autorun'

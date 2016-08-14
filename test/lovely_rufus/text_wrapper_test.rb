@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'yaml'
 require_relative '../test_helper'
 require_relative '../../lib/lovely_rufus/text_wrapper'
