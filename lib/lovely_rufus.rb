@@ -3,7 +3,7 @@
 require_relative 'lovely_rufus/text_wrapper'
 
 module LovelyRufus
-  NBSP = "\u00A0".freeze
+  NBSP = "\u00A0"
 
   module_function
 
