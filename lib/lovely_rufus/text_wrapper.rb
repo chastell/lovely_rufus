@@ -11,6 +11,14 @@ module LovelyRufus
   class TextWrapper
     QUOTES = %r{^([>/#])(\1| )*}
 
+    def self.chain
+      layers = [Layers::CodeCommentStripper, Layers::EmailQuoteStripper,
+                Layers::OneLetterGluer, Layers::BasicWrapper,
+                Layers::HangoutWrapper]
+      identity = -> (wrap) { wrap }
+      layers.reverse.reduce(identity) { |inner, outer| outer.new(inner) }
+    end
+
     def self.wrap(text, width: 72)
       new(Wrap[text, width: width]).call
     end
@@ -21,21 +29,13 @@ module LovelyRufus
 
     def call
       paras.map do |para|
-        chain.call(Wrap[para, width: wrap.width]).text.tr(NBSP, ' ')
+        self.class.chain.call(Wrap[para, width: wrap.width]).text.tr(NBSP, ' ')
       end.join("\n")
     end
 
     private
 
     attr_reader :wrap
-
-    def chain
-      layers = [Layers::CodeCommentStripper, Layers::EmailQuoteStripper,
-                Layers::OneLetterGluer, Layers::BasicWrapper,
-                Layers::HangoutWrapper]
-      identity = -> (wrap) { wrap }
-      layers.reverse.reduce(identity) { |inner, outer| outer.new(inner) }
-    end
 
     def paras
       wrap.text.split(/\n#{QUOTES}?\n/).reject { |par| par[/^(#{QUOTES}| )$/] }
