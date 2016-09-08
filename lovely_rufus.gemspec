@@ -30,6 +30,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'minitest-focus', '~> 1.1'
   gem.add_development_dependency 'rake',           '~> 11.0'
   gem.add_development_dependency 'reek',           '~> 4.0'
-  gem.add_development_dependency 'rerun',          '~> 0.11.0'
   gem.add_development_dependency 'rubocop',        '~> 0.42.0'
 end
