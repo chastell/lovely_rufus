@@ -9,11 +9,11 @@ module LovelyRufus
     describe CodeCommentStripper do
       describe '#call' do
         it 'strips comments and adjusts width before calling the next layer' do
-          commented = <<-end.dedent
+          commented = <<~end
             # to the extreme I rock a mic like a vandal
             # light up a stage and wax a chump like a candle
           end
-          uncommented = <<-end.dedent
+          uncommented = <<~end
             to the extreme I rock a mic like a vandal
             light up a stage and wax a chump like a candle
           end
@@ -22,7 +22,7 @@ module LovelyRufus
         end
 
         it 'adds comments back in (and adjusts width) before returning' do
-          text = <<-end.dedent
+          text = <<~end
             # take heed, ’cause I’m a lyrical poet
             # Miami’s on the scene just in case you didn’t know it
           end
@@ -31,7 +31,7 @@ module LovelyRufus
         end
 
         it 'does not touch non-commented texts' do
-          text = <<-end.dedent
+          text = <<~end
             my town, that created all the bass sound
             enough to shake and kick holes in the ground
           end
@@ -45,11 +45,11 @@ module LovelyRufus
         end
 
         it 'strips // code comments' do
-          commented = <<-end.dedent
+          commented = <<~end
             // so fast other DJs say ‘damn!’
             // if my rhyme was a drug I’d sell it by the gram
           end
-          uncommented = <<-end.dedent
+          uncommented = <<~end
             so fast other DJs say ‘damn!’
             if my rhyme was a drug I’d sell it by the gram
           end
@@ -58,11 +58,11 @@ module LovelyRufus
         end
 
         it 'only considers homogenous characters as comments' do
-          commented = <<-end.dedent
+          commented = <<~end
             # /if there was a problem,
             # yo – I’ll solve it!/
           end
-          uncommented = <<-end.dedent
+          uncommented = <<~end
             /if there was a problem,
             yo – I’ll solve it!/
           end

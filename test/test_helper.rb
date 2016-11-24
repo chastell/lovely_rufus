@@ -14,12 +14,6 @@ Bogus.configure do |config|
   config.search_modules << LovelyRufus << LovelyRufus::Layers
 end
 
-class String
-  def dedent
-    gsub(/^#{scan(/^ +/).min}/, '')
-  end
-end
-
 module CustomAssertions
   def assert_passes_to_next(subject, called_with, to_be_passed)
     next_layer = fake(:layer, call: LovelyRufus::Wrap.new)

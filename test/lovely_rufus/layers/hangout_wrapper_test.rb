@@ -9,11 +9,11 @@ module LovelyRufus
     describe HangoutWrapper do
       describe '#call' do
         it 'removes hangouts from the text' do
-          text = <<-end.dedent
+          text = <<~end
             I go crazy when I hear a cymbal and
             a hi-hat with a souped-up tempo
           end
-          wrap = <<-end.dedent
+          wrap = <<~end
             I go crazy when I hear a cymbal
             and a hi-hat with a souped-up tempo
           end
@@ -30,7 +30,7 @@ module LovelyRufus
         end
 
         it 'doesn’t let the last line to hang out' do
-          text = <<-end.dedent
+          text = <<~end
             Just found out the Finnish term for grammar Nazi is pilkunnussija.
             Direct translation: comma fucker. You’re welcome.
           end

@@ -10,7 +10,7 @@ module LovelyRufus
       it 'wraps the passed String to 72 characters by default' do
         short = 'all right: stop, collaborate and listen'
         long  = short + ' – Ice is back with a brand new invention'
-        wrap  = <<-end.dedent
+        wrap  = <<~end
           all right: stop, collaborate and listen
           – Ice is back with a brand new invention
         end
@@ -21,11 +21,11 @@ module LovelyRufus
       it 'wraps the passed String to the given number of characters' do
         input = 'something grabs a hold of me tightly; ' \
           'flow like a harpoon – daily and nightly'
-        _(TextWrapper.wrap(input, width: 40)).must_equal <<-end.dedent
+        _(TextWrapper.wrap(input, width: 40)).must_equal <<~end
           something grabs a hold of me tightly;
           flow like a harpoon – daily and nightly
         end
-        _(TextWrapper.wrap(input, width: 21)).must_equal <<-end.dedent
+        _(TextWrapper.wrap(input, width: 21)).must_equal <<~end
           something grabs
           a hold of me tightly;
           flow like a harpoon
@@ -34,7 +34,7 @@ module LovelyRufus
       end
 
       it 'rewraps a String from zero' do
-        broken = <<-end.dedent
+        broken = <<~end
           turn off
           the lights and I’ll glow
         end

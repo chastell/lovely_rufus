@@ -9,11 +9,11 @@ module LovelyRufus
     describe EmailQuoteStripper do
       describe '#call' do
         it 'strips quotes and adjusts width before calling the next layer' do
-          quoted = <<-end.dedent
+          quoted = <<~end
             > to the extreme I rock a mic like a vandal
             > light up a stage and wax a chump like a candle
           end
-          unquoted = <<-end.dedent
+          unquoted = <<~end
             to the extreme I rock a mic like a vandal
             light up a stage and wax a chump like a candle
           end
@@ -22,7 +22,7 @@ module LovelyRufus
         end
 
         it 'adds quotes back in (and adjusts width) before returning' do
-          quoted = <<-end.dedent
+          quoted = <<~end
             > take heed, ’cause I’m a lyrical poet
             > Miami’s on the scene just in case you didn’t know it
           end
@@ -31,7 +31,7 @@ module LovelyRufus
         end
 
         it 'does not touch non-quoted texts' do
-          plain = <<-end.dedent
+          plain = <<~end
             my town, that created all the bass sound
             enough to shake and kick holes in the ground
           end
@@ -45,11 +45,11 @@ module LovelyRufus
         end
 
         it 'strips multilevel quotes' do
-          quoted = <<-end.dedent
+          quoted = <<~end
             >> ’cause my style’s like a chemical spill
             >> feasible rhymes that you can vision and feel
           end
-          unquoted = <<-end.dedent
+          unquoted = <<~end
             ’cause my style’s like a chemical spill
             feasible rhymes that you can vision and feel
           end
@@ -58,11 +58,11 @@ module LovelyRufus
         end
 
         it 'strips broken quotes properly' do
-          quoted = <<-end.dedent
+          quoted = <<~end
             > > >conducted and formed this is a hell of a concept
             > > >we make it hype and you want to step with this
           end
-          unquoted = <<-end.dedent
+          unquoted = <<~end
             conducted and formed this is a hell of a concept
             we make it hype and you want to step with this
           end
@@ -71,12 +71,12 @@ module LovelyRufus
         end
 
         it 'fixes broken quotes when adding them back in' do
-          quoted = <<-end.dedent
+          quoted = <<~end
             > > >Shay plays on the fade,
             > > >slice like a ninja
             > > >cut like a razor blade
           end
-          fixed = <<-end.dedent
+          fixed = <<~end
             >>> Shay plays on the fade,
             >>> slice like a ninja
             >>> cut like a razor blade
@@ -86,11 +86,11 @@ module LovelyRufus
         end
 
         it 'only considers homogenous characters as comments' do
-          quoted = <<-end.dedent
+          quoted = <<~end
             > /if there was a problem,
             > yo – I’ll solve it!/
           end
-          unquoted = <<-end.dedent
+          unquoted = <<~end
             /if there was a problem,
             yo – I’ll solve it!/
           end

@@ -11,7 +11,7 @@ module LovelyRufus
         it 'wraps text to the given width' do
           text = 'I go crazy when I hear a cymbal and a hi-hat ' \
             'with a souped-up tempo'
-          wrap = <<-end.dedent
+          wrap = <<~end
             I go crazy when I hear
             a cymbal and a hi-hat
             with a souped-up tempo
@@ -22,7 +22,7 @@ module LovelyRufus
 
         it 'extends past the given width when necessary' do
           text = 'I’m killing your brain like a poisonous mushroom'
-          wrap = <<-end.dedent
+          wrap = <<~end
             I’m
             killing
             your
@@ -37,7 +37,7 @@ module LovelyRufus
         end
 
         it 'rewraps a String from zero' do
-          text = <<-end.dedent
+          text = <<~end
             turn off
             the lights and I’ll glow
           end
