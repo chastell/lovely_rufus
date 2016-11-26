@@ -15,6 +15,9 @@ Style/FileName:
 Style/Not:
   Enabled: false
 
+Style/SpaceInLambdaLiteral:
+  EnforcedStyle: require_space
+
 Style/SingleLineBlockParams:
   Enabled: false
 
