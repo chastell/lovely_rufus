@@ -45,7 +45,7 @@ module LovelyRufus
       it 'supports all the example use-cases' do
         path = File.expand_path('text_wrapper_test.yml', __dir__)
         YAML.load_file(path).each do |spec|
-          width = spec.fetch('width') { 72 }
+          width = spec.fetch('width', 72)
           wrap  = "#{spec['output']}\n"
           _(TextWrapper.wrap(spec['input'], width: width)).must_equal wrap
         end
