@@ -12,6 +12,9 @@ Style/FileName:
   Exclude:
     - bin/lovely-rufus
 
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
 Style/Not:
   Enabled: false
 

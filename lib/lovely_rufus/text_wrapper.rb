@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative 'layers/basic_wrapper'
 require_relative 'layers/code_comment_stripper'
 require_relative 'layers/email_quote_stripper'

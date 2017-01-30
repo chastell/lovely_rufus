@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative '../../test_helper'
 require_relative '../../../lib/lovely_rufus/layers/one_letter_gluer'
 require_relative '../../../lib/lovely_rufus/wrap'

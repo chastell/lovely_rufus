@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative 'quote_stripper'
 
 module LovelyRufus

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative '../wrap'
 require_relative 'basic_wrapper'
 require_relative 'layer'

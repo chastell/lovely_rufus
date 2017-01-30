@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative '../../test_helper'
 require_relative '../../../lib/lovely_rufus/layers/code_comment_stripper'
 require_relative '../../../lib/lovely_rufus/wrap'
