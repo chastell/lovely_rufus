@@ -29,7 +29,7 @@ GEM
       ast (~> 2.2)
     powerpack (0.1.1)
     rainbow (2.2.1)
-    reek (4.5.4)
+    reek (4.5.5)
       codeclimate-engine-rb (~> 0.4.0)
       parser (~> 2.3.1, >= 2.3.1.2)
       rainbow (~> 2.0)
@@ -60,4 +60,4 @@ DEPENDENCIES
   rubocop (~> 0.47.0)
 
 BUNDLED WITH
-   1.14.3
+   1.14.4
