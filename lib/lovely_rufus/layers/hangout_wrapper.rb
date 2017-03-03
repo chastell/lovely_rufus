@@ -48,7 +48,7 @@ module LovelyRufus
       def hangout_line
         lines.each_cons(2).with_index do |(upper, lower), index|
           finder = HangoutFinder.new(upper, lower, index == lines.size - 2)
-          return upper if finder.hangout?
+          return index if finder.hangout?
         end
       end
 
@@ -57,7 +57,7 @@ module LovelyRufus
       end
 
       def rewrapped
-        hangout_line[-1] = NBSP
+        lines[hangout_line][-1] = NBSP
         HangoutWrapper.new.call(wrapped)
       end
 
