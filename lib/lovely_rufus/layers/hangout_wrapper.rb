@@ -58,12 +58,9 @@ module LovelyRufus
 
       def rewrapped
         lines[hangout_line][-1] = NBSP
-        HangoutWrapper.new.call(wrapped)
-      end
-
-      def wrapped
         unfolded = Wrap[lines.join, width: wrap.width]
-        BasicWrapper.new.call(unfolded)
+        wrapped = BasicWrapper.new.call(unfolded)
+        HangoutWrapper.new.call(wrapped)
       end
     end
   end
