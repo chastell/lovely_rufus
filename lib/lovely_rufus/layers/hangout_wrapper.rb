@@ -28,14 +28,16 @@ module LovelyRufus
 
         private
 
-        attr_reader :last, :lower, :upper
+        attr_reader :lower, :upper
 
         def exists?
           last_space = upper.chomp.rindex(/\p{space}/)
           last_space and last_space >= lower.chomp.size
         end
 
-        alias last? last
+        def last?
+          @last
+        end
 
         def useless_fix? # rubocop:disable Metrics/AbcSize
           cut = upper.chomp.rindex(/\p{space}/)
