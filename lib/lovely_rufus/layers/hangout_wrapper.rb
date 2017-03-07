@@ -58,10 +58,11 @@ module LovelyRufus
         @lines ||= wrap.lines
       end
 
-      def rewrapped # rubocop:disable Metrics/AbcSize
+      def rewrapped
         index = hangout_line
-        lines[index] = lines[index][0...-1] + NBSP
-        unfolded = Wrap[lines.join, width: wrap.width]
+        new_lines = lines.dup
+        new_lines[index] = new_lines[index][0...-1] + NBSP
+        unfolded = Wrap[new_lines.join, width: wrap.width]
         wrapped = BasicWrapper.new.call(unfolded)
         HangoutWrapper.new.call(wrapped)
       end
