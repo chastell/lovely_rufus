@@ -48,19 +48,15 @@ module LovelyRufus
       end
 
       def hangout_line
-        lines.each_cons(2).with_index do |(upper, lower), index|
-          finder = HangoutFinder.new(upper, lower, index == lines.size - 2)
+        wrap.lines.each_cons(2).with_index do |(upper, lower), index|
+          finder = HangoutFinder.new(upper, lower, index == wrap.lines.size - 2)
           return index if finder.hangout?
         end
       end
 
-      def lines
-        wrap.lines
-      end
-
-      def rewrapped
+      def rewrapped # rubocop:disable Metrics/AbcSize
         index = hangout_line
-        new_lines = lines.dup
+        new_lines = wrap.lines.dup
         new_lines[index] = new_lines[index][0...-1] + NBSP
         unfolded = Wrap[new_lines.join, width: wrap.width]
         wrapped = BasicWrapper.new.call(unfolded)
