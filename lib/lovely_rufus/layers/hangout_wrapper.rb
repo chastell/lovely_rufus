@@ -55,7 +55,7 @@ module LovelyRufus
       end
 
       def lines
-        @lines ||= wrap.lines
+        wrap.lines
       end
 
       def rewrapped
