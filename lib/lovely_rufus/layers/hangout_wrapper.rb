@@ -23,7 +23,7 @@ module LovelyRufus
         end
 
         def hangout?
-          exists? and not (last? and useless_fix?)
+          exists? and not useless_fix?
         end
 
         private
@@ -40,6 +40,7 @@ module LovelyRufus
         end
 
         def useless_fix? # rubocop:disable Metrics/AbcSize
+          return false unless last?
           cut = upper.chomp.rindex(/\p{space}/)
           upper_after = upper[0...cut] + "\n"
           lower_after = upper[(cut + 1)..-1] + lower
