@@ -18,7 +18,7 @@ module LovelyRufus
 
       it 'accepts the desired width and passes it to TextWrapper' do
         capture_io do
-          CLIWrapper.new(%w(--width=22), text_wrapper: text_wrapper).run stream
+          CLIWrapper.new(%w[--width=22], text_wrapper: text_wrapper).run stream
         end
         _(text_wrapper).must_have_received :wrap, [text, { width: 22 }]
       end

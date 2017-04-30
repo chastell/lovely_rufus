@@ -9,11 +9,11 @@ module LovelyRufus
       end
 
       it 'can be set via --width' do
-        _(Settings.new(%w(--width=42)).width).must_equal 42
+        _(Settings.new(%w[--width=42]).width).must_equal 42
       end
 
       it 'can be set via -w' do
-        _(Settings.new(%w(-w 42)).width).must_equal 42
+        _(Settings.new(%w[-w 42]).width).must_equal 42
       end
     end
   end
