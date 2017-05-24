@@ -1,3 +1,9 @@
+Layout/SpaceAfterNot:
+  Enabled: false
+
+Layout/SpaceInLambdaLiteral:
+  EnforcedStyle: require_space
+
 Metrics/BlockLength:
   Exclude:
     - 'test/**/*'
@@ -18,11 +24,5 @@ Style/FrozenStringLiteralComment:
 Style/Not:
   Enabled: false
 
-Style/SpaceInLambdaLiteral:
-  EnforcedStyle: require_space
-
 Style/SingleLineBlockParams:
-  Enabled: false
-
-Style/SpaceAfterNot:
   Enabled: false
