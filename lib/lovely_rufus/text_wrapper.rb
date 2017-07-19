@@ -27,7 +27,7 @@ module LovelyRufus
 
     def call
       paras.map do |para|
-        self.class.chain.call(Wrap[para, width: wrap.width]).text.tr(NBSP, ' ')
+        self.class.chain.call(Wrap[para, width: wrap.width]).text.tr(' ', ' ')
       end.join("\n")
     end
 
