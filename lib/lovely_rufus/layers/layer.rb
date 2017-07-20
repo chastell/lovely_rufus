@@ -1,6 +1,8 @@
 module LovelyRufus
   module Layers
     class Layer
+      NBSP = "\u00A0".freeze
+
       def initialize(next_layer = -> (wrap) { wrap })
         @next_layer = next_layer
       end
