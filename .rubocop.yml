@@ -5,6 +5,9 @@ Metrics/BlockLength:
   Exclude:
     - 'test/**/*'
 
+Naming/HeredocDelimiterCase:
+  Enabled: false
+
 Style/AndOr:
   Enabled: false
 
