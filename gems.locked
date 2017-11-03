@@ -38,7 +38,7 @@ GEM
     powerpack (0.1.1)
     rainbow (2.2.2)
       rake
-    rake (12.1.0)
+    rake (12.2.1)
     reek (4.7.2)
       codeclimate-engine-rb (~> 0.4.0)
       parser (>= 2.4.0.0, < 2.5)
@@ -72,4 +72,4 @@ DEPENDENCIES
   rubocop (~> 0.51.0)
 
 BUNDLED WITH
-   1.15.4
+   1.16.0
