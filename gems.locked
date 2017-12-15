@@ -15,7 +15,7 @@ GEM
       dependor (>= 0.0.4)
     childprocess (0.8.0)
       ffi (~> 1.0, >= 1.0.11)
-    codeclimate-engine-rb (0.4.0)
+    codeclimate-engine-rb (0.4.1)
       virtus (~> 1.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
