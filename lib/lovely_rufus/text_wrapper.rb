@@ -7,19 +7,21 @@ require_relative 'wrap'
 
 module LovelyRufus
   class TextWrapper
+    class << self
+      def chain
+        layers = [Layers::CodeCommentStripper, Layers::EmailQuoteStripper,
+                  Layers::OneLetterGluer, Layers::BasicWrapper,
+                  Layers::HangoutWrapper]
+        identity = -> (wrap) { wrap }
+        layers.reverse.reduce(identity) { |inner, outer| outer.new(inner) }
+      end
+
+      def wrap(text, width: 72)
+        new(Wrap[text, width: width]).call
+      end
+    end
+
     QUOTES = %r{^([>/#])(\1| )*}
-
-    def self.chain
-      layers = [Layers::CodeCommentStripper, Layers::EmailQuoteStripper,
-                Layers::OneLetterGluer, Layers::BasicWrapper,
-                Layers::HangoutWrapper]
-      identity = -> (wrap) { wrap }
-      layers.reverse.reduce(identity) { |inner, outer| outer.new(inner) }
-    end
-
-    def self.wrap(text, width: 72)
-      new(Wrap[text, width: width]).call
-    end
 
     def initialize(wrap)
       @wrap = wrap
