@@ -4,7 +4,7 @@ before_install:
 language: ruby
 matrix:
   allow_failures:
-    rvm: ruby-head
+    - rvm: ruby-head
 rvm:
   - 2.3
   - 2.4
