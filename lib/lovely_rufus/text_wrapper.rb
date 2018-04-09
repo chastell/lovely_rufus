@@ -12,7 +12,7 @@ module LovelyRufus
         layers = [Layers::CodeCommentStripper, Layers::EmailQuoteStripper,
                   Layers::OneLetterGluer, Layers::BasicWrapper,
                   Layers::HangoutWrapper]
-        identity = -> (wrap) { wrap }
+        identity = ->(wrap) { wrap }
         layers.reverse.reduce(identity) { |inner, outer| outer.new(inner) }
       end
 

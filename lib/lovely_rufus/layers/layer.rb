@@ -1,7 +1,7 @@
 module LovelyRufus
   module Layers
     class Layer
-      def initialize(next_layer = -> (wrap) { wrap })
+      def initialize(next_layer = ->(wrap) { wrap })
         @next_layer = next_layer
       end
 
