@@ -3,7 +3,7 @@ Gemspec/RequiredRubyVersion:
 
 Metrics/BlockLength:
   Exclude:
-    - 'test/**/*'
+    - test/**/*
 
 Naming/HeredocDelimiterCase:
   Enabled: false
