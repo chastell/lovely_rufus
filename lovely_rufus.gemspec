@@ -28,5 +28,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'minitest-focus', '~> 1.1'
   gem.add_development_dependency 'overcommit',     '~> 0.45.0'
   gem.add_development_dependency 'reek',           '~> 4.0'
-  gem.add_development_dependency 'rubocop',        '~> 0.54.0'
+  gem.add_development_dependency 'rubocop',        '~> 0.55.0'
 end
