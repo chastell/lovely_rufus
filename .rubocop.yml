@@ -1,6 +1,9 @@
 Gemspec/RequiredRubyVersion:
   Enabled: false
 
+Layout/EmptyLineAfterGuardClause:
+  Enabled: false
+
 Metrics/BlockLength:
   Exclude:
     - test/**/*
