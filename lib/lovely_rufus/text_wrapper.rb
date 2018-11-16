@@ -21,7 +21,7 @@ module LovelyRufus
       end
     end
 
-    QUOTES = %r{^([>/#])(\1| )*}
+    QUOTES = %r{^([>/#])(\1| )*}.freeze
 
     def initialize(wrap)
       @wrap = wrap
