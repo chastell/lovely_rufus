@@ -48,6 +48,7 @@ module LovelyRufus
         end
       end
 
+      # :reek:DuplicateMethodCall
       def hangout_line
         wrap.lines.each_cons(2).with_index do |(upper, lower), index|
           finder = HangoutFinder.new(upper, lower, index == wrap.lines.size - 2)
