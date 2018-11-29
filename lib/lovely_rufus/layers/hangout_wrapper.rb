@@ -56,6 +56,7 @@ module LovelyRufus
         end
       end
 
+      # :reek:TooManyStatements
       def rewrapped # rubocop:disable Metrics/AbcSize
         index = hangout_line
         new_lines = wrap.lines.dup
