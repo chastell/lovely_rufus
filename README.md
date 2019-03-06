@@ -64,4 +64,4 @@ Lovely Rufus was created as a [Ruby Mendicant University](http://blog.majesticse
 
 ---
 
-© MMX-MMXV Piotr Szotkowski <chastell@chastell.net>, licensed under AGPL-3.0 (see LICENCE)
+© MMX-MMXIX Piotr Szotkowski <chastell@chastell.net>, licensed under AGPL-3.0 (see LICENCE)
