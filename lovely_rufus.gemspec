@@ -29,5 +29,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'overcommit',     '~> 0.52.0'
   gem.add_development_dependency 'rake',           '~> 13.0'
   gem.add_development_dependency 'reek',           '~> 6.0'
-  gem.add_development_dependency 'rubocop',        '~> 0.65.0'
+  gem.add_development_dependency 'rubocop',        '~> 0.81.0'
 end
