@@ -15,8 +15,8 @@ module LovelyRufus
             to the extreme I rock a mic like a vandal
             light up a stage and wax a chump like a candle
           end
-          CodeCommentStripper.must_pass_to_next Wrap[commented,   width: 72],
-                                                Wrap[uncommented, width: 70]
+          _(CodeCommentStripper).must_pass_to_next Wrap[commented,   width: 72],
+                                                   Wrap[uncommented, width: 70]
         end
 
         it 'adds comments back in (and adjusts width) before returning' do
@@ -51,8 +51,8 @@ module LovelyRufus
             so fast other DJs say ‘damn!’
             if my rhyme was a drug I’d sell it by the gram
           end
-          CodeCommentStripper.must_pass_to_next Wrap[commented,   width: 72],
-                                                Wrap[uncommented, width: 69]
+          _(CodeCommentStripper).must_pass_to_next Wrap[commented,   width: 72],
+                                                   Wrap[uncommented, width: 69]
         end
 
         it 'only considers homogenous characters as comments' do
@@ -64,25 +64,25 @@ module LovelyRufus
             /if there was a problem,
             yo – I’ll solve it!/
           end
-          CodeCommentStripper.must_pass_to_next Wrap[commented,   width: 72],
-                                                Wrap[uncommented, width: 70]
+          _(CodeCommentStripper).must_pass_to_next Wrap[commented,   width: 72],
+                                                   Wrap[uncommented, width: 70]
         end
 
         it 'strips initial space indentation' do
           indented = Wrap['  // check out the hook', width: 72]
           passed   = Wrap['check out the hook',      width: 67]
-          CodeCommentStripper.must_pass_to_next indented, passed
+          _(CodeCommentStripper).must_pass_to_next indented, passed
         end
 
         it 'strips initial tab indentation' do
           indented = Wrap["\t# while my DJ revolves it", width: 72]
           stripped = Wrap['while my DJ revolves it',     width: 69]
-          CodeCommentStripper.must_pass_to_next indented, stripped
+          _(CodeCommentStripper).must_pass_to_next indented, stripped
         end
 
         it 'pays proper homage to K&R' do
           not_commented = Wrap['#define ASSERT(msg, cond) // TODO']
-          CodeCommentStripper.must_pass_to_next not_commented, not_commented
+          _(CodeCommentStripper).must_pass_to_next not_commented, not_commented
         end
       end
     end
