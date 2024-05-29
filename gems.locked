@@ -12,7 +12,7 @@ GEM
     childprocess (3.0.0)
     dependor (1.0.1)
     iniparse (1.5.0)
-    jaro_winkler (1.5.4)
+    jaro_winkler (1.5.6)
     kwalify (0.7.2)
     minitest (5.14.0)
     minitest-focus (1.1.2)
