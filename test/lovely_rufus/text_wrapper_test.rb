@@ -18,7 +18,7 @@ module LovelyRufus
 
       it 'wraps the passed String to the given number of characters' do
         input = 'something grabs a hold of me tightly; ' \
-          'flow like a harpoon – daily and nightly'
+                'flow like a harpoon – daily and nightly'
         _(TextWrapper.wrap(input, width: 40)).must_equal <<~end
           something grabs a hold of me tightly;
           flow like a harpoon – daily and nightly

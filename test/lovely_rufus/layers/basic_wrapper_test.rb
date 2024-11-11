@@ -8,7 +8,7 @@ module LovelyRufus
       describe '#call' do
         it 'wraps text to the given width' do
           text = 'I go crazy when I hear a cymbal and a hi-hat ' \
-            'with a souped-up tempo'
+                 'with a souped-up tempo'
           wrap = <<~end
             I go crazy when I hear
             a cymbal and a hi-hat
