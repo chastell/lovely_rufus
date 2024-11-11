@@ -8,9 +8,6 @@ Bundler/GemFilename:
 Gemspec/DevelopmentDependencies:
   Enabled: false
 
-Lint/StructNewOverride:
-  Enabled: true
-
 Metrics/BlockLength:
   Exclude:
     - test/**/*
