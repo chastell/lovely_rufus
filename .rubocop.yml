@@ -8,9 +8,6 @@ Bundler/GemFilename:
 Gemspec/DevelopmentDependencies:
   Enabled: false
 
-Gemspec/RequiredRubyVersion:
-  Enabled: false
-
 Layout/EmptyLineAfterGuardClause:
   Enabled: false
 
