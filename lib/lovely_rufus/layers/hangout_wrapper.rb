@@ -39,7 +39,7 @@ module LovelyRufus
           @last
         end
 
-        def useful_fix? # rubocop:disable Metrics/AbcSize
+        def useful_fix?
           return true unless last?
           cut = upper.chomp.rindex(/\p{space}/)
           upper_after = "#{upper[0...cut]}\n"
@@ -57,7 +57,7 @@ module LovelyRufus
       end
 
       # :reek:TooManyStatements
-      def rewrapped # rubocop:disable Metrics/AbcSize
+      def rewrapped
         index = hangout_line
         new_lines = wrap.lines.dup
         new_lines[index] = "#{new_lines[index][0...-1]} "
