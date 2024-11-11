@@ -9,8 +9,7 @@ Gemspec/DevelopmentDependencies:
   Enabled: false
 
 Metrics/BlockLength:
-  Exclude:
-    - test/**/*
+  AllowedMethods: describe
 
 Naming/HeredocDelimiterCase:
   Enabled: false
