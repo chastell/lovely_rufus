@@ -42,7 +42,7 @@ module LovelyRufus
         def useful_fix? # rubocop:disable Metrics/AbcSize
           return true unless last?
           cut = upper.chomp.rindex(/\p{space}/)
-          upper_after = upper[0...cut] + "\n"
+          upper_after = "#{upper[0...cut]}\n"
           lower_after = upper[(cut + 1)..-1] + lower
           lower_after.chomp.rindex(/\p{space}/) <= upper_after.size
         end
@@ -60,7 +60,7 @@ module LovelyRufus
       def rewrapped # rubocop:disable Metrics/AbcSize
         index = hangout_line
         new_lines = wrap.lines.dup
-        new_lines[index] = new_lines[index][0...-1] + ' '
+        new_lines[index] = "#{new_lines[index][0...-1]} "
         unfolded = Wrap[new_lines.join, width: wrap.width]
         wrapped = BasicWrapper.new.call(unfolded)
         HangoutWrapper.new.call(wrapped)

@@ -7,7 +7,7 @@ module LovelyRufus
     describe '.wrap' do
       it 'wraps the passed String to 72 characters by default' do
         short = 'all right: stop, collaborate and listen'
-        long  = short + ' – Ice is back with a brand new invention'
+        long  = "#{short} – Ice is back with a brand new invention"
         wrap  = <<~end
           all right: stop, collaborate and listen
           – Ice is back with a brand new invention
