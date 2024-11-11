@@ -5,6 +5,9 @@ AllCops:
 Bundler/GemFilename:
   Enabled: false
 
+Gemspec/DevelopmentDependencies:
+  Enabled: false
+
 Gemspec/RequiredRubyVersion:
   Enabled: false
 
