@@ -24,6 +24,9 @@ Metrics/BlockLength:
 Naming/HeredocDelimiterCase:
   Enabled: false
 
+Naming/HeredocDelimiterNaming:
+  Enabled: false
+
 Style/AndOr:
   Enabled: false
 
