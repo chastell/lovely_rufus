@@ -16,7 +16,6 @@ Gem::Specification.new do |gem|
 
   gem.files       = `git ls-files -z`.split("\0")
   gem.executables = gem.files.grep(%r{^bin/}).map { |path| File.basename(path) }
-  gem.test_files  = gem.files.grep(%r{^test/.*\.rb$})
 
   gem.cert_chain  = ['certs/chastell.pem']
   if Pathname.new($PROGRAM_NAME).basename == Pathname.new('gem')
