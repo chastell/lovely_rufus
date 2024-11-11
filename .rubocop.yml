@@ -8,9 +8,6 @@ Bundler/GemFilename:
 Gemspec/DevelopmentDependencies:
   Enabled: false
 
-Layout/EmptyLineAfterGuardClause:
-  Enabled: false
-
 Lint/RaiseException:
   Enabled: true
 

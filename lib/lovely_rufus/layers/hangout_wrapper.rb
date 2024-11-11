@@ -41,6 +41,7 @@ module LovelyRufus
 
         def useful_fix?
           return true unless last?
+
           cut = upper.chomp.rindex(/\p{space}/)
           upper_after = "#{upper[0...cut]}\n"
           lower_after = upper[(cut + 1)..] + lower
