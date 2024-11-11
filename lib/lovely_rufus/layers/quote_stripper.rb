@@ -21,7 +21,7 @@ module LovelyRufus
       end
 
       def stripped_wrap
-        stripped_text = wrap.lines.map { |line| line[quote.size..-1] }.join
+        stripped_text = wrap.lines.map { |line| line[quote.size..] }.join
         Wrap[stripped_text, width: wrap.width - fixed_quote.size]
       end
     end
