@@ -5,7 +5,7 @@ module LovelyRufus
     extend Forwardable
 
     def initialize(text = '', width: 72)
-      super text, width
+      super(text, width)
     end
 
     delegate lines: :text
