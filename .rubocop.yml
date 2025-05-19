@@ -1,3 +1,6 @@
+plugins:
+  - rubocop-minitest
+
 AllCops:
   NewCops: enable
   TargetRubyVersion: 3.2

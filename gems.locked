@@ -77,6 +77,10 @@ GEM
     rubocop-ast (1.44.1)
       parser (>= 3.3.7.2)
       prism (~> 1.4)
+    rubocop-minitest (0.38.0)
+      lint_roller (~> 1.1)
+      rubocop (>= 1.75.0, < 2.0)
+      rubocop-ast (>= 1.38.0, < 2.0)
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     unicode-display_width (3.1.4)
@@ -95,6 +99,7 @@ DEPENDENCIES
   rake (~> 13.0)
   reek (~> 6.0)
   rubocop (~> 1.0)
+  rubocop-minitest (~> 0.38.0)
 
 BUNDLED WITH
    2.6.9

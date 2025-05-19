@@ -17,12 +17,13 @@ Gem::Specification.new do |gem|
   gem.files       = `git ls-files -z`.split("\0")
   gem.executables = gem.files.grep(%r{^bin/}).map { |path| File.basename(path) }
 
-  gem.add_development_dependency 'minitest',       '~> 5.6'
-  gem.add_development_dependency 'minitest-focus', '~> 1.1'
-  gem.add_development_dependency 'mocha',          '~> 2.7'
-  gem.add_development_dependency 'rake',           '~> 13.0'
-  gem.add_development_dependency 'reek',           '~> 6.0'
-  gem.add_development_dependency 'rubocop',        '~> 1.0'
+  gem.add_development_dependency 'minitest',         '~> 5.6'
+  gem.add_development_dependency 'minitest-focus',   '~> 1.1'
+  gem.add_development_dependency 'mocha',            '~> 2.7'
+  gem.add_development_dependency 'rake',             '~> 13.0'
+  gem.add_development_dependency 'reek',             '~> 6.0'
+  gem.add_development_dependency 'rubocop',          '~> 1.0'
+  gem.add_development_dependency 'rubocop-minitest', '~> 0.38.0'
 
   gem.metadata['rubygems_mfa_required'] = 'true'
 end
