@@ -4,7 +4,7 @@ module LovelyRufus
   module Layers
     # :reek:UnusedPrivateMethod
     class EmailQuoteStripper < QuoteStripper
-      QUOTES = /^>[> ]*/.freeze
+      QUOTES = /^>[> ]*/
 
       private
 
