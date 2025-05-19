@@ -12,7 +12,7 @@ Gem::Specification.new do |gem|
   gem.summary     = 'lovely_rufus: text wrapper'
   gem.version     = '1.2.0'
 
-  gem.required_ruby_version = '~> 3.1'
+  gem.required_ruby_version = '~> 3.2'
 
   gem.files       = `git ls-files -z`.split("\0")
   gem.executables = gem.files.grep(%r{^bin/}).map { |path| File.basename(path) }
