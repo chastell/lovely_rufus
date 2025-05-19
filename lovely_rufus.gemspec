@@ -7,7 +7,7 @@ Gem::Specification.new do |gem|
                     'paragraphs of text.'
   gem.email       = 'chastell@chastell.net'
   gem.homepage    = 'http://github.com/chastell/lovely_rufus'
-  gem.license     = 'AGPL-3.0'
+  gem.license     = 'AGPL-3.0-or-later'
   gem.name        = 'lovely_rufus'
   gem.summary     = 'lovely_rufus: text wrapper'
   gem.version     = '1.0.1'
