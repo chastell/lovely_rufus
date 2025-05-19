@@ -24,6 +24,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'reek',             '~> 6.0'
   gem.add_development_dependency 'rubocop',          '~> 1.0'
   gem.add_development_dependency 'rubocop-minitest', '~> 0.38.0'
+  gem.add_development_dependency 'rubocop-rake',     '~> 0.7.0'
 
   gem.metadata['rubygems_mfa_required'] = 'true'
 end
