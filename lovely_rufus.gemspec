@@ -17,11 +17,6 @@ Gem::Specification.new do |gem|
   gem.files       = `git ls-files -z`.split("\0")
   gem.executables = gem.files.grep(%r{^bin/}).map { |path| File.basename(path) }
 
-  gem.cert_chain  = ['certs/chastell.pem']
-  if Pathname.new($PROGRAM_NAME).basename == Pathname.new('gem')
-    gem.signing_key = Pathname.new('~/.ssh/gem-private_key.pem').expand_path
-  end
-
   gem.add_development_dependency 'minitest',       '~> 5.6'
   gem.add_development_dependency 'minitest-focus', '~> 1.1'
   gem.add_development_dependency 'mocha',          '~> 2.7'
