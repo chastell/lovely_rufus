@@ -55,6 +55,7 @@ module LovelyRufus
           finder = HangoutFinder.new(upper, lower, index == wrap.lines.size - 2)
           return index if finder.hangout?
         end
+        nil
       end
 
       # :reek:TooManyStatements
