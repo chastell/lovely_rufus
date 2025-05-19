@@ -20,9 +20,9 @@ module LovelyRufus
         end
 
         it 'passes the fixed text to the next layer and returns its outcome' do
-          final = fake(:wrap)
-          layer = fake(:layer)
-          mock(layer).call(any(Wrap)) { final }
+          final = mock.quacks_like_instance_of(Wrap)
+          layer = mock.quacks_like_instance_of(Layer)
+          layer.expects(:call).with(instance_of(Wrap)).returns(final)
           wrapped = HangoutWrapper.new(layer).call(Wrap["I O\nU", width: 4])
           _(wrapped).must_equal final
         end

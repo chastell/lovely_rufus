@@ -21,9 +21,9 @@ module LovelyRufus
         end
 
         it 'passes the fixed text to the next layer and returns its outcome' do
-          final = fake(:wrap)
-          layer = fake(:layer)
-          mock(layer).call(Wrap['I O U', width: 69]) { final }
+          final = mock.quacks_like_instance_of(Wrap)
+          layer = mock.quacks_like_instance_of(Layer)
+          layer.expects(:call).with(Wrap['I O U', width: 69]).returns(final)
           glued = OneLetterGluer.new(layer).call(Wrap['I O U', width: 69])
           _(glued).must_equal final
         end

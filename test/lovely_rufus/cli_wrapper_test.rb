@@ -7,20 +7,20 @@ module LovelyRufus
     describe '#run' do
       let(:stream)       { StringIO.new(text)                          }
       let(:text)         { "all right: stop, collaborate and listen\n" }
-      let(:text_wrapper) { fake(:text_wrapper, as: :class)             }
+      let(:text_wrapper) { mock.quacks_like(TextWrapper)               }
 
       it 'reads the passed stream to TextWrapper and prints the results' do
-        stub(text_wrapper).wrap(text, width: 72) { text }
+        text_wrapper.stubs(:wrap).with(text, width: 72).returns(text)
         _(lambda do
           CLIWrapper.new(text_wrapper: text_wrapper).run stream
         end).must_output text
       end
 
       it 'accepts the desired width and passes it to TextWrapper' do
+        text_wrapper.expects(:wrap).with(text, width: 22).returns(text)
         capture_io do
           CLIWrapper.new(%w[--width=22], text_wrapper: text_wrapper).run stream
         end
-        _(text_wrapper).must_have_received :wrap, [text, { width: 22 }]
       end
     end
   end
