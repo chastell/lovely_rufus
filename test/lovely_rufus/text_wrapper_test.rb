@@ -45,7 +45,7 @@ module LovelyRufus
         YAML.load_file(path).each do |spec|
           width = spec.fetch('width', 72)
           wrap  = "#{spec['output']}\n"
-          _(TextWrapper.wrap(spec['input'], width: width)).must_equal wrap
+          _(TextWrapper.wrap(spec['input'], width:)).must_equal wrap
         end
       end
     end

@@ -63,7 +63,7 @@ module LovelyRufus
         index = hangout_line
         new_lines = wrap.lines.dup
         new_lines[index] = "#{new_lines[index][0...-1]} "
-        unfolded = Wrap[new_lines.join, width: wrap.width]
+        unfolded = Wrap[new_lines.join, wrap.width]
         wrapped = BasicWrapper.new.call(unfolded)
         HangoutWrapper.new.call(wrapped)
       end

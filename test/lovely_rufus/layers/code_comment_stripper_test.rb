@@ -7,33 +7,30 @@ module LovelyRufus
     describe CodeCommentStripper do
       describe '#call' do
         it 'strips comments and adjusts width before calling the next layer' do
-          commented = <<~end
+          commented = Wrap[<<~end, 72]
             # to the extreme I rock a mic like a vandal
             # light up a stage and wax a chump like a candle
           end
-          uncommented = <<~end
+          uncommented = Wrap[<<~end, 70]
             to the extreme I rock a mic like a vandal
             light up a stage and wax a chump like a candle
           end
-          _(CodeCommentStripper).must_pass_to_next Wrap[commented,   width: 72],
-                                                   Wrap[uncommented, width: 70]
+          _(CodeCommentStripper).must_pass_to_next commented, uncommented
         end
 
         it 'adds comments back in (and adjusts width) before returning' do
-          text = <<~end
+          commented = Wrap[<<~end, 72]
             # take heed, ’cause I’m a lyrical poet
             # Miami’s on the scene just in case you didn’t know it
           end
-          commented = Wrap[text, width: 72]
           _(CodeCommentStripper.new.call(commented)).must_equal commented
         end
 
         it 'does not touch non-commented texts' do
-          text = <<~end
+          uncommented = Wrap[<<~end, 72]
             my town, that created all the bass sound
             enough to shake and kick holes in the ground
           end
-          uncommented = Wrap[text, width: 72]
           _(CodeCommentStripper.new.call(uncommented)).must_equal uncommented
         end
 
@@ -43,40 +40,38 @@ module LovelyRufus
         end
 
         it 'strips // code comments' do
-          commented = <<~end
+          commented = Wrap[<<~end, 72]
             // so fast other DJs say ‘damn!’
             // if my rhyme was a drug I’d sell it by the gram
           end
-          uncommented = <<~end
+          uncommented = Wrap[<<~end, 69]
             so fast other DJs say ‘damn!’
             if my rhyme was a drug I’d sell it by the gram
           end
-          _(CodeCommentStripper).must_pass_to_next Wrap[commented,   width: 72],
-                                                   Wrap[uncommented, width: 69]
+          _(CodeCommentStripper).must_pass_to_next commented, uncommented
         end
 
         it 'only considers homogenous characters as comments' do
-          commented = <<~end
+          commented = Wrap[<<~end, 72]
             # /if there was a problem,
             # yo – I’ll solve it!/
           end
-          uncommented = <<~end
+          uncommented = Wrap[<<~end, 70]
             /if there was a problem,
             yo – I’ll solve it!/
           end
-          _(CodeCommentStripper).must_pass_to_next Wrap[commented,   width: 72],
-                                                   Wrap[uncommented, width: 70]
+          _(CodeCommentStripper).must_pass_to_next commented, uncommented
         end
 
         it 'strips initial space indentation' do
-          indented = Wrap['  // check out the hook', width: 72]
-          passed   = Wrap['check out the hook',      width: 67]
+          indented = Wrap['  // check out the hook', 72]
+          passed   = Wrap['check out the hook',      67]
           _(CodeCommentStripper).must_pass_to_next indented, passed
         end
 
         it 'strips initial tab indentation' do
-          indented = Wrap["\t# while my DJ revolves it", width: 72]
-          stripped = Wrap['while my DJ revolves it',     width: 69]
+          indented = Wrap["\t# while my DJ revolves it", 72]
+          stripped = Wrap['while my DJ revolves it',     69]
           _(CodeCommentStripper).must_pass_to_next indented, stripped
         end
 

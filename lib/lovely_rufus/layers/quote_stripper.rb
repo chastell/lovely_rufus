@@ -8,7 +8,7 @@ module LovelyRufus
         @wrap   = wrap
         wrapped = next_layer.call(stripped_wrap)
         quoted  = wrapped.lines.map { |line| fixed_quote + line }.join
-        Wrap[quoted, width: wrapped.width + fixed_quote.size]
+        Wrap[quoted, wrapped.width + fixed_quote.size]
       end
 
       private
@@ -22,7 +22,7 @@ module LovelyRufus
 
       def stripped_wrap
         stripped_text = wrap.lines.map { |line| line[quote.size..] }.join
-        Wrap[stripped_text, width: wrap.width - fixed_quote.size]
+        Wrap[stripped_text, wrap.width - fixed_quote.size]
       end
     end
   end

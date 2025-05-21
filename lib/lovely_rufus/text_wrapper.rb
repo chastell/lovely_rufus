@@ -17,7 +17,7 @@ module LovelyRufus
       end
 
       def wrap(text, width: 72)
-        new(Wrap[text, width: width]).call
+        new(Wrap[text, width]).call
       end
     end
 
@@ -29,7 +29,7 @@ module LovelyRufus
 
     def call
       paras.map do |para|
-        self.class.chain.call(Wrap[para, width: wrap.width]).text.tr(' ', ' ')
+        self.class.chain.call(Wrap[para, wrap.width]).text.tr(' ', ' ')
       end.join("\n")
     end
 

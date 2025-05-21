@@ -1,12 +1,12 @@
 require 'forwardable'
 
 module LovelyRufus
-  Wrap = Struct.new(:text, :width) do
+  Wrap = Data.define(:text, :width) do
     extend Forwardable
 
-    def initialize(text = '', width: 72)
-      super(text, width)
-    end
+    def self.[](...) = new(...)
+
+    def initialize(text: '', width: 72) = super
 
     delegate lines: :text
   end

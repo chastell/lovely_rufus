@@ -7,32 +7,32 @@ module LovelyRufus
     describe HangoutWrapper do
       describe '#call' do
         it 'removes hangouts from the text' do
-          text = <<~end
+          hung = Wrap[<<~end, 35]
             I go crazy when I hear a cymbal and
             a hi-hat with a souped-up tempo
           end
-          wrap = <<~end
+          unhung = Wrap[<<~end, 35]
             I go crazy when I hear a cymbal
             and a hi-hat with a souped-up tempo
           end
           hw = HangoutWrapper.new
-          _(hw.call(Wrap[text, width: 35])).must_equal Wrap[wrap, width: 35]
+          _(hw.call(hung)).must_equal unhung
         end
 
         it 'passes the fixed text to the next layer and returns its outcome' do
           final = mock.quacks_like_instance_of(Wrap)
           layer = mock.quacks_like_instance_of(Layer)
           layer.expects(:call).with(instance_of(Wrap)).returns(final)
-          wrapped = HangoutWrapper.new(layer).call(Wrap["I O\nU", width: 4])
+          wrapped = HangoutWrapper.new(layer).call(Wrap["I O\nU", 4])
           _(wrapped).must_equal final
         end
 
         it 'doesn’t let the last line to hang out' do
-          text = <<~end
+          wrap = Wrap[<<~end, 76]
             Just found out the Finnish term for grammar Nazi is pilkunnussija.
             Direct translation: comma fucker. You’re welcome.
           end
-          _(HangoutWrapper.new.call(Wrap[text, width: 76]).text).must_equal text
+          _(HangoutWrapper.new.call(wrap)).must_equal wrap
         end
       end
     end

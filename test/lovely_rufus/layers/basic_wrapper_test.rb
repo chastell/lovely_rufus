@@ -15,7 +15,7 @@ module LovelyRufus
             with a souped-up tempo
           end
           bw = BasicWrapper.new
-          _(bw.call(Wrap[text, width: 22])).must_equal Wrap[wrap, width: 22]
+          _(bw.call(Wrap[text, 22])).must_equal Wrap[wrap, 22]
         end
 
         it 'extends past the given width when necessary' do
@@ -31,7 +31,7 @@ module LovelyRufus
             mushroom
           end
           bw = BasicWrapper.new
-          _(bw.call(Wrap[text, width: 5])).must_equal Wrap[wrap, width: 5]
+          _(bw.call(Wrap[text, 5])).must_equal Wrap[wrap, 5]
         end
 
         it 'rewraps a String from zero' do
@@ -46,8 +46,8 @@ module LovelyRufus
         it 'passes the fixed text to the next layer and returns its outcome' do
           final = mock.quacks_like_instance_of(Wrap)
           layer = mock.quacks_like_instance_of(Layer)
-          layer.expects(:call).with(Wrap["I\nO\nU\n", width: 2]).returns(final)
-          call = BasicWrapper.new(layer).call(Wrap['I O U', width: 2])
+          layer.expects(:call).with(Wrap["I\nO\nU\n", 2]).returns(final)
+          call = BasicWrapper.new(layer).call(Wrap['I O U', 2])
           _(call).must_equal final
         end
       end
