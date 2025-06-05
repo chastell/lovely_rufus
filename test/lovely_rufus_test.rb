@@ -9,6 +9,7 @@ describe LovelyRufus do
     it 'offloads the wrapping to TextWrapper' do
       text_wrapper.stubs(:wrap).with('Ice Ice Baby', width: 7)
                   .returns("Ice Ice\nBaby\n")
+
       _(LovelyRufus.wrap('Ice Ice Baby', text_wrapper: text_wrapper, width: 7))
         .must_equal "Ice Ice\nBaby\n"
     end

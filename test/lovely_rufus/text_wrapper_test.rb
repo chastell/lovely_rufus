@@ -19,6 +19,7 @@ module LovelyRufus
       it 'wraps the passed String to the given number of characters' do
         input = 'something grabs a hold of me tightly; ' \
                 'flow like a harpoon – daily and nightly'
+
         _(TextWrapper.wrap(input, width: 40)).must_equal <<~end
           something grabs a hold of me tightly;
           flow like a harpoon – daily and nightly
@@ -37,6 +38,7 @@ module LovelyRufus
           the lights and I’ll glow
         end
         wrapped = TextWrapper.wrap(broken)
+
         _(wrapped).must_equal "turn off the lights and I’ll glow\n"
       end
 
@@ -45,6 +47,7 @@ module LovelyRufus
         YAML.load_file(path).each do |spec|
           width = spec.fetch('width', 72)
           wrap  = "#{spec['output']}\n"
+
           _(TextWrapper.wrap(spec['input'], width:)).must_equal wrap
         end
       end

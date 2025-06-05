@@ -21,6 +21,7 @@ module LovelyRufus
       it 'accesses the lines of the text' do
         wrap = Wrap["all right: stop,\ncollaborate and listen\n"]
         lines = ["all right: stop,\n", "collaborate and listen\n"]
+
         _(wrap.lines).must_equal lines
       end
     end

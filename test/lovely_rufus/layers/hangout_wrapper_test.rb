@@ -16,6 +16,7 @@ module LovelyRufus
             and a hi-hat with a souped-up tempo
           end
           hw = HangoutWrapper.new
+
           _(hw.call(hung)).must_equal unhung
         end
 
@@ -24,6 +25,7 @@ module LovelyRufus
           layer = mock.quacks_like_instance_of(Layer)
           layer.expects(:call).with(instance_of(Wrap)).returns(final)
           wrapped = HangoutWrapper.new(layer).call(Wrap["I O\nU", 4])
+
           _(wrapped).must_equal final
         end
 

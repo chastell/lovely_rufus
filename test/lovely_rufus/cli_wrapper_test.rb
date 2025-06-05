@@ -11,6 +11,7 @@ module LovelyRufus
 
       it 'reads the passed stream to TextWrapper and prints the results' do
         text_wrapper.stubs(:wrap).with(text, width: 72).returns(text)
+
         _(lambda do
           CLIWrapper.new(text_wrapper: text_wrapper).run stream
         end).must_output text

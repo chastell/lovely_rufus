@@ -36,6 +36,7 @@ module LovelyRufus
 
         it 'does not alter text contents' do
           wrap = Wrap['# Ice # Ice # Baby']
+
           _(CodeCommentStripper.new.call(wrap)).must_equal wrap
         end
 

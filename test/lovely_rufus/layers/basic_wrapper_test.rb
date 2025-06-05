@@ -15,6 +15,7 @@ module LovelyRufus
             with a souped-up tempo
           end
           bw = BasicWrapper.new
+
           _(bw.call(Wrap[text, 22])).must_equal Wrap[wrap, 22]
         end
 
@@ -31,6 +32,7 @@ module LovelyRufus
             mushroom
           end
           bw = BasicWrapper.new
+
           _(bw.call(Wrap[text, 5])).must_equal Wrap[wrap, 5]
         end
 
@@ -40,6 +42,7 @@ module LovelyRufus
             the lights and I’ll glow
           end
           wrap = "turn off the lights and I’ll glow\n"
+
           _(BasicWrapper.new.call(Wrap[text])).must_equal Wrap[wrap]
         end
 
@@ -48,6 +51,7 @@ module LovelyRufus
           layer = mock.quacks_like_instance_of(Layer)
           layer.expects(:call).with(Wrap["I\nO\nU\n", 2]).returns(final)
           call = BasicWrapper.new(layer).call(Wrap['I O U', 2])
+
           _(call).must_equal final
         end
       end
